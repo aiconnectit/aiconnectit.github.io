@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>新入手一款树莓派4B之环境搭建（1） | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="NEWT,NEWT" />
+  
+  <meta name="description" content="实验目的  在树莓派4B开发板上安装Raspbian系统 实验准备 树莓派4B及电源线（5V、3A）  下载的树莓派系统 Raspbian  下载的官方安装软件包  micro SD卡一张（大于8G）  一个可用于SD电脑识别的器件  笔记本一台  显示器  显示器转接头（HDMI转小VGA转接头）   安装Raspbian系统&amp;emsp;官方推荐的是Raspbian，这是一款基于Debian L">
+<meta property="og:type" content="article">
+<meta property="og:title" content="新入手一款树莓派4B之环境搭建（1）">
+<meta property="og:url" content="http://example.com/2020/12/19/raspberry/raspberry1/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="实验目的  在树莓派4B开发板上安装Raspbian系统 实验准备 树莓派4B及电源线（5V、3A）  下载的树莓派系统 Raspbian  下载的官方安装软件包  micro SD卡一张（大于8G）  一个可用于SD电脑识别的器件  笔记本一台  显示器  显示器转接头（HDMI转小VGA转接头）   安装Raspbian系统&amp;emsp;官方推荐的是Raspbian，这是一款基于Debian L">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://liloong.gitee.io/my_image/img/13.png">
+<meta property="og:image" content="https://liloong.gitee.io/my_image/img/14.png">
+<meta property="og:image" content="https://liloong.gitee.io/my_image/img/15.png">
+<meta property="og:image" content="https://liloong.gitee.io/my_image/img/16.png">
+<meta property="og:image" content="https://liloong.gitee.io/my_image/img/12.png">
+<meta property="og:image" content="https://liloong.gitee.io/my_image/img/17.png">
+<meta property="og:image" content="https://liloong.gitee.io/my_image/img/18.png">
+<meta property="article:published_time" content="2020-12-19T09:42:13.000Z">
+<meta property="article:modified_time" content="2022-01-01T10:20:34.121Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="烧录Raspbian系统">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://liloong.gitee.io/my_image/img/13.png">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<script src="/js/pace.min.js"></script>
+
+  
+
+  
+  
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">NEWT</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        NEWT
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        一个专注 嵌入式 开发的技术博客
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="MinHow" target="_blank" href="//liloong.gitee.io">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/iwulianiw">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo"  target="_blank" rel="noopener" href="//weibo.com/WongMinHo">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="Twitter"  target="_blank" rel="noopener" href="//twitter.com/huangminhow">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-raspberry/raspberry1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      新入手一款树莓派4B之环境搭建（1）
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/树莓派/">树莓派</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2020-12-19
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h2 id="实验目的"><a href="#实验目的" class="headerlink" title="实验目的"></a>实验目的</h2><p>  在树莓派4B开发板上安装Raspbian系统</p>
+<h2 id="实验准备"><a href="#实验准备" class="headerlink" title="实验准备"></a>实验准备</h2><ul>
+<li><p>树莓派4B及电源线（5V、3A）</p>
+</li>
+<li><p>下载的树莓派系统 Raspbian</p>
+</li>
+<li><p>下载的官方安装软件包</p>
+</li>
+<li><p>micro SD卡一张（大于8G）</p>
+</li>
+<li><p>一个可用于SD电脑识别的器件</p>
+</li>
+<li><p>笔记本一台</p>
+</li>
+<li><p>显示器</p>
+</li>
+<li><p>显示器转接头（HDMI转小VGA转接头）</p>
+</li>
+</ul>
+<h2 id="安装Raspbian系统"><a href="#安装Raspbian系统" class="headerlink" title="安装Raspbian系统"></a>安装Raspbian系统</h2><p>&emsp;官方推荐的是Raspbian，这是一款基于Debian Linux的树莓派专用系统，适用于树莓派所有的型号。</p>
+<p>除此之外，树莓派还支持许多操作系统：</p>
+<p>&emsp;Ubuntu，Ubuntu是基于Debian Linux 的桌面操作系统，树莓派分别支持Ubuntu META和Snappy Ubuntu Core两个版本，前者是桌面版，后者是面向开发者的桌面版。</p>
+<p>OSMC，即开源媒体中心，是基于Linux内核的专门用于单板机的开源媒体播放器操作系统。</p>
+<p>Windows 10 IoT Core，微软专为物联网开发打造的系统，Windows用户把玩树莓派的福音。</p>
+<p>LibreELEC，轻量级Linux发行版，为嵌入式设备构建多媒体服务平台而设计。</p>
+<p>本文选用官方推荐的Raspbian。</p>
+<p>&emsp;树莓派的操作系统有两种安装方式：一种先把树莓派的安装引导程序NOOBS写入SD卡，然后启动树莓派进入NOOBS来安装操作系统。另一种是将操作系统镜像写入SD卡，树莓派启动后直接进入操作系统。</p>
+<p>初学者建议使用NOOBS方式来安装，大家也可以根据自己的偏好来选择，下面对这两种方式都进行介绍。</p>
+<h3 id="第一种方法：将NOOBS写入SD卡"><a href="#第一种方法：将NOOBS写入SD卡" class="headerlink" title="第一种方法：将NOOBS写入SD卡"></a>第一种方法：将NOOBS写入SD卡</h3><p>NOOBS的界面非常友好，你只要看一眼就立刻知道怎么使用它。除了安装Raspbian外，还可以安装LibreELEC等其他树莓派所支持的系统。</p>
+<p><img src="https://liloong.gitee.io/my_image/img/13.png"></p>
+<ul>
+<li>首先，下载NOOBS，树莓派的官方网站<a target="_blank" rel="noopener" href="https://www.raspberrypi.org/">https://www.raspberrypi.org</a>提供NOOBS下载，在官网首页顶部点击Downloads，打开下载栏目：</li>
+</ul>
+<p><img src="https://liloong.gitee.io/my_image/img/14.png"></p>
+<ul>
+<li>点击左边的NOOBS进入NOOBS的下载页面：</li>
+</ul>
+<p><img src="https://liloong.gitee.io/my_image/img/15.png"></p>
+<ul>
+<li><p>下载完成后你将得到一个类似NOOBS_vx_x_x.zip的文件，其中x_x_x为版本号。</p>
+</li>
+<li><p>格式化mini SD卡为FAT格式</p>
+</li>
+</ul>
+<p>我是用的是格式话SD软件是 D Association’s Formatting Tool。下载地址：<a target="_blank" rel="noopener" href="https://www.sdcard.org/downloads/formatter/">https://www.sdcard.org/downloads/formatter/</a></p>
+<p><img src="https://liloong.gitee.io/my_image/img/16.png"></p>
+<ul>
+<li>最后一步，把NOOBS拷贝到SD卡</li>
+<li>解压缩NOOBS_vx_x_x.zip文件，打开解压缩后的文件夹，你会看到所有NOOBS的文件，然后全部选中，直接拷贝到SD卡的根目录中。</li>
+</ul>
+<p>注意：解压缩后你首先会得到一个NOOBS的文件夹，要把这个文件夹里面的内容直接拷贝到SD卡，而不是将这个文件夹拷贝过去。</p>
+<h3 id="第二种方法：官网安装"><a href="#第二种方法：官网安装" class="headerlink" title="第二种方法：官网安装"></a>第二种方法：官网安装</h3><ul>
+<li>因为树莓派的服务器在国外，因此采用官方镜像烧录的化会非常慢，建议使用第一种或第三种方法。</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://www.raspberrypi.org/software/](https://www.raspberrypi.org/software/](https://www.raspberrypi.org/software/" title="树莓派官网">https://www.raspberrypi.org/software/</a></p>
+<ul>
+<li>将网页往下翻，找到图中所示地方，根据当前使用系统类型下载不同官方安装软件</li>
+</ul>
+<p><img src="https://liloong.gitee.io/my_image/img/12.png"></p>
+<ul>
+<li>软件安装好之后，按照下面截图步骤，就可以开始烧录系统了。</li>
+</ul>
+<p><img src="https://liloong.gitee.io/my_image/img/17.png"></p>
+<h3 id="第二种方法：本地镜像安装"><a href="#第二种方法：本地镜像安装" class="headerlink" title="第二种方法：本地镜像安装"></a>第二种方法：本地镜像安装</h3><ul>
+<li><p>下载官方本地镜像，你也可以找清华镜像源，稍微快点。<br><a target="_blank" rel="noopener" href="https://www.raspberrypi.org/software/operating-systems/">https://www.raspberrypi.org/software/operating-systems/</a></p>
+</li>
+<li><p>下载balenaEtcher软件，软件安装地址：<a target="_blank" rel="noopener" href="https://www.balena.io/etcher/">https://www.balena.io/etcher/</a></p>
+</li>
+<li><p>首先格式化mini SD卡为FAT格式（同第一种方法）</p>
+</li>
+<li><p>然后按照图片步骤烧录即可</p>
+</li>
+</ul>
+<p><img src="https://liloong.gitee.io/my_image/img/18.png"></p>
+<h2 id="实验成功与否"><a href="#实验成功与否" class="headerlink" title="实验成功与否"></a>实验成功与否</h2><p>如果插入显示器，过了一会会显示树莓派桌面，则说明树莓派烧录系统实验成功了，如果没有可检查线连接是否接触不良，或者是显示器烧毁了，或者是系统中途烧录时断电了，导致系统无法成功启动，没有的话，建议浏览器一波。</p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2022年01月01日 18:20</p>
+        <p>原始链接： <a class="post-url" href="/2020/12/19/raspberry/raspberry1/" title="新入手一款树莓派4B之环境搭建（1）">http://example.com/2020/12/19/raspberry/raspberry1/</a></p>
+        <footer>
+            <a href="http://example.com">
+                <img src="/images/logo.png" alt="John Doe">
+                John Doe
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/12/19/raspberry/raspberry1/&title=《新入手一款树莓派4B之环境搭建（1）》 — Hexo&pic=http://example.comimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/12/19/raspberry/raspberry1/&title=《新入手一款树莓派4B之环境搭建（1）》 — Hexo&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/12/19/raspberry/raspberry1/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《新入手一款树莓派4B之环境搭建（1）》 — Hexo&url=http://example.com/2020/12/19/raspberry/raspberry1/&via=http://example.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/12/19/raspberry/raspberry1/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://example.com/2020/12/19/raspberry/raspberry1/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/烧录Raspbian系统/" class="color3">烧录Raspbian系统</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%AE%9E%E9%AA%8C%E7%9B%AE%E7%9A%84"><span class="post-toc-text">实验目的</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%AE%9E%E9%AA%8C%E5%87%86%E5%A4%87"><span class="post-toc-text">实验准备</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%AE%89%E8%A3%85Raspbian%E7%B3%BB%E7%BB%9F"><span class="post-toc-text">安装Raspbian系统</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%AC%AC%E4%B8%80%E7%A7%8D%E6%96%B9%E6%B3%95%EF%BC%9A%E5%B0%86NOOBS%E5%86%99%E5%85%A5SD%E5%8D%A1"><span class="post-toc-text">第一种方法：将NOOBS写入SD卡</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%A7%8D%E6%96%B9%E6%B3%95%EF%BC%9A%E5%AE%98%E7%BD%91%E5%AE%89%E8%A3%85"><span class="post-toc-text">第二种方法：官网安装</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%A7%8D%E6%96%B9%E6%B3%95%EF%BC%9A%E6%9C%AC%E5%9C%B0%E9%95%9C%E5%83%8F%E5%AE%89%E8%A3%85"><span class="post-toc-text">第二种方法：本地镜像安装</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%AE%9E%E9%AA%8C%E6%88%90%E5%8A%9F%E4%B8%8E%E5%90%A6"><span class="post-toc-text">实验成功与否</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2020/12/20/raspberry/raspberryVlc2/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          树莓派视频流VLC软件(2)
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2020/08/31/Web/HackerNews%20%E6%A1%88%E4%BE%8B%E5%AE%9E%E6%88%98/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">HackerNews 案例实战总结</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2022 John Doe<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://example.com",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 0
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/51%E5%8D%95%E7%89%87%E6%9C%BA/">51单片机</a><a class="category-link" href="/categories/CSS/">CSS</a><a class="category-link" href="/categories/FreeRTOS/">FreeRTOS</a><a class="category-link" href="/categories/HTML/">HTML</a><a class="category-link" href="/categories/HTML-CSS/">HTML+CSS</a><a class="category-link" href="/categories/Javascript/">Javascript</a><a class="category-link" href="/categories/STM32/">STM32</a><a class="category-link" href="/categories/imageClass/">imageClass</a><a class="category-link" href="/categories/js%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%BA%94%E7%94%A8/">js正则表达式应用</a><a class="category-link" href="/categories/nodejs/">nodejs</a><a class="category-link" href="/categories/%E6%A0%91%E8%8E%93%E6%B4%BE/">树莓派</a><a class="category-link" href="/categories/%E9%80%BB%E8%BE%91%E5%99%A8%E4%BB%B6/">逻辑器件</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/CSS%E5%B1%9E%E6%80%A7%E5%86%85%E5%AE%B9/" style="font-size: 10px;">CSS属性内容</a> <a href="/tags/Fritzing%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">Fritzing软件使用</a> <a href="/tags/HEML-CSS-JS/" style="font-size: 10px;">HEML+CSS+JS</a> <a href="/tags/Hal%E5%BA%93%E4%B8%B2%E5%8F%A3%E4%B8%AD%E6%96%AD%E6%9C%8D%E5%8A%A1%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%BF%E7%94%A8/" style="font-size: 20px;">Hal库串口中断服务函数的使用</a> <a href="/tags/Hal%E5%BA%93%E5%BA%94%E7%94%A8/" style="font-size: 20px;">Hal库应用</a> <a href="/tags/JS%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" style="font-size: 10px;">JS学习记录</a> <a href="/tags/JS%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">JS笔记</a> <a href="/tags/RPI-GPIO/" style="font-size: 10px;">RPI.GPIO</a> <a href="/tags/STM32-HAL%E9%A9%B1%E5%8A%A8%E5%BA%93%E5%87%BD%E6%95%B0/" style="font-size: 10px;">STM32 HAL驱动库函数</a> <a href="/tags/Serial-Chart%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">Serial Chart软件使用</a> <a href="/tags/VLC%E8%A7%86%E9%A2%91%E6%B5%81%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">VLC视频流使用</a> <a href="/tags/WEB/" style="font-size: 10px;">WEB</a> <a href="/tags/js%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" style="font-size: 10px;">js学习记录</a> <a href="/tags/node-js/" style="font-size: 20px;">node.js</a> <a href="/tags/raspberry4B/" style="font-size: 10px;">raspberry4B</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/%E4%B8%B2%E5%8F%A3%E8%B0%83%E8%AF%95/" style="font-size: 10px;">串口调试</a> <a href="/tags/%E6%91%84%E5%83%8F%E5%A4%B4%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">摄像头使用</a> <a href="/tags/%E6%96%B0%E5%BB%BA%E5%B7%A5%E7%A8%8B/" style="font-size: 10px;">新建工程</a> <a href="/tags/%E7%83%A7%E5%BD%95Raspbian%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">烧录Raspbian系统</a> <a href="/tags/%E7%94%A8C%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">用C语言编程</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/CSS%E5%B1%9E%E6%80%A7%E5%86%85%E5%AE%B9/" style="font-size: 10px;">CSS属性内容</a> <a href="/tags/Fritzing%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">Fritzing软件使用</a> <a href="/tags/HEML-CSS-JS/" style="font-size: 10px;">HEML+CSS+JS</a> <a href="/tags/Hal%E5%BA%93%E4%B8%B2%E5%8F%A3%E4%B8%AD%E6%96%AD%E6%9C%8D%E5%8A%A1%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%BF%E7%94%A8/" style="font-size: 20px;">Hal库串口中断服务函数的使用</a> <a href="/tags/Hal%E5%BA%93%E5%BA%94%E7%94%A8/" style="font-size: 20px;">Hal库应用</a> <a href="/tags/JS%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" style="font-size: 10px;">JS学习记录</a> <a href="/tags/JS%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">JS笔记</a> <a href="/tags/RPI-GPIO/" style="font-size: 10px;">RPI.GPIO</a> <a href="/tags/STM32-HAL%E9%A9%B1%E5%8A%A8%E5%BA%93%E5%87%BD%E6%95%B0/" style="font-size: 10px;">STM32 HAL驱动库函数</a> <a href="/tags/Serial-Chart%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">Serial Chart软件使用</a> <a href="/tags/VLC%E8%A7%86%E9%A2%91%E6%B5%81%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">VLC视频流使用</a> <a href="/tags/WEB/" style="font-size: 10px;">WEB</a> <a href="/tags/js%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" style="font-size: 10px;">js学习记录</a> <a href="/tags/node-js/" style="font-size: 20px;">node.js</a> <a href="/tags/raspberry4B/" style="font-size: 10px;">raspberry4B</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/%E4%B8%B2%E5%8F%A3%E8%B0%83%E8%AF%95/" style="font-size: 10px;">串口调试</a> <a href="/tags/%E6%91%84%E5%83%8F%E5%A4%B4%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">摄像头使用</a> <a href="/tags/%E6%96%B0%E5%BB%BA%E5%B7%A5%E7%A8%8B/" style="font-size: 10px;">新建工程</a> <a href="/tags/%E7%83%A7%E5%BD%95Raspbian%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">烧录Raspbian系统</a> <a href="/tags/%E7%94%A8C%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">用C语言编程</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+
+<script src="/js/search.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  
+<script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+
+  
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  
+<script src="/js/animate.js"></script>
+
+
+
+  
+<script src="/js/pop-img.js"></script>
+
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>

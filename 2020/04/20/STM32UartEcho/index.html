@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>基于STM32Cube HaL库串口中断函数回显字符串的使用 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="NEWT,NEWT" />
+  
+  <meta name="description" content="一、问题提出我们如何才能与单片机取得通信？ 二、实验现象单片机通过USB转串口，电脑端通过使用串口助手下发一个数据，单片机接收到数据后就会转发给电脑端，串口助手接收数据区就可以看到刚才下发的数据。  三、实验准备1.STM32CubeMX 5.2.1 2.IAR 8.30.1 3.开发板主控芯片使用的是STM32F401RET6 4.一个USB转串口工具、一个STlink或Jlink 三、实验步骤">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于STM32Cube HaL库串口中断函数回显字符串的使用">
+<meta property="og:url" content="http://example.com/2020/04/20/STM32UartEcho/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="一、问题提出我们如何才能与单片机取得通信？ 二、实验现象单片机通过USB转串口，电脑端通过使用串口助手下发一个数据，单片机接收到数据后就会转发给电脑端，串口助手接收数据区就可以看到刚才下发的数据。  三、实验准备1.STM32CubeMX 5.2.1 2.IAR 8.30.1 3.开发板主控芯片使用的是STM32F401RET6 4.一个USB转串口工具、一个STlink或Jlink 三、实验步骤">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s1.ax1x.com/2020/04/20/JlNgIO.gif">
+<meta property="og:image" content="https://s1.ax1x.com/2020/04/22/JUSZy4.gif">
+<meta property="og:image" content="https://s1.ax1x.com/2020/04/23/Jad9eK.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/04/23/Jadeyt.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/04/23/Jaduef.png">
+<meta property="article:published_time" content="2020-04-20T00:08:23.000Z">
+<meta property="article:modified_time" content="2022-01-01T10:20:34.111Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Hal库串口中断服务函数的使用">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/04/20/JlNgIO.gif">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<script src="/js/pace.min.js"></script>
+
+  
+
+  
+  
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">NEWT</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        NEWT
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        一个专注 嵌入式 开发的技术博客
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="MinHow" target="_blank" href="//liloong.gitee.io">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/iwulianiw">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo"  target="_blank" rel="noopener" href="//weibo.com/WongMinHo">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="Twitter"  target="_blank" rel="noopener" href="//twitter.com/huangminhow">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-STM32UartEcho" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      基于STM32Cube HaL库串口中断函数回显字符串的使用
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/STM32/">STM32</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2020-04-20
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h2 id="一、问题提出"><a href="#一、问题提出" class="headerlink" title="一、问题提出"></a>一、问题提出</h2><p>我们如何才能与单片机取得通信？</p>
+<h2 id="二、实验现象"><a href="#二、实验现象" class="headerlink" title="二、实验现象"></a>二、实验现象</h2><p>单片机通过USB转串口，电脑端通过使用串口助手下发一个数据，单片机接收到数据后就会转发给电脑端，串口助手接收数据区就可以看到刚才下发的数据。</p>
+<p><img src="https://s1.ax1x.com/2020/04/20/JlNgIO.gif"></p>
+<h2 id="三、实验准备"><a href="#三、实验准备" class="headerlink" title="三、实验准备"></a>三、实验准备</h2><p>1.<a target="_blank" rel="noopener" href="https://www.st.com/">STM32CubeMX 5.2.1</a></p>
+<p>2.<a target="_blank" rel="noopener" href="https://www.st.com/">IAR 8.30.1</a></p>
+<p>3.开发板主控芯片使用的是STM32F401RET6</p>
+<p>4.一个USB转串口工具、一个STlink或Jlink</p>
+<h2 id="三、实验步骤"><a href="#三、实验步骤" class="headerlink" title="三、实验步骤"></a>三、实验步骤</h2><p>1、将单片机与USB转串口工具引脚连接好</p>
+<p>2、编写实验程序</p>
+<p>3、观看实验现象</p>
+<h2 id="四、USART基础了解"><a href="#四、USART基础了解" class="headerlink" title="四、USART基础了解"></a>四、USART基础了解</h2><h3 id="1、USART简介"><a href="#1、USART简介" class="headerlink" title="1、USART简介"></a>1、USART简介</h3><p>   USART数据寄存器(USART_DR)由两个寄存器组成，一个只用于发送数据的可写寄存器TDR，一个只用于接受数据的可读寄存器RDR。当进行发送操作时，写入USART_DR的数据会自动存储到TDR中；当进行读取操作时，USART_DR 会自动获取RDR中的数据。</p>
+<h3 id="2、USART发送数据的几个比较重要的标志位"><a href="#2、USART发送数据的几个比较重要的标志位" class="headerlink" title="2、USART发送数据的几个比较重要的标志位"></a>2、USART发送数据的几个比较重要的标志位</h3><table>
+<thead>
+<tr>
+<th align="left"><img width=60/>名称 <img width=60/></th>
+<th align="center"><img width=255/>描述 <img width=255/></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><img width=60/>TE <img width=60/></td>
+<td align="center">发送使能</td>
+</tr>
+<tr>
+<td align="left"><img width=60/>TXE<img width=60/></td>
+<td align="center">发送寄存器为空，发送单字节的时候使用</td>
+</tr>
+<tr>
+<td align="left"><img width=60/>TC <img width=60/></td>
+<td align="center">发送完成，发送多个字节数据的时候使用</td>
+</tr>
+<tr>
+<td align="left"><img width=60/>TXIE <img width=60/></td>
+<td align="center"><img width=210/>发送完成中断使能<img width=210/></td>
+</tr>
+</tbody></table>
+<h3 id="3、USART接收数据的几个比较重要的标志位"><a href="#3、USART接收数据的几个比较重要的标志位" class="headerlink" title="3、USART接收数据的几个比较重要的标志位"></a>3、USART接收数据的几个比较重要的标志位</h3><table>
+<thead>
+<tr>
+<th align="left"><img width=60/>名称 <img width=60/></th>
+<th align="center"><img width=255/>描述 <img width=230/></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><img width=60/>RE <img width=60/></td>
+<td align="center">接收使能</td>
+</tr>
+<tr>
+<td align="left"><img width=60/>RXNE<img width=60/></td>
+<td align="center">读数据寄存器非空</td>
+</tr>
+<tr>
+<td align="left"><img width=60/>RXNEIE <img width=60/></td>
+<td align="center"><img width=170/>接收完成中断使能<img width=165/></td>
+</tr>
+</tbody></table>
+<h2 id="五、程序思路"><a href="#五、程序思路" class="headerlink" title="五、程序思路"></a>五、程序思路</h2><p>   在学习C语言中通常会用到”\n”是回车换行、”\r”回车，这两个转义字符，那么在编程串口回显函数时就可以利用这个转义字符进行区分一串字符是否接收完成（通过查阅资料发现串口软件点击发送按钮时字符串末尾会自动添加一个”\n”这个转义字符）。然后再判断一串字符是否接收完成之前就可以将字符一个接一个的放入数组中，然后利用发送函数将这串字符原路返回，这样就可以实现一个串口的回显功能。</p>
+<h2 id="五、动手实验"><a href="#五、动手实验" class="headerlink" title="五、动手实验"></a>五、动手实验</h2><h3 id="1、使用STM32cubeMX-生成F4串口初始化函数"><a href="#1、使用STM32cubeMX-生成F4串口初始化函数" class="headerlink" title="1、使用STM32cubeMX 生成F4串口初始化函数"></a>1、使用STM32cubeMX 生成F4串口初始化函数</h3><p><img src="https://s1.ax1x.com/2020/04/22/JUSZy4.gif"></p>
+<p>注释：UART选择Asynchronous全双工模式，LED设置为输出模式。特别注意要启动串口中断。在Parameter选项卡中设置波特率(Baud Rate)为115200 Bits/s，字长（Word Length）为 8bits，无奇偶检验（Parity），停止位（Stop Bits）为1，其他选项保持默认。设置TIM1时钟，效果是1s进入一次中断</p>
+<h3 id="2、修改F4串口相关函数"><a href="#2、修改F4串口相关函数" class="headerlink" title="2、修改F4串口相关函数"></a>2、修改F4串口相关函数</h3><h4 id="查看和发送相关的三个函数"><a href="#查看和发送相关的三个函数" class="headerlink" title="查看和发送相关的三个函数"></a>查看和发送相关的三个函数</h4><p>1、阻塞式发送函数(阻塞式发送函数(的意思是这个函数需要等待数据发送完成了这个单片机才能够去做其他事情)</p>
+<p>   <code>HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout)</code></p>
+<p>这里有2个重要的参数需要了解:</p>
+<ul>
+<li><p>“UART_HandleTypeDef *huart” :这个参数的意思是选择哪一个串口可供选择参数有huart1、huart2、huart3等。</p>
+</li>
+<li><p>“uint8_t *pData” :需要发送的内容在哪里，是一个指针参数（可能是一个字符串，一个字节，一个数组等等）。指向一个数据发送的缓冲区。</p>
+</li>
+<li><p>“uint16_t Size” :以字节的方式规定发送的数据大小</p>
+</li>
+<li><p>“uint32_t Timeout” :超时时间（因为这个函数是阻塞式发送函数，如果这个函数一直没有发送成功的话，这个时间过了的话也会停止发送数据了），保证了其他程序的正常运行。</p>
+</li>
+</ul>
+<p>2、非阻塞式发送函数(和中断有关，调用这个发送函数就会使能发送中断)</p>
+<p>   <code>HAL_StatusTypeDef HAL_UART_Transmit_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size)</code></p>
+<p>这里有3个重要的参数需要了解:</p>
+<ul>
+<li><p>“UART_HandleTypeDef *huart” :这个参数的意思是选择哪一个串口可供选择参数有huart1、huart2、huart3等。</p>
+</li>
+<li><p>“uint8_t *pData” :需要发送的内容在哪里，是一个指针参数（可能是一个字符串，一个字节，一个数组等等）。指向一个数据发送的缓冲区。</p>
+</li>
+<li><p>“uint16_t Size” :以字节的方式规定发送的数据大小</p>
+</li>
+</ul>
+<p>3、发送完毕中断回调函数（当发送完成后就会进入这个回调函数做接收完数据之后做的事情）</p>
+<p>  <code>void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart);</code></p>
+<p>这里有1个重要的参数需要了解:</p>
+<ul>
+<li>“UART_HandleTypeDef *huart” :这个参数的意思是选择哪一个串口可供选择参数有huart1、huart2、huart3等。</li>
+</ul>
+<h4 id="查看和接收相关的三个函数"><a href="#查看和接收相关的三个函数" class="headerlink" title="查看和接收相关的三个函数"></a>查看和接收相关的三个函数</h4><p>1、阻塞式接收函数(阻塞式接收函数需要等待上位机发送”uint16_t  Size”这么多个字节后才算结束，要不然就是等待”uint32_t Timeout”超时时间过后才能结束这个函数的执行，不灵活)</p>
+<p>   <code>HAL_StatusTypeDef HAL_UART_Receive(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout)</code></p>
+<p>这里有3个重要的参数需要了解:</p>
+<ul>
+<li>“uint16_t Size” :以字节的方式规定接收的数据大小</li>
+</ul>
+<p>2、非阻塞式接收函数</p>
+<p>   <code>HAL_StatusTypeDef HAL_UART_Receive_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size)</code></p>
+<p>这里的三个参数同发送的功能基本一样，用”uint16_t Size”规定接收的数据”uint8_t *pData”的大小。</p>
+<p>3、接收完毕中断回调函数（做接收完成规定的数据之后的执行函数）</p>
+<p>   <code>void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)</code></p>
+<p>这里的一个参数同样是指定是哪一个串口。</p>
+<h4 id="添加代码让程序能够得到实验结果"><a href="#添加代码让程序能够得到实验结果" class="headerlink" title="添加代码让程序能够得到实验结果"></a>添加代码让程序能够得到实验结果</h4><p>1、第一步定义三个参数，一个指定一个字符的参数，一个是将接收到的每一个字符都放入数组中的一个数组参数，一个是数组元素个数的参数</p>
+<pre><code> uint8_t RxByte; //接收一个字符
+ uint8_t RxBuff[256]; //接收一串字符
+ uint16_t Rx_Count=0; //数组元素计数
+</code></pre>
+<p>2、第二步添加接收一个字符的的函数</p>
+<pre><code>HAL_UART_Receive_IT(&amp;huart1,&amp;RxByte,1);//接收一个字符
+</code></pre>
+<p>3、第三步编写接收中断回调函数，首先在这个中断回调函数里面做接收完一个字符放入数组中的工作，然后做是否接收完上位机发送过来的一串字符的判断工作，判断完毕后，紧接着还需将接收完毕之后的字符串发回给上位机。</p>
+<pre><code> void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+ &#123;
+  /* Prevent unused argument(s) compilation warning */
+   UNUSED(huart);
+   RxBuff[Rx_Count++]=RxByte;//将每接收到的一个字符放入数组中
+
+   if(RxByte==0x0A)//是我们点击发送按键时的ASCII码利用这个结束标志就可以判断一次总的字符是否接收完成
+   &#123;
+     while(HAL_UART_Transmit_IT(&amp;huart1,RxBuff,Rx_Count)==HAL_OK); //将接收到的数组里面的字符发送出去
+     Rx_Count=0;
+   &#125;
+   if(Rx_Count&gt;=256)
+   &#123;
+     Rx_Count=0;
+   &#125;
+    while(HAL_UART_Receive_IT(&amp;huart1,&amp;RxByte,1)==HAL_OK);//重新使能接收一个字节的函数
+&#125;
+</code></pre>
+<p>4、测试代码是否编译通过，和得到我上面所写的相应实验现象。</p>
+<h4 id="代码在文件中的具体位置"><a href="#代码在文件中的具体位置" class="headerlink" title="代码在文件中的具体位置"></a>代码在文件中的具体位置</h4><p><img src="https://s1.ax1x.com/2020/04/23/Jad9eK.png"></p>
+<p><img src="https://s1.ax1x.com/2020/04/23/Jadeyt.png"></p>
+<p><img src="https://s1.ax1x.com/2020/04/23/Jaduef.png"></p>
+<h2 id="六、参考资料"><a href="#六、参考资料" class="headerlink" title="六、参考资料"></a>六、参考资料</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42041980/article/details/92718642">STM32Cube中断形式串口使用</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/liufang/p/3990206.html">STM32Cube中断函数学习</a></p>
+<h3 id="七、总结"><a href="#七、总结" class="headerlink" title="七、总结"></a>七、总结</h3><p>1、我们再测试我们所写的工程时，需特别注意检查UART转HTT线连接是否正确，串口是否选择正确。<br>2、函数是否选择的是你自己定义的那个串口。</p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2022年01月01日 18:20</p>
+        <p>原始链接： <a class="post-url" href="/2020/04/20/STM32UartEcho/" title="基于STM32Cube HaL库串口中断函数回显字符串的使用">http://example.com/2020/04/20/STM32UartEcho/</a></p>
+        <footer>
+            <a href="http://example.com">
+                <img src="/images/logo.png" alt="John Doe">
+                John Doe
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/04/20/STM32UartEcho/&title=《基于STM32Cube HaL库串口中断函数回显字符串的使用》 — Hexo&pic=http://example.comimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/04/20/STM32UartEcho/&title=《基于STM32Cube HaL库串口中断函数回显字符串的使用》 — Hexo&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/04/20/STM32UartEcho/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《基于STM32Cube HaL库串口中断函数回显字符串的使用》 — Hexo&url=http://example.com/2020/04/20/STM32UartEcho/&via=http://example.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/04/20/STM32UartEcho/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://example.com/2020/04/20/STM32UartEcho/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/Hal库串口中断服务函数的使用/" class="color1">Hal库串口中断服务函数的使用</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%80%E3%80%81%E9%97%AE%E9%A2%98%E6%8F%90%E5%87%BA"><span class="post-toc-text">一、问题提出</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BA%8C%E3%80%81%E5%AE%9E%E9%AA%8C%E7%8E%B0%E8%B1%A1"><span class="post-toc-text">二、实验现象</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%89%E3%80%81%E5%AE%9E%E9%AA%8C%E5%87%86%E5%A4%87"><span class="post-toc-text">三、实验准备</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%89%E3%80%81%E5%AE%9E%E9%AA%8C%E6%AD%A5%E9%AA%A4"><span class="post-toc-text">三、实验步骤</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%9B%9B%E3%80%81USART%E5%9F%BA%E7%A1%80%E4%BA%86%E8%A7%A3"><span class="post-toc-text">四、USART基础了解</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1%E3%80%81USART%E7%AE%80%E4%BB%8B"><span class="post-toc-text">1、USART简介</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2%E3%80%81USART%E5%8F%91%E9%80%81%E6%95%B0%E6%8D%AE%E7%9A%84%E5%87%A0%E4%B8%AA%E6%AF%94%E8%BE%83%E9%87%8D%E8%A6%81%E7%9A%84%E6%A0%87%E5%BF%97%E4%BD%8D"><span class="post-toc-text">2、USART发送数据的几个比较重要的标志位</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3%E3%80%81USART%E6%8E%A5%E6%94%B6%E6%95%B0%E6%8D%AE%E7%9A%84%E5%87%A0%E4%B8%AA%E6%AF%94%E8%BE%83%E9%87%8D%E8%A6%81%E7%9A%84%E6%A0%87%E5%BF%97%E4%BD%8D"><span class="post-toc-text">3、USART接收数据的几个比较重要的标志位</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BA%94%E3%80%81%E7%A8%8B%E5%BA%8F%E6%80%9D%E8%B7%AF"><span class="post-toc-text">五、程序思路</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BA%94%E3%80%81%E5%8A%A8%E6%89%8B%E5%AE%9E%E9%AA%8C"><span class="post-toc-text">五、动手实验</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1%E3%80%81%E4%BD%BF%E7%94%A8STM32cubeMX-%E7%94%9F%E6%88%90F4%E4%B8%B2%E5%8F%A3%E5%88%9D%E5%A7%8B%E5%8C%96%E5%87%BD%E6%95%B0"><span class="post-toc-text">1、使用STM32cubeMX 生成F4串口初始化函数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2%E3%80%81%E4%BF%AE%E6%94%B9F4%E4%B8%B2%E5%8F%A3%E7%9B%B8%E5%85%B3%E5%87%BD%E6%95%B0"><span class="post-toc-text">2、修改F4串口相关函数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%92%8C%E5%8F%91%E9%80%81%E7%9B%B8%E5%85%B3%E7%9A%84%E4%B8%89%E4%B8%AA%E5%87%BD%E6%95%B0"><span class="post-toc-text">查看和发送相关的三个函数</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%92%8C%E6%8E%A5%E6%94%B6%E7%9B%B8%E5%85%B3%E7%9A%84%E4%B8%89%E4%B8%AA%E5%87%BD%E6%95%B0"><span class="post-toc-text">查看和接收相关的三个函数</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%B7%BB%E5%8A%A0%E4%BB%A3%E7%A0%81%E8%AE%A9%E7%A8%8B%E5%BA%8F%E8%83%BD%E5%A4%9F%E5%BE%97%E5%88%B0%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C"><span class="post-toc-text">添加代码让程序能够得到实验结果</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E4%BB%A3%E7%A0%81%E5%9C%A8%E6%96%87%E4%BB%B6%E4%B8%AD%E7%9A%84%E5%85%B7%E4%BD%93%E4%BD%8D%E7%BD%AE"><span class="post-toc-text">代码在文件中的具体位置</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%85%AD%E3%80%81%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="post-toc-text">六、参考资料</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%B8%83%E3%80%81%E6%80%BB%E7%BB%93"><span class="post-toc-text">七、总结</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2020/04/27/UARTvisual/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          串口接收数据可视化
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2020/04/12/STM32UARTsendone/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">基于STM32Cube HaL库的串口发送单个字符</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2022 John Doe<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://example.com",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 0
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/51%E5%8D%95%E7%89%87%E6%9C%BA/">51单片机</a><a class="category-link" href="/categories/CSS/">CSS</a><a class="category-link" href="/categories/FreeRTOS/">FreeRTOS</a><a class="category-link" href="/categories/HTML/">HTML</a><a class="category-link" href="/categories/HTML-CSS/">HTML+CSS</a><a class="category-link" href="/categories/Javascript/">Javascript</a><a class="category-link" href="/categories/STM32/">STM32</a><a class="category-link" href="/categories/imageClass/">imageClass</a><a class="category-link" href="/categories/js%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%BA%94%E7%94%A8/">js正则表达式应用</a><a class="category-link" href="/categories/nodejs/">nodejs</a><a class="category-link" href="/categories/%E6%A0%91%E8%8E%93%E6%B4%BE/">树莓派</a><a class="category-link" href="/categories/%E9%80%BB%E8%BE%91%E5%99%A8%E4%BB%B6/">逻辑器件</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/CSS%E5%B1%9E%E6%80%A7%E5%86%85%E5%AE%B9/" style="font-size: 10px;">CSS属性内容</a> <a href="/tags/Fritzing%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">Fritzing软件使用</a> <a href="/tags/HEML-CSS-JS/" style="font-size: 10px;">HEML+CSS+JS</a> <a href="/tags/Hal%E5%BA%93%E4%B8%B2%E5%8F%A3%E4%B8%AD%E6%96%AD%E6%9C%8D%E5%8A%A1%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%BF%E7%94%A8/" style="font-size: 20px;">Hal库串口中断服务函数的使用</a> <a href="/tags/Hal%E5%BA%93%E5%BA%94%E7%94%A8/" style="font-size: 20px;">Hal库应用</a> <a href="/tags/JS%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" style="font-size: 10px;">JS学习记录</a> <a href="/tags/JS%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">JS笔记</a> <a href="/tags/RPI-GPIO/" style="font-size: 10px;">RPI.GPIO</a> <a href="/tags/STM32-HAL%E9%A9%B1%E5%8A%A8%E5%BA%93%E5%87%BD%E6%95%B0/" style="font-size: 10px;">STM32 HAL驱动库函数</a> <a href="/tags/Serial-Chart%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">Serial Chart软件使用</a> <a href="/tags/VLC%E8%A7%86%E9%A2%91%E6%B5%81%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">VLC视频流使用</a> <a href="/tags/WEB/" style="font-size: 10px;">WEB</a> <a href="/tags/js%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" style="font-size: 10px;">js学习记录</a> <a href="/tags/node-js/" style="font-size: 20px;">node.js</a> <a href="/tags/raspberry4B/" style="font-size: 10px;">raspberry4B</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/%E4%B8%B2%E5%8F%A3%E8%B0%83%E8%AF%95/" style="font-size: 10px;">串口调试</a> <a href="/tags/%E6%91%84%E5%83%8F%E5%A4%B4%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">摄像头使用</a> <a href="/tags/%E6%96%B0%E5%BB%BA%E5%B7%A5%E7%A8%8B/" style="font-size: 10px;">新建工程</a> <a href="/tags/%E7%83%A7%E5%BD%95Raspbian%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">烧录Raspbian系统</a> <a href="/tags/%E7%94%A8C%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">用C语言编程</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/CSS%E5%B1%9E%E6%80%A7%E5%86%85%E5%AE%B9/" style="font-size: 10px;">CSS属性内容</a> <a href="/tags/Fritzing%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">Fritzing软件使用</a> <a href="/tags/HEML-CSS-JS/" style="font-size: 10px;">HEML+CSS+JS</a> <a href="/tags/Hal%E5%BA%93%E4%B8%B2%E5%8F%A3%E4%B8%AD%E6%96%AD%E6%9C%8D%E5%8A%A1%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%BF%E7%94%A8/" style="font-size: 20px;">Hal库串口中断服务函数的使用</a> <a href="/tags/Hal%E5%BA%93%E5%BA%94%E7%94%A8/" style="font-size: 20px;">Hal库应用</a> <a href="/tags/JS%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" style="font-size: 10px;">JS学习记录</a> <a href="/tags/JS%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">JS笔记</a> <a href="/tags/RPI-GPIO/" style="font-size: 10px;">RPI.GPIO</a> <a href="/tags/STM32-HAL%E9%A9%B1%E5%8A%A8%E5%BA%93%E5%87%BD%E6%95%B0/" style="font-size: 10px;">STM32 HAL驱动库函数</a> <a href="/tags/Serial-Chart%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">Serial Chart软件使用</a> <a href="/tags/VLC%E8%A7%86%E9%A2%91%E6%B5%81%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">VLC视频流使用</a> <a href="/tags/WEB/" style="font-size: 10px;">WEB</a> <a href="/tags/js%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" style="font-size: 10px;">js学习记录</a> <a href="/tags/node-js/" style="font-size: 20px;">node.js</a> <a href="/tags/raspberry4B/" style="font-size: 10px;">raspberry4B</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/%E4%B8%B2%E5%8F%A3%E8%B0%83%E8%AF%95/" style="font-size: 10px;">串口调试</a> <a href="/tags/%E6%91%84%E5%83%8F%E5%A4%B4%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">摄像头使用</a> <a href="/tags/%E6%96%B0%E5%BB%BA%E5%B7%A5%E7%A8%8B/" style="font-size: 10px;">新建工程</a> <a href="/tags/%E7%83%A7%E5%BD%95Raspbian%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">烧录Raspbian系统</a> <a href="/tags/%E7%94%A8C%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">用C语言编程</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+
+<script src="/js/search.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  
+<script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+
+  
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  
+<script src="/js/animate.js"></script>
+
+
+
+  
+<script src="/js/pop-img.js"></script>
+
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>

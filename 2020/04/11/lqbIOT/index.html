@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>十一届蓝桥杯物联网程序题 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="NEWT,NEWT" />
+  
+  <meta name="description" content="蓝桥杯试题解读​        本届蓝桥杯试题还是采用上机考试，赛点为我们提供两块网基于STM32L071KBU微控制器和LoRa接收发器。通过赛点提供的资源包以及板子对试题进行编写一个中型项目。本界试题的难度在于对整体如何把握状态机的行为和状态，只要读懂题目并且进行一个整体状态机行为和状态的分化，最后根据流程图编写状态机，再调整细微之处，就是一个完美的中性项目程序了。 流程图与编程要求讲解​">
+<meta property="og:type" content="article">
+<meta property="og:title" content="十一届蓝桥杯物联网程序题">
+<meta property="og:url" content="http://example.com/2020/04/11/lqbIOT/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="蓝桥杯试题解读​        本届蓝桥杯试题还是采用上机考试，赛点为我们提供两块网基于STM32L071KBU微控制器和LoRa接收发器。通过赛点提供的资源包以及板子对试题进行编写一个中型项目。本界试题的难度在于对整体如何把握状态机的行为和状态，只要读懂题目并且进行一个整体状态机行为和状态的分化，最后根据流程图编写状态机，再调整细微之处，就是一个完美的中性项目程序了。 流程图与编程要求讲解​">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://liloong.gitee.io/my_image/img/27.png">
+<meta property="og:image" content="https://liloong.gitee.io/my_image/img/29.png">
+<meta property="og:image" content="https://liloong.gitee.io/my_image/img/28.png">
+<meta property="og:image" content="https://liloong.gitee.io/my_image/img/30.png">
+<meta property="og:image" content="https://liloong.gitee.io/my_image/img/31.png">
+<meta property="article:published_time" content="2020-04-11T05:08:23.000Z">
+<meta property="article:modified_time" content="2022-01-01T10:20:34.110Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Hal库应用">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://liloong.gitee.io/my_image/img/27.png">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<script src="/js/pace.min.js"></script>
+
+  
+
+  
+  
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">NEWT</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        NEWT
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        一个专注 嵌入式 开发的技术博客
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="MinHow" target="_blank" href="//liloong.gitee.io">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/iwulianiw">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo"  target="_blank" rel="noopener" href="//weibo.com/WongMinHo">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="Twitter"  target="_blank" rel="noopener" href="//twitter.com/huangminhow">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-lqbIOT" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      十一届蓝桥杯物联网程序题
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/STM32/">STM32</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2020-04-11
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h2 id="蓝桥杯试题解读"><a href="#蓝桥杯试题解读" class="headerlink" title="蓝桥杯试题解读"></a>蓝桥杯试题解读</h2><p>​        本届蓝桥杯试题还是采用上机考试，赛点为我们提供两块网基于STM32L071KBU微控制器和LoRa接收发器。通过赛点提供的资源包以及板子对试题进行编写一个中型项目。本界试题的难度在于对整体如何把握状态机的行为和状态，只要读懂题目并且进行一个整体状态机行为和状态的分化，最后根据流程图编写状态机，再调整细微之处，就是一个完美的中性项目程序了。</p>
+<h2 id="流程图与编程要求讲解"><a href="#流程图与编程要求讲解" class="headerlink" title="流程图与编程要求讲解"></a>流程图与编程要求讲解</h2><p>​        本届试题的流程图如何所示。<br>​        对于终端A，我们需要做的工作是 1）采集温度传感器上的温度值，并将温度值显示在 OLED 上，温度数据保留小数点后 1 位有效数字，单位为摄氏度通过。2） User 按键，切换选择温度显示界面或参数显示界面，参数显示界面包括温度上限和温度下限参数。3）完成命令的通信格式。4）根据当前温度与温度上限、下限参数的关系，控制继电器工作状态。<br>​        对于终端B，1）按下矩阵键盘上的 B1 按键，终端 B 通过通信模块向终端 A 发出查询温度指<br>令，查询一次当前终端 A 采集到的温度数据，并将查询到的结果显示在 OLED上。2）按下矩阵键盘上的 B2 按键，终端 B 通过通信模块向终端 A 发出查询温度参数指令，查询一次当前终端 A 设置的温度参数，并将查询到的结果显示在OLED 上。3）按下矩阵键盘上的 B4 按键，终端 B 通过通信模块向终端 A 发出查询 K1 状态指令,1表示当前终端 A继电器 K1吸合,0表示当前终端 A继电器 K1断开。4）按下矩阵键盘上的 B5 按键，终端 B 通过通信模块向终端 A 发出查询 K2 状态指令,1 表示当前终端 A 继电器 K2 吸合,0 表示当前终端 A 继电器 K2 断开。虽然工作量看起来很大，我们就需要逐个击破分析。<br><img src="https://liloong.gitee.io/my_image/img/27.png"></p>
+<h2 id="连接硬件"><a href="#连接硬件" class="headerlink" title="连接硬件"></a>连接硬件</h2><p>本次比赛硬件需要将主控模块与连接OLED连接、与继电器连接、与LoRa连接。<br>1）将OLED引脚与主控芯片引脚一一对应连接<br>  <img src="https://liloong.gitee.io/my_image/img/29.png"><br>2）将主控芯片引脚与LoRa模块引脚一一对应连接<br>  <img src="https://liloong.gitee.io/my_image/img/28.png"><br>3）将主控芯片引脚与继电器模块引脚一一对应连接<br>  <img src="https://liloong.gitee.io/my_image/img/30.png"><br>4）通用接口 ：矩阵键盘，模拟电压输出模块，温度传感器模块<br>  <img src="https://liloong.gitee.io/my_image/img/31.png"></p>
+<h2 id="具体动手实现程序"><a href="#具体动手实现程序" class="headerlink" title="具体动手实现程序"></a>具体动手实现程序</h2><h3 id="对于终端A-（LoRa）"><a href="#对于终端A-（LoRa）" class="headerlink" title="对于终端A （LoRa）"></a>对于终端A （LoRa）</h3><p>   对于终端A模块，此模块主要负责数据的发送任务</p>
+<h4 id="通过STM32CudeMx初始化STM32L071KBU"><a href="#通过STM32CudeMx初始化STM32L071KBU" class="headerlink" title="通过STM32CudeMx初始化STM32L071KBU"></a>通过STM32CudeMx初始化STM32L071KBU</h4><p>  1）新建工程选择STM32L071KBU芯片设置时钟24MHz；<br>  2）Connectivity配置I2C1，I2C3，SPI1,USART2，引脚配置如上硬件分析；<br>  3）通过上表选择对应设置引脚<br>  4）配置SPI的片选信号PA4为GPIO_Output,OLED电源控制引脚PB5配置为GPIO_Output；<br>  5）生成初始化程序，打开工程文件</p>
+<h4 id="主函数功能实现"><a href="#主函数功能实现" class="headerlink" title="主函数功能实现"></a>主函数功能实现</h4><p>   while(1)循环之前的程序主要是对硬件的各个功能模块的初始化，循环之后的程序主要是整个功能模块的实现逻辑。首先通过20ms检测一次获取到按键键值，并且判断是哪个键按下了，显示相应的功能Task_Recv(handle)函数是可以对终端B接收的数据并执行相关的数据发送。</p>
+<p>`int main(void)<br>{<br>  /* USER CODE BEGIN 1 */</p>
+<p>  /* USER CODE END 1 */</p>
+<p>  /* MCU Configuration——————————————————–*/</p>
+<p>  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */<br>  HAL_Init();</p>
+<p>  /* USER CODE BEGIN Init */</p>
+<p>  /* USER CODE END Init */</p>
+<p>  /* Configure the system clock */<br>  SystemClock_Config();</p>
+<p>  /* USER CODE BEGIN SysInit */</p>
+<p>  /* USER CODE END SysInit */</p>
+<p>  /* Initialize all configured peripherals <em>/<br>  MX_GPIO_Init();<br>  MX_I2C3_Init();<br>  MX_SPI1_Init();<br>  /</em> USER CODE BEGIN 2 */<br>  OLED_PowerControl(ENABLE);</p>
+<p>  HAL_Delay(200);<br>  OLED_Init();<br>  OLED_Clear();</p>
+<p>  handle = radio_zm4xx_inst_init();<br>  if (handle != NULL)<br>    {<br>       radio_mode_set(handle, RX_MODE);//½øÈë½ÓÊÕÄ£Ê½<br>    }//lora³õÊ¼»¯Íê³É<br>  /* USER CODE END 2 */</p>
+<p>  /* Infinite loop <em>/<br>  /</em> USER CODE BEGIN WHILE <em>/<br>  while (1)<br>  {<br>    /</em> USER CODE END WHILE */</p>
+<pre><code>/* USER CODE BEGIN 3 */
+if(x&amp;0x000f)
+&#123;  
+  GetStatc(&amp;key); 
+  x = 0;
+  Task_Send(handle);
+&#125;
+if(g_OLED_Flag)
+&#123;
+   switch(key)
+   &#123; 
+     case B1: 
+      OLED_ShowString(0, 0, (unsigned char *)&quot;Temperature&quot;, 16);
+      OLED_ShowString(0, 2, (uint8_t *)g_lcdLine_1st_line, 16);
+     break;
+     case B2:
+      OLED_ShowString(0, 2, (uint8_t *)g_lcdLine_2st_line, 16);
+      OLED_ShowString(0, 2, (uint8_t *)g_lcdLine_3st_line, 16);
+     break;
+     case B4:
+      OLED_ShowString(0, 0, (unsigned char *)&quot;K1:Status    &quot;, 16);
+      OLED_ShowString(0, 2, (uint8_t *)g_lcdLine_4st_line, 16);
+     break;
+     case B5:
+      OLED_ShowString(0, 0, (unsigned char *)&quot;K2:Status    &quot;, 16);
+      OLED_ShowString(0, 2, (uint8_t *)g_lcdLine_5st_line, 16);
+     break;
+   &#125;
+   g_OLED_Flag = 0;
+&#125;
+if(g_Radio_Recv_Flag)
+&#123;
+   g_Radio_Recv_Flag = 1;
+   Task_Recv(handle);
+&#125;
+</code></pre>
+<p>  }<br>  /* USER CODE END 3 */<br>}`</p>
+<h4 id="获取按键键值函数实现"><a href="#获取按键键值函数实现" class="headerlink" title="获取按键键值函数实现"></a>获取按键键值函数实现</h4><p><code>void Readkey(void) &#123;    static uint8_t key_o = 0x00, key_n = 0x00;//前次和本次的按键状态    for(uint16_t i = 0;i &lt; KEY_COL; i++)    &#123;       HAL_GPIO_WritePin(GPIOB,key_column[i], GPIO_PIN_SET);       HAL_GPIO_WritePin(GPIOB,key_column[KEY_COL-i-1], GPIO_PIN_RESET);       for(uint16_t i = 0; i &lt; KEY_R; i++)       &#123;         //读取将按键状态依次移入key_n变量中         key_n &lt;&lt;= 1;         if(HAL_GPIO_ReadPin(GPIOB, key_row[i]) == KEY_DNS)         key_n |= 0x01;       &#125;    &#125;    x = (((key_n ^ key_o) &amp; key_o) &lt;&lt; 8) | ((key_n ^ key_o) &amp; key_n);       key_o = key_n;//将本次的按键状态，作为下次检测的比较 &#125;</code></p>
+<h4 id="通过串口发送数据函数实现"><a href="#通过串口发送数据函数实现" class="headerlink" title="通过串口发送数据函数实现"></a>通过串口发送数据函数实现</h4><p><code>void Task_Send(radio_handle_t Radio_handle) &#123;     radio_buf_send(Radio_handle, Cmd_A1, 7);     radio_mode_set(Radio_handle, RX_MODE);//½øÈë½ÓÊÕÄ£Ê½ &#125;</code></p>
+<h3 id="对于终端B-（LoRa）"><a href="#对于终端B-（LoRa）" class="headerlink" title="对于终端B （LoRa）"></a>对于终端B （LoRa）</h3><p>对于终端B模块主要负责接收数据</p>
+<h4 id="串口接收数据函数实现"><a href="#串口接收数据函数实现" class="headerlink" title="串口接收数据函数实现"></a>串口接收数据函数实现</h4><p>`void Task_Recv(radio_handle_t Radio_handle)<br>{<br>    uint8_t index = 0;<br>    if ( radio_buf_recv(Radio_handle, Radio_Rxbuff, &amp;Radio_RxLength) == RADIO_RET_OK)<br>    {<br>        for ( ; index &lt; Radio_RxLength; index++)<br>        {<br>            Cmd_Buff[index] = Radio_Rxbuff[index];<br>        }</p>
+<pre><code>   Compare_Cmd(Cmd_Buff, Radio_RxLength);
+&#125;
+</code></pre>
+<p>}`</p>
+<h4 id="按键状态切换函数实现"><a href="#按键状态切换函数实现" class="headerlink" title="按键状态切换函数实现"></a>按键状态切换函数实现</h4><p>`void Task_Send(radio_handle_t Radio_handle)<br>{<br>    switch (key)//根据ADC大小发送相应的指令<br>        {<br>        case B1:<br>            radio_buf_send(Radio_handle, Cmd_B1, 7);<br>            radio_mode_set(Radio_handle, RX_MODE);//进入接收模式<br>            break;<br>        case B2:<br>            radio_buf_send(Radio_handle, Cmd_B2, 7);<br>            radio_mode_set(Radio_handle, RX_MODE);//进入接收模式<br>            break;<br>        case B4:<br>            radio_buf_send(Radio_handle, Cmd_B3, 7);<br>            radio_mode_set(Radio_handle, RX_MODE);//进入接收模式<br>            break;<br>        case B5:<br>            radio_buf_send(Radio_handle, Cmd_B4, 7);<br>            radio_mode_set(Radio_handle, RX_MODE);//进入接收模式<br>            break;</p>
+<pre><code>    default :
+        ;
+        break;
+    &#125;
+</code></pre>
+<p>}`</p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2022年01月01日 18:20</p>
+        <p>原始链接： <a class="post-url" href="/2020/04/11/lqbIOT/" title="十一届蓝桥杯物联网程序题">http://example.com/2020/04/11/lqbIOT/</a></p>
+        <footer>
+            <a href="http://example.com">
+                <img src="/images/logo.png" alt="John Doe">
+                John Doe
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/04/11/lqbIOT/&title=《十一届蓝桥杯物联网程序题》 — Hexo&pic=http://example.comimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/04/11/lqbIOT/&title=《十一届蓝桥杯物联网程序题》 — Hexo&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/04/11/lqbIOT/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《十一届蓝桥杯物联网程序题》 — Hexo&url=http://example.com/2020/04/11/lqbIOT/&via=http://example.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/04/11/lqbIOT/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://example.com/2020/04/11/lqbIOT/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/Hal库应用/" class="color2">Hal库应用</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%93%9D%E6%A1%A5%E6%9D%AF%E8%AF%95%E9%A2%98%E8%A7%A3%E8%AF%BB"><span class="post-toc-text">蓝桥杯试题解读</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%B5%81%E7%A8%8B%E5%9B%BE%E4%B8%8E%E7%BC%96%E7%A8%8B%E8%A6%81%E6%B1%82%E8%AE%B2%E8%A7%A3"><span class="post-toc-text">流程图与编程要求讲解</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%BF%9E%E6%8E%A5%E7%A1%AC%E4%BB%B6"><span class="post-toc-text">连接硬件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%85%B7%E4%BD%93%E5%8A%A8%E6%89%8B%E5%AE%9E%E7%8E%B0%E7%A8%8B%E5%BA%8F"><span class="post-toc-text">具体动手实现程序</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%AF%B9%E4%BA%8E%E7%BB%88%E7%AB%AFA-%EF%BC%88LoRa%EF%BC%89"><span class="post-toc-text">对于终端A （LoRa）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E9%80%9A%E8%BF%87STM32CudeMx%E5%88%9D%E5%A7%8B%E5%8C%96STM32L071KBU"><span class="post-toc-text">通过STM32CudeMx初始化STM32L071KBU</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E4%B8%BB%E5%87%BD%E6%95%B0%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0"><span class="post-toc-text">主函数功能实现</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E8%8E%B7%E5%8F%96%E6%8C%89%E9%94%AE%E9%94%AE%E5%80%BC%E5%87%BD%E6%95%B0%E5%AE%9E%E7%8E%B0"><span class="post-toc-text">获取按键键值函数实现</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E9%80%9A%E8%BF%87%E4%B8%B2%E5%8F%A3%E5%8F%91%E9%80%81%E6%95%B0%E6%8D%AE%E5%87%BD%E6%95%B0%E5%AE%9E%E7%8E%B0"><span class="post-toc-text">通过串口发送数据函数实现</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%AF%B9%E4%BA%8E%E7%BB%88%E7%AB%AFB-%EF%BC%88LoRa%EF%BC%89"><span class="post-toc-text">对于终端B （LoRa）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E4%B8%B2%E5%8F%A3%E6%8E%A5%E6%94%B6%E6%95%B0%E6%8D%AE%E5%87%BD%E6%95%B0%E5%AE%9E%E7%8E%B0"><span class="post-toc-text">串口接收数据函数实现</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%8C%89%E9%94%AE%E7%8A%B6%E6%80%81%E5%88%87%E6%8D%A2%E5%87%BD%E6%95%B0%E5%AE%9E%E7%8E%B0"><span class="post-toc-text">按键状态切换函数实现</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2020/04/12/STM32UARTsendone/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          基于STM32Cube HaL库的串口发送单个字符
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2020/03/29/Web/cssAttribute/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">CSS属性内容知识点总结</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2022 John Doe<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://example.com",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 0
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/51%E5%8D%95%E7%89%87%E6%9C%BA/">51单片机</a><a class="category-link" href="/categories/CSS/">CSS</a><a class="category-link" href="/categories/FreeRTOS/">FreeRTOS</a><a class="category-link" href="/categories/HTML/">HTML</a><a class="category-link" href="/categories/HTML-CSS/">HTML+CSS</a><a class="category-link" href="/categories/Javascript/">Javascript</a><a class="category-link" href="/categories/STM32/">STM32</a><a class="category-link" href="/categories/imageClass/">imageClass</a><a class="category-link" href="/categories/js%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%BA%94%E7%94%A8/">js正则表达式应用</a><a class="category-link" href="/categories/nodejs/">nodejs</a><a class="category-link" href="/categories/%E6%A0%91%E8%8E%93%E6%B4%BE/">树莓派</a><a class="category-link" href="/categories/%E9%80%BB%E8%BE%91%E5%99%A8%E4%BB%B6/">逻辑器件</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/CSS%E5%B1%9E%E6%80%A7%E5%86%85%E5%AE%B9/" style="font-size: 10px;">CSS属性内容</a> <a href="/tags/Fritzing%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">Fritzing软件使用</a> <a href="/tags/HEML-CSS-JS/" style="font-size: 10px;">HEML+CSS+JS</a> <a href="/tags/Hal%E5%BA%93%E4%B8%B2%E5%8F%A3%E4%B8%AD%E6%96%AD%E6%9C%8D%E5%8A%A1%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%BF%E7%94%A8/" style="font-size: 20px;">Hal库串口中断服务函数的使用</a> <a href="/tags/Hal%E5%BA%93%E5%BA%94%E7%94%A8/" style="font-size: 20px;">Hal库应用</a> <a href="/tags/JS%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" style="font-size: 10px;">JS学习记录</a> <a href="/tags/JS%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">JS笔记</a> <a href="/tags/RPI-GPIO/" style="font-size: 10px;">RPI.GPIO</a> <a href="/tags/STM32-HAL%E9%A9%B1%E5%8A%A8%E5%BA%93%E5%87%BD%E6%95%B0/" style="font-size: 10px;">STM32 HAL驱动库函数</a> <a href="/tags/Serial-Chart%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">Serial Chart软件使用</a> <a href="/tags/VLC%E8%A7%86%E9%A2%91%E6%B5%81%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">VLC视频流使用</a> <a href="/tags/WEB/" style="font-size: 10px;">WEB</a> <a href="/tags/js%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" style="font-size: 10px;">js学习记录</a> <a href="/tags/node-js/" style="font-size: 20px;">node.js</a> <a href="/tags/raspberry4B/" style="font-size: 10px;">raspberry4B</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/%E4%B8%B2%E5%8F%A3%E8%B0%83%E8%AF%95/" style="font-size: 10px;">串口调试</a> <a href="/tags/%E6%91%84%E5%83%8F%E5%A4%B4%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">摄像头使用</a> <a href="/tags/%E6%96%B0%E5%BB%BA%E5%B7%A5%E7%A8%8B/" style="font-size: 10px;">新建工程</a> <a href="/tags/%E7%83%A7%E5%BD%95Raspbian%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">烧录Raspbian系统</a> <a href="/tags/%E7%94%A8C%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">用C语言编程</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/CSS%E5%B1%9E%E6%80%A7%E5%86%85%E5%AE%B9/" style="font-size: 10px;">CSS属性内容</a> <a href="/tags/Fritzing%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">Fritzing软件使用</a> <a href="/tags/HEML-CSS-JS/" style="font-size: 10px;">HEML+CSS+JS</a> <a href="/tags/Hal%E5%BA%93%E4%B8%B2%E5%8F%A3%E4%B8%AD%E6%96%AD%E6%9C%8D%E5%8A%A1%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%BF%E7%94%A8/" style="font-size: 20px;">Hal库串口中断服务函数的使用</a> <a href="/tags/Hal%E5%BA%93%E5%BA%94%E7%94%A8/" style="font-size: 20px;">Hal库应用</a> <a href="/tags/JS%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" style="font-size: 10px;">JS学习记录</a> <a href="/tags/JS%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">JS笔记</a> <a href="/tags/RPI-GPIO/" style="font-size: 10px;">RPI.GPIO</a> <a href="/tags/STM32-HAL%E9%A9%B1%E5%8A%A8%E5%BA%93%E5%87%BD%E6%95%B0/" style="font-size: 10px;">STM32 HAL驱动库函数</a> <a href="/tags/Serial-Chart%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">Serial Chart软件使用</a> <a href="/tags/VLC%E8%A7%86%E9%A2%91%E6%B5%81%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">VLC视频流使用</a> <a href="/tags/WEB/" style="font-size: 10px;">WEB</a> <a href="/tags/js%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" style="font-size: 10px;">js学习记录</a> <a href="/tags/node-js/" style="font-size: 20px;">node.js</a> <a href="/tags/raspberry4B/" style="font-size: 10px;">raspberry4B</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/%E4%B8%B2%E5%8F%A3%E8%B0%83%E8%AF%95/" style="font-size: 10px;">串口调试</a> <a href="/tags/%E6%91%84%E5%83%8F%E5%A4%B4%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">摄像头使用</a> <a href="/tags/%E6%96%B0%E5%BB%BA%E5%B7%A5%E7%A8%8B/" style="font-size: 10px;">新建工程</a> <a href="/tags/%E7%83%A7%E5%BD%95Raspbian%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">烧录Raspbian系统</a> <a href="/tags/%E7%94%A8C%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">用C语言编程</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+
+<script src="/js/search.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  
+<script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+
+  
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  
+<script src="/js/animate.js"></script>
+
+
+
+  
+<script src="/js/pop-img.js"></script>
+
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>

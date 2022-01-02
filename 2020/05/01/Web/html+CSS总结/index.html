@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>html和CSS易混淆知识点总结 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="NEWT,NEWT" />
+  
+  <meta name="description" content="这些元素的行级块级都是通过CSS控制的，也都是可以通过CSS去改变 凡是带有inline的元素，都有文字特性 1、行级元素 # inline   feature : 内容决定元素所占位置    不可以通过CSS改变宽高   例如：span strong em a del 2、块级元素 # block   feature : 独占一行    可以通过CSS改变宽高   例如： div p ul ol">
+<meta property="og:type" content="article">
+<meta property="og:title" content="html和CSS易混淆知识点总结">
+<meta property="og:url" content="http://example.com/2020/05/01/Web/html+CSS%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="这些元素的行级块级都是通过CSS控制的，也都是可以通过CSS去改变 凡是带有inline的元素，都有文字特性 1、行级元素 # inline   feature : 内容决定元素所占位置    不可以通过CSS改变宽高   例如：span strong em a del 2、块级元素 # block   feature : 独占一行    可以通过CSS改变宽高   例如： div p ul ol">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-05-01T04:03:00.000Z">
+<meta property="article:modified_time" content="2022-01-01T10:20:34.115Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<script src="/js/pace.min.js"></script>
+
+  
+
+  
+  
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">NEWT</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        NEWT
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        一个专注 嵌入式 开发的技术博客
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="MinHow" target="_blank" href="//liloong.gitee.io">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/iwulianiw">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo"  target="_blank" rel="noopener" href="//weibo.com/WongMinHo">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="Twitter"  target="_blank" rel="noopener" href="//twitter.com/huangminhow">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-Web/html+CSS总结" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      html和CSS易混淆知识点总结
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/HTML+CSS/">HTML+CSS</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2020-05-01
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <p><strong>这些元素的行级块级都是通过CSS控制的，也都是可以通过CSS去改变</strong></p>
+<p><strong>凡是带有inline的元素，都有文字特性</strong></p>
+<h1 id="1、行级元素-inline"><a href="#1、行级元素-inline" class="headerlink" title="1、行级元素 # inline"></a>1、行级元素 # inline</h1><p>   feature : 内容决定元素所占位置</p>
+<p>   不可以通过CSS改变宽高</p>
+<p>  例如：span strong em a del</p>
+<h1 id="2、块级元素-block"><a href="#2、块级元素-block" class="headerlink" title="2、块级元素 # block"></a>2、块级元素 # block</h1><p>   feature : 独占一行</p>
+<p>   可以通过CSS改变宽高</p>
+<p>  例如： div p ul ol form address</p>
+<h1 id="3、行级块元素-inline-block"><a href="#3、行级块元素-inline-block" class="headerlink" title="3、行级块元素 # inline-block"></a>3、行级块元素 # inline-block</h1><p>   feature : 内容决定大小</p>
+<p>   可以改变宽高</p>
+<h1 id="多个图片无空格占一行显示解决办法"><a href="#多个图片无空格占一行显示解决办法" class="headerlink" title="多个图片无空格占一行显示解决办法"></a>多个图片无空格占一行显示解决办法</h1><p>   添加一条CSS语句<br>          margin-left:-6px;<br>   用margin-left 去解决 </p>
+<h1 id="display-inline-block，block，inline的区别与用法"><a href="#display-inline-block，block，inline的区别与用法" class="headerlink" title="display:inline-block，block，inline的区别与用法"></a>display:inline-block，block，inline的区别与用法</h1><p>  首先要了解一下什么是块级元素与什么是行级元素</p>
+<h3 id="块级元素"><a href="#块级元素" class="headerlink" title="块级元素"></a>块级元素</h3><p>   <strong>会占领页面一行</strong>，其后多个block元素自动换行、<strong>可以设置width,height,设置了width后同样也占领一行</strong>、同样也可以设置margin与padding属性。</p>
+<p>   <strong>常见的块级元素：div,img,ul,form,p</strong></p>
+<h3 id="行级元素"><a href="#行级元素" class="headerlink" title="行级元素"></a>行级元素</h3><p>   <strong>与其他元素在同一行上</strong>，<strong>高度，行高以及底边距不可以改变</strong>，高度就是内容文字或者图片的宽度，不可以改变。</p>
+<p>   <strong>常见的行级元素：em,strong,br,input</strong></p>
+<h3 id="display-inline-block，block，inline的区别"><a href="#display-inline-block，block，inline的区别" class="headerlink" title="display:inline-block，block，inline的区别"></a>display:inline-block，block，inline的区别</h3><p>  1、display:block将元素显示为块级元素，<strong>从而可以更好地操控元素的的宽高，以及内外边距，每一个块级元素都是从新的一行开始的</strong>。</p>
+<p>  2、display:inline将元素显示为<strong>行内元素，高度，行高及底边距不可改变</strong>，高度就是内容文字或者图片的宽度，不可以改变。多个相邻的行内元素排在同一行里，<strong>知道页面一行排列不下。才会换新的一行。</strong></p>
+<p>  3、display:inline-block 看上去值名inline-block是一个混合产物，实际上确是如此，将元素显示为行内块状元素，设置该属性后，<strong>其他的行内块元素会排列在同一行</strong>。比如我们” li “元素是一个inline-block,使其既有block的宽度高度特性，又有inline的同行特性，在同一行内有不同高度内容元素时，通常要设置对齐方式如 **vertical-align:top; **来是元素顶部对齐。
+  </p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2022年01月01日 18:20</p>
+        <p>原始链接： <a class="post-url" href="/2020/05/01/Web/html+CSS%E6%80%BB%E7%BB%93/" title="html和CSS易混淆知识点总结">http://example.com/2020/05/01/Web/html+CSS%E6%80%BB%E7%BB%93/</a></p>
+        <footer>
+            <a href="http://example.com">
+                <img src="/images/logo.png" alt="John Doe">
+                John Doe
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/05/01/Web/html+CSS%E6%80%BB%E7%BB%93/&title=《html和CSS易混淆知识点总结》 — Hexo&pic=http://example.comimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/05/01/Web/html+CSS%E6%80%BB%E7%BB%93/&title=《html和CSS易混淆知识点总结》 — Hexo&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/05/01/Web/html+CSS%E6%80%BB%E7%BB%93/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《html和CSS易混淆知识点总结》 — Hexo&url=http://example.com/2020/05/01/Web/html+CSS%E6%80%BB%E7%BB%93/&via=http://example.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/05/01/Web/html+CSS%E6%80%BB%E7%BB%93/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://example.com/2020/05/01/Web/html+CSS%E6%80%BB%E7%BB%93/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1%E3%80%81%E8%A1%8C%E7%BA%A7%E5%85%83%E7%B4%A0-inline"><span class="post-toc-text">1、行级元素 # inline</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2%E3%80%81%E5%9D%97%E7%BA%A7%E5%85%83%E7%B4%A0-block"><span class="post-toc-text">2、块级元素 # block</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3%E3%80%81%E8%A1%8C%E7%BA%A7%E5%9D%97%E5%85%83%E7%B4%A0-inline-block"><span class="post-toc-text">3、行级块元素 # inline-block</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%A4%9A%E4%B8%AA%E5%9B%BE%E7%89%87%E6%97%A0%E7%A9%BA%E6%A0%BC%E5%8D%A0%E4%B8%80%E8%A1%8C%E6%98%BE%E7%A4%BA%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95"><span class="post-toc-text">多个图片无空格占一行显示解决办法</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#display-inline-block%EF%BC%8Cblock%EF%BC%8Cinline%E7%9A%84%E5%8C%BA%E5%88%AB%E4%B8%8E%E7%94%A8%E6%B3%95"><span class="post-toc-text">display:inline-block，block，inline的区别与用法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%9D%97%E7%BA%A7%E5%85%83%E7%B4%A0"><span class="post-toc-text">块级元素</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%A1%8C%E7%BA%A7%E5%85%83%E7%B4%A0"><span class="post-toc-text">行级元素</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#display-inline-block%EF%BC%8Cblock%EF%BC%8Cinline%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="post-toc-text">display:inline-block，block，inline的区别</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2020/05/02/Fritzing/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          电路开发软件 Fritzing 的使用
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2020/05/01/Web/htmlcss%E8%A1%A5%E5%85%85%E5%86%85%E5%AE%B9%E6%80%BB%E7%BB%93/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">CSS重点知识点笔记详情</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2022 John Doe<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://example.com",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 0
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/51%E5%8D%95%E7%89%87%E6%9C%BA/">51单片机</a><a class="category-link" href="/categories/CSS/">CSS</a><a class="category-link" href="/categories/FreeRTOS/">FreeRTOS</a><a class="category-link" href="/categories/HTML/">HTML</a><a class="category-link" href="/categories/HTML-CSS/">HTML+CSS</a><a class="category-link" href="/categories/Javascript/">Javascript</a><a class="category-link" href="/categories/STM32/">STM32</a><a class="category-link" href="/categories/imageClass/">imageClass</a><a class="category-link" href="/categories/js%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%BA%94%E7%94%A8/">js正则表达式应用</a><a class="category-link" href="/categories/nodejs/">nodejs</a><a class="category-link" href="/categories/%E6%A0%91%E8%8E%93%E6%B4%BE/">树莓派</a><a class="category-link" href="/categories/%E9%80%BB%E8%BE%91%E5%99%A8%E4%BB%B6/">逻辑器件</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/CSS%E5%B1%9E%E6%80%A7%E5%86%85%E5%AE%B9/" style="font-size: 10px;">CSS属性内容</a> <a href="/tags/Fritzing%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">Fritzing软件使用</a> <a href="/tags/HEML-CSS-JS/" style="font-size: 10px;">HEML+CSS+JS</a> <a href="/tags/Hal%E5%BA%93%E4%B8%B2%E5%8F%A3%E4%B8%AD%E6%96%AD%E6%9C%8D%E5%8A%A1%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%BF%E7%94%A8/" style="font-size: 20px;">Hal库串口中断服务函数的使用</a> <a href="/tags/Hal%E5%BA%93%E5%BA%94%E7%94%A8/" style="font-size: 20px;">Hal库应用</a> <a href="/tags/JS%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" style="font-size: 10px;">JS学习记录</a> <a href="/tags/JS%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">JS笔记</a> <a href="/tags/RPI-GPIO/" style="font-size: 10px;">RPI.GPIO</a> <a href="/tags/STM32-HAL%E9%A9%B1%E5%8A%A8%E5%BA%93%E5%87%BD%E6%95%B0/" style="font-size: 10px;">STM32 HAL驱动库函数</a> <a href="/tags/Serial-Chart%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">Serial Chart软件使用</a> <a href="/tags/VLC%E8%A7%86%E9%A2%91%E6%B5%81%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">VLC视频流使用</a> <a href="/tags/WEB/" style="font-size: 10px;">WEB</a> <a href="/tags/js%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" style="font-size: 10px;">js学习记录</a> <a href="/tags/node-js/" style="font-size: 20px;">node.js</a> <a href="/tags/raspberry4B/" style="font-size: 10px;">raspberry4B</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/%E4%B8%B2%E5%8F%A3%E8%B0%83%E8%AF%95/" style="font-size: 10px;">串口调试</a> <a href="/tags/%E6%91%84%E5%83%8F%E5%A4%B4%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">摄像头使用</a> <a href="/tags/%E6%96%B0%E5%BB%BA%E5%B7%A5%E7%A8%8B/" style="font-size: 10px;">新建工程</a> <a href="/tags/%E7%83%A7%E5%BD%95Raspbian%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">烧录Raspbian系统</a> <a href="/tags/%E7%94%A8C%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">用C语言编程</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/CSS%E5%B1%9E%E6%80%A7%E5%86%85%E5%AE%B9/" style="font-size: 10px;">CSS属性内容</a> <a href="/tags/Fritzing%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">Fritzing软件使用</a> <a href="/tags/HEML-CSS-JS/" style="font-size: 10px;">HEML+CSS+JS</a> <a href="/tags/Hal%E5%BA%93%E4%B8%B2%E5%8F%A3%E4%B8%AD%E6%96%AD%E6%9C%8D%E5%8A%A1%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%BF%E7%94%A8/" style="font-size: 20px;">Hal库串口中断服务函数的使用</a> <a href="/tags/Hal%E5%BA%93%E5%BA%94%E7%94%A8/" style="font-size: 20px;">Hal库应用</a> <a href="/tags/JS%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" style="font-size: 10px;">JS学习记录</a> <a href="/tags/JS%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">JS笔记</a> <a href="/tags/RPI-GPIO/" style="font-size: 10px;">RPI.GPIO</a> <a href="/tags/STM32-HAL%E9%A9%B1%E5%8A%A8%E5%BA%93%E5%87%BD%E6%95%B0/" style="font-size: 10px;">STM32 HAL驱动库函数</a> <a href="/tags/Serial-Chart%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">Serial Chart软件使用</a> <a href="/tags/VLC%E8%A7%86%E9%A2%91%E6%B5%81%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">VLC视频流使用</a> <a href="/tags/WEB/" style="font-size: 10px;">WEB</a> <a href="/tags/js%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" style="font-size: 10px;">js学习记录</a> <a href="/tags/node-js/" style="font-size: 20px;">node.js</a> <a href="/tags/raspberry4B/" style="font-size: 10px;">raspberry4B</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/%E4%B8%B2%E5%8F%A3%E8%B0%83%E8%AF%95/" style="font-size: 10px;">串口调试</a> <a href="/tags/%E6%91%84%E5%83%8F%E5%A4%B4%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">摄像头使用</a> <a href="/tags/%E6%96%B0%E5%BB%BA%E5%B7%A5%E7%A8%8B/" style="font-size: 10px;">新建工程</a> <a href="/tags/%E7%83%A7%E5%BD%95Raspbian%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">烧录Raspbian系统</a> <a href="/tags/%E7%94%A8C%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">用C语言编程</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+
+<script src="/js/search.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  
+<script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+
+  
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  
+<script src="/js/animate.js"></script>
+
+
+
+  
+<script src="/js/pop-img.js"></script>
+
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>

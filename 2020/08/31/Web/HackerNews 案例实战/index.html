@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>HackerNews 案例实战总结 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="NEWT,NEWT" />
+  
+  <meta name="description" content="HackerNews首先考虑的问题第一点 设计路由 包含两个方面   1、请求的方法   2、请求的路径 问题提出  在运行过程中发现每次提交一个新闻都会将前面一条新闻给覆盖掉 解决问题 我们可以考虑先将.json里面的数据读取出来放到list数组上，然后再将用户提交的数据也push到list数组中，之后一并提交到 .json 文件中，这样就可以解决这个问题   get方式提交数据 代码展示：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HackerNews 案例实战总结">
+<meta property="og:url" content="http://example.com/2020/08/31/Web/HackerNews%20%E6%A1%88%E4%BE%8B%E5%AE%9E%E6%88%98/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="HackerNews首先考虑的问题第一点 设计路由 包含两个方面   1、请求的方法   2、请求的路径 问题提出  在运行过程中发现每次提交一个新闻都会将前面一条新闻给覆盖掉 解决问题 我们可以考虑先将.json里面的数据读取出来放到list数组上，然后再将用户提交的数据也push到list数组中，之后一并提交到 .json 文件中，这样就可以解决这个问题   get方式提交数据 代码展示：">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-08-31T12:15:26.000Z">
+<meta property="article:modified_time" content="2022-01-01T10:20:34.114Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="node.js">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<script src="/js/pace.min.js"></script>
+
+  
+
+  
+  
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">NEWT</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        NEWT
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        一个专注 嵌入式 开发的技术博客
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="MinHow" target="_blank" href="//liloong.gitee.io">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/iwulianiw">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo"  target="_blank" rel="noopener" href="//weibo.com/WongMinHo">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="Twitter"  target="_blank" rel="noopener" href="//twitter.com/huangminhow">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-Web/HackerNews 案例实战" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      HackerNews 案例实战总结
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/nodejs/">nodejs</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2020-08-31
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h3 id="HackerNews首先考虑的问题"><a href="#HackerNews首先考虑的问题" class="headerlink" title="HackerNews首先考虑的问题"></a>HackerNews首先考虑的问题</h3><p>第一点 设计路由 包含两个方面</p>
+<p>  1、请求的方法</p>
+<p>  2、请求的路径</p>
+<h3 id="问题提出"><a href="#问题提出" class="headerlink" title="问题提出"></a>问题提出</h3><p>  在运行过程中发现每次提交一个新闻都会将前面一条新闻给覆盖掉</p>
+<h3 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h3><p> 我们可以考虑先将.json里面的数据读取出来放到list数组上，然后再将用户提交的数据也push到list数组中，之后一并提交到 .json 文件中，这样就可以解决这个问题</p>
+<p>  get方式提交数据</p>
+<p>代码展示：</p>
+<pre><code>    //在运行过程中发现每次提交一个新闻都会将前面一条新闻给覆盖掉，为了解决这个问题，我们可以考虑先将.json里面的数据读取出来放到list
+    //数组上，然后再将用户提交的数据也push到list数组中，之后一并提交到 .json 文件中，这样就可以解决这个问题
+
+
+    //1.1 读取 data.json 文件中的数据，并将读取到的数据转换为一个数组
+       
+    //此处，读取文件的时候可以直接写一个utf8 编码，这样的话，回调函数的data就是一个字符串了
+        fs.readFile(path.join(__dirname,&#39;data&#39;,&#39;data.json&#39;),&#39;utf8&#39;,function(err,data)&#123;
+
+            //因为第一次访问网站的，data.json本身就不存在，所以肯定是有错误的
+            //但这种错误我们并不认为是网站出错，所以不需要抛出异常
+            if(err &amp;&amp; err.code != ENOENT)&#123;
+                throw err;
+            &#125;
+
+            //如果读取到了数据，就将读取到的数据 data 转黄为list数组
+            //如果没有读取到数组，就把 &#39;[]&#39;转换为数组
+            var list = JSON.parse(data || &#39;[]&#39;);
+
+            list.push(urlObj.query);
+
+            fs.writeFile(path.join(__dirname,&#39;data&#39;,&#39;data.json&#39;),JSON.stringify(list),function(err)&#123;
+                if(err)&#123;
+                  throw err;
+                &#125;else&#123;
+              
+                  //3、跳转到新闻列表页 (记住：服务器端想让浏览器做什么，就是向浏览器发送对应的响应报文头，浏览器就知道该做些什么了)
+                  // 步骤：设置响应报文头，通过响应把文头，执行一次页面跳转操作
+    
+                  //一般俗称重定向
+                     res.statusCode = 302;
+                     res.statusMessage = &#39;Found&#39;;
+                     res.setHeader(&#39;Location&#39;,&#39;/&#39;);
+    
+                     //每一次的请求都要结束响应
+                     res.end();
+                &#125;
+            &#125;)
+        &#125;);
+</code></pre>
+<h3 id="post方式提交数据"><a href="#post方式提交数据" class="headerlink" title="post方式提交数据"></a>post方式提交数据</h3><p>步骤：<br>  1、因为第一次访问网站的，data.json本身就不存在，所以肯定是有错误的，但这种错误我们并不认为是网站出错，所以不需要抛出异常</p>
+<p>  2、监听用户提交的请求里面的数据，如果数据大就分多次放到一个新建的数组中去（采用on在node.js 中是监听请求事件的一个方法）</p>
+<p>  3、监听 request 对象的 end 事件，当 end 事件被触发的时候，表示用户通过浏览器需要提交到服务器的数据都已经提交完毕</p>
+<p>  4、将array中的数据汇总起来（方法：通过 Buffer 对象中的一个 concat 方法就可以将array中的数据汇总起来）</p>
+<p>  5、将查询字符串转换成JSON对象（方法：调用外部模块querystring 可以比较方便的将数据转换为 JSON 对象）</p>
+<p>  6、获取到JSON对象后同get方式一样放入list数组中去</p>
+<p>  7、跳转到新闻列表页 (记住：服务器端想让浏览器做什么，就是向浏览器发送对应的响应报文头，浏览器就知道该做些什么了)</p>
+<p>代码步骤展示：</p>
+<pre><code> else if (req.url.startsWith(&#39;/add&#39;) &amp;&amp; req.method === &#39;post&#39;) &#123;
+   
+    // post 方法提交数据能够将一个很大的数据分块提交，这在一般网站上用的比较多
+  
+    fs.readFile(path.join(__dirname,&#39;data&#39;,&#39;data.json&#39;),&#39;utf8&#39;,function(err,data)&#123;
+
+        //1、因为第一次访问网站的，data.json本身就不存在，所以肯定是有错误的
+        //但这种错误我们并不认为是网站出错，所以不需要抛出异常
+        if(err &amp;&amp; err.code != ENOENT)&#123;
+            throw err;
+        &#125;
+
+        var list = JSON.parse(data || &#39;[]&#39;);
+
+        //新建一个数组用于存放post提交的一块一块的数据
+        var array = [];
+     
+        //2、监听用户提交的请求里面的数据，如果数据大就分多次放到一个新建的数组中去
+        // on 在 node.js 中是监听请求事件的一个方法
+        req.on(&#39;data&#39;,function(chunk)&#123;
+             //此处的 chunk 参数，就是浏览器本次提交过来的一部分数据， 
+             //chunk的数据类型为buffer(chunk就是一个Buffer对象)
+            array.push(chunk);
+        &#125;);
+
+        //3、监听 request 对象的 end 事件，当 end 事件被触发的时候，表示用户通过浏览器需要提交到服务器的数据都已经提交完毕
+        
+        //当用户提交完全部数据时，然后我们只需将一个一个模块的数据结合起来就好了
+        req.on(&#39;end&#39;,function()&#123;
+          
+            //4、将array中的数据汇总起来
+            //方法：通过 Buffer 对象中的一个 concat 方法就可以将array中的数据汇总起来
+            var postBody = Buffer.concat(array);
+
+            // postBody 获取到的数据还是一个一个16进制，我们还需将其转换为字符串
+            postBody = postBody.toString(&#39;utf8&#39;); //这个方法转换出来的是查询字符串
+            
+            //5、将查询字符串转换成JSON对象
+            postBody = querystring.parse(postBody);
+            
+            //6、获取到JSON对象后同get方式一样放入list数组中去
+            list.push(postBody);
+
+            fs.writeFile(path.join(__dirname,&#39;data&#39;,&#39;data.json&#39;),JSON.stringify(list),function(err)&#123;
+                if(err)&#123;
+                  throw err;
+                &#125;else&#123;
+              
+                  //7、跳转到新闻列表页 (记住：服务器端想让浏览器做什么，就是向浏览器发送对应的响应报文头，浏览器就知道该做些什么了)
+                  // 步骤：设置响应报文头，通过响应把文头，执行一次页面跳转操作
+    
+                  //一般俗称重定向
+                     res.statusCode = 302;
+                     res.statusMessage = &#39;Found&#39;;
+                     res.setHeader(&#39;Location&#39;,&#39;/&#39;);
+    
+                     //每一次的请求都要结束响应
+                     res.end();
+                &#125;
+            &#125;)
+        &#125;);
+    &#125;);
+
+&#125;
+</code></pre>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2022年01月01日 18:20</p>
+        <p>原始链接： <a class="post-url" href="/2020/08/31/Web/HackerNews%20%E6%A1%88%E4%BE%8B%E5%AE%9E%E6%88%98/" title="HackerNews 案例实战总结">http://example.com/2020/08/31/Web/HackerNews%20%E6%A1%88%E4%BE%8B%E5%AE%9E%E6%88%98/</a></p>
+        <footer>
+            <a href="http://example.com">
+                <img src="/images/logo.png" alt="John Doe">
+                John Doe
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/08/31/Web/HackerNews%20%E6%A1%88%E4%BE%8B%E5%AE%9E%E6%88%98/&title=《HackerNews 案例实战总结》 — Hexo&pic=http://example.comimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/08/31/Web/HackerNews%20%E6%A1%88%E4%BE%8B%E5%AE%9E%E6%88%98/&title=《HackerNews 案例实战总结》 — Hexo&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/08/31/Web/HackerNews%20%E6%A1%88%E4%BE%8B%E5%AE%9E%E6%88%98/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《HackerNews 案例实战总结》 — Hexo&url=http://example.com/2020/08/31/Web/HackerNews%20%E6%A1%88%E4%BE%8B%E5%AE%9E%E6%88%98/&via=http://example.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/08/31/Web/HackerNews%20%E6%A1%88%E4%BE%8B%E5%AE%9E%E6%88%98/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://example.com/2020/08/31/Web/HackerNews%20%E6%A1%88%E4%BE%8B%E5%AE%9E%E6%88%98/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/node.js/" class="color3">node.js</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#HackerNews%E9%A6%96%E5%85%88%E8%80%83%E8%99%91%E7%9A%84%E9%97%AE%E9%A2%98"><span class="post-toc-text">HackerNews首先考虑的问题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%97%AE%E9%A2%98%E6%8F%90%E5%87%BA"><span class="post-toc-text">问题提出</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98"><span class="post-toc-text">解决问题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#post%E6%96%B9%E5%BC%8F%E6%8F%90%E4%BA%A4%E6%95%B0%E6%8D%AE"><span class="post-toc-text">post方式提交数据</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2020/12/19/raspberry/raspberry1/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          新入手一款树莓派4B之环境搭建（1）
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2020/08/11/Web/Node%E7%9F%A5%E8%AF%86%E7%90%86%E8%A7%A3/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Nodejs基础性知识点总结</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2022 John Doe<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://example.com",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 0
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/51%E5%8D%95%E7%89%87%E6%9C%BA/">51单片机</a><a class="category-link" href="/categories/CSS/">CSS</a><a class="category-link" href="/categories/FreeRTOS/">FreeRTOS</a><a class="category-link" href="/categories/HTML/">HTML</a><a class="category-link" href="/categories/HTML-CSS/">HTML+CSS</a><a class="category-link" href="/categories/Javascript/">Javascript</a><a class="category-link" href="/categories/STM32/">STM32</a><a class="category-link" href="/categories/imageClass/">imageClass</a><a class="category-link" href="/categories/js%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%BA%94%E7%94%A8/">js正则表达式应用</a><a class="category-link" href="/categories/nodejs/">nodejs</a><a class="category-link" href="/categories/%E6%A0%91%E8%8E%93%E6%B4%BE/">树莓派</a><a class="category-link" href="/categories/%E9%80%BB%E8%BE%91%E5%99%A8%E4%BB%B6/">逻辑器件</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/CSS%E5%B1%9E%E6%80%A7%E5%86%85%E5%AE%B9/" style="font-size: 10px;">CSS属性内容</a> <a href="/tags/Fritzing%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">Fritzing软件使用</a> <a href="/tags/HEML-CSS-JS/" style="font-size: 10px;">HEML+CSS+JS</a> <a href="/tags/Hal%E5%BA%93%E4%B8%B2%E5%8F%A3%E4%B8%AD%E6%96%AD%E6%9C%8D%E5%8A%A1%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%BF%E7%94%A8/" style="font-size: 20px;">Hal库串口中断服务函数的使用</a> <a href="/tags/Hal%E5%BA%93%E5%BA%94%E7%94%A8/" style="font-size: 20px;">Hal库应用</a> <a href="/tags/JS%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" style="font-size: 10px;">JS学习记录</a> <a href="/tags/JS%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">JS笔记</a> <a href="/tags/RPI-GPIO/" style="font-size: 10px;">RPI.GPIO</a> <a href="/tags/STM32-HAL%E9%A9%B1%E5%8A%A8%E5%BA%93%E5%87%BD%E6%95%B0/" style="font-size: 10px;">STM32 HAL驱动库函数</a> <a href="/tags/Serial-Chart%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">Serial Chart软件使用</a> <a href="/tags/VLC%E8%A7%86%E9%A2%91%E6%B5%81%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">VLC视频流使用</a> <a href="/tags/WEB/" style="font-size: 10px;">WEB</a> <a href="/tags/js%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" style="font-size: 10px;">js学习记录</a> <a href="/tags/node-js/" style="font-size: 20px;">node.js</a> <a href="/tags/raspberry4B/" style="font-size: 10px;">raspberry4B</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/%E4%B8%B2%E5%8F%A3%E8%B0%83%E8%AF%95/" style="font-size: 10px;">串口调试</a> <a href="/tags/%E6%91%84%E5%83%8F%E5%A4%B4%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">摄像头使用</a> <a href="/tags/%E6%96%B0%E5%BB%BA%E5%B7%A5%E7%A8%8B/" style="font-size: 10px;">新建工程</a> <a href="/tags/%E7%83%A7%E5%BD%95Raspbian%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">烧录Raspbian系统</a> <a href="/tags/%E7%94%A8C%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">用C语言编程</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/CSS%E5%B1%9E%E6%80%A7%E5%86%85%E5%AE%B9/" style="font-size: 10px;">CSS属性内容</a> <a href="/tags/Fritzing%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">Fritzing软件使用</a> <a href="/tags/HEML-CSS-JS/" style="font-size: 10px;">HEML+CSS+JS</a> <a href="/tags/Hal%E5%BA%93%E4%B8%B2%E5%8F%A3%E4%B8%AD%E6%96%AD%E6%9C%8D%E5%8A%A1%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%BF%E7%94%A8/" style="font-size: 20px;">Hal库串口中断服务函数的使用</a> <a href="/tags/Hal%E5%BA%93%E5%BA%94%E7%94%A8/" style="font-size: 20px;">Hal库应用</a> <a href="/tags/JS%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" style="font-size: 10px;">JS学习记录</a> <a href="/tags/JS%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">JS笔记</a> <a href="/tags/RPI-GPIO/" style="font-size: 10px;">RPI.GPIO</a> <a href="/tags/STM32-HAL%E9%A9%B1%E5%8A%A8%E5%BA%93%E5%87%BD%E6%95%B0/" style="font-size: 10px;">STM32 HAL驱动库函数</a> <a href="/tags/Serial-Chart%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">Serial Chart软件使用</a> <a href="/tags/VLC%E8%A7%86%E9%A2%91%E6%B5%81%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">VLC视频流使用</a> <a href="/tags/WEB/" style="font-size: 10px;">WEB</a> <a href="/tags/js%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" style="font-size: 10px;">js学习记录</a> <a href="/tags/node-js/" style="font-size: 20px;">node.js</a> <a href="/tags/raspberry4B/" style="font-size: 10px;">raspberry4B</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/%E4%B8%B2%E5%8F%A3%E8%B0%83%E8%AF%95/" style="font-size: 10px;">串口调试</a> <a href="/tags/%E6%91%84%E5%83%8F%E5%A4%B4%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">摄像头使用</a> <a href="/tags/%E6%96%B0%E5%BB%BA%E5%B7%A5%E7%A8%8B/" style="font-size: 10px;">新建工程</a> <a href="/tags/%E7%83%A7%E5%BD%95Raspbian%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">烧录Raspbian系统</a> <a href="/tags/%E7%94%A8C%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">用C语言编程</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+
+<script src="/js/search.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  
+<script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+
+  
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  
+<script src="/js/animate.js"></script>
+
+
+
+  
+<script src="/js/pop-img.js"></script>
+
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>
