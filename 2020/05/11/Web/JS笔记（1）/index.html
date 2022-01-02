@@ -13,14 +13,14 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="John Doe">
+  <meta name="author" content="DRAGON LI">
   <meta name="keywords" content="">
   
     <meta name="description" content="函数的定义和函数的执行是分隔开来的，一般是先定义函数的，然后再执行函数   函数的定义和函数的执行是分隔开来的，重点注意函数的执行顺序，什么时候定义的，然后又是什么时候去执行的    形参：形式参数，比如字符代替的参数   实参：实际参数，比如完整的数字，给的完全的数据 变量声明   AO{    最开始每个变量都是 undefined 然后查找变量是否为函数 最后查找函数是有变为实参被定义。按这">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Javascript基础理解-1">
 <meta property="og:url" content="http://example.com/2020/05/11/Web/JS%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="AICONNECTIT">
 <meta property="og:description" content="函数的定义和函数的执行是分隔开来的，一般是先定义函数的，然后再执行函数   函数的定义和函数的执行是分隔开来的，重点注意函数的执行顺序，什么时候定义的，然后又是什么时候去执行的    形参：形式参数，比如字符代替的参数   实参：实际参数，比如完整的数字，给的完全的数据 变量声明   AO{    最开始每个变量都是 undefined 然后查找变量是否为函数 最后查找函数是有变为实参被定义。按这">
 <meta property="og:locale">
 <meta property="og:image" content="https://s1.ax1x.com/2020/05/13/YaQtET.png">
@@ -40,13 +40,13 @@
 <meta property="og:image" content="https://s1.ax1x.com/2020/05/18/YhL9qP.png">
 <meta property="article:published_time" content="2020-05-11T12:39:00.000Z">
 <meta property="article:modified_time" content="2022-01-01T10:20:34.118Z">
-<meta property="article:author" content="John Doe">
+<meta property="article:author" content="DRAGON LI">
 <meta property="article:tag" content="js学习记录">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://s1.ax1x.com/2020/05/13/YaQtET.png">
   
   
-  <title>Javascript基础理解-1 - Hexo</title>
+  <title>Javascript基础理解-1 - AICONNECTIT</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -95,7 +95,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <strong>Fluid</strong>
+      <strong>AICONNECTIT</strong>
     </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
@@ -211,19 +211,7 @@
 
 <div class="mt-1">
   
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-chart"></i>
-      undefined 字
-    </span>
-  
 
-  
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-clock-fill"></i>
-      
-      
-      NaN 分钟
-    </span>
   
 
   
@@ -263,14 +251,14 @@
 <p>  }全局变量</p>
 <p>  <img src="https://s1.ax1x.com/2020/05/13/YaQtET.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="函数声明"><a href="#函数声明" class="headerlink" title="函数声明"></a>函数声明</h2><p>函数声明和函数表达式是不一样的</p>
-<pre><code>function test()&#123;&#125; //函数声明
-</code></pre>
+<div class="code-wrapper"><pre><code class="hljs">function test()&#123;&#125; //函数声明
+</code></pre></div>
 <p>  只有表达式才能被执行符号执行</p>
 <h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><p>  当内部函数被保存到外部时，将会生成闭包。闭包会导致所有作用域链不释放，造成内存泄漏</p>
 <h2 id="闭包的作用"><a href="#闭包的作用" class="headerlink" title="闭包的作用"></a>闭包的作用</h2><p>  过多的使用会导致内存的泄露</p>
 <p>  累加器就是用这个闭包实现的</p>
 <p>  <strong>闭包的四个应用</strong></p>
-<pre><code>   1、实现公有变量
+<div class="code-wrapper"><pre><code class="hljs">   1、实现公有变量
 
          比如：函数累加器
 
@@ -283,10 +271,10 @@
         比如：Person
 
    4、模块化开发防止污染全局
-</code></pre>
+</code></pre></div>
 <p>  <img src="https://s1.ax1x.com/2020/05/11/YJLWz8.png" srcset="/img/loading.gif" lazyload></p>
 <p>  闭包可以做缓存应用的代码示例</p>
-<pre><code> //代码思路：最先new一个方法，方法里面写一个对象，对象包含两个方法，也可以是对象里面有属性
+<div class="code-wrapper"><pre><code class="hljs"> //代码思路：最先new一个方法，方法里面写一个对象，对象包含两个方法，也可以是对象里面有属性
 
 
 function eater()&#123; //新建一个方法
@@ -316,28 +304,28 @@ function eater()&#123; //新建一个方法
     eater1.eat();
 
 //要先给push属性一个值，下面那个方法才能打印出之前给的值
-</code></pre>
+</code></pre></div>
 <p>  <img src="https://s1.ax1x.com/2020/05/11/YJxI5d.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="立即执行函数"><a href="#立即执行函数" class="headerlink" title="立即执行函数"></a>立即执行函数</h2><p>   针对初始化功能的函数，执行完函数，就会将函数立即释放，执行完函数就是被销毁。</p>
 <p>   编程的形式代码</p>
-<pre><code>     (function abc()&#123;
+<div class="code-wrapper"><pre><code class="hljs">     (function abc()&#123;
 
         var a=123;
         var b=567;
     
         console.log(a+b);
     &#125;())
-</code></pre>
+</code></pre></div>
 <p>   <img src="https://s1.ax1x.com/2020/05/11/YYP5a8.png" srcset="/img/loading.gif" lazyload></p>
 <p>   立即执行函数返回值的接收方法</p>
-<pre><code>  var num  = (function abc(a,b)&#123;
+<div class="code-wrapper"><pre><code class="hljs">  var num  = (function abc(a,b)&#123;
 
        var d= a+b;
        return d; 
       
     &#125;(1,2))
-</code></pre>
-<h1 id="数组应用方法"><a href="#数组应用方法" class="headerlink" title="数组应用方法"></a>数组应用方法</h1><pre><code>function test()&#123;
+</code></pre></div>
+<h1 id="数组应用方法"><a href="#数组应用方法" class="headerlink" title="数组应用方法"></a>数组应用方法</h1><div class="code-wrapper"><pre><code class="hljs">function test()&#123;
     var arr = [];
     for(var i=0; i&lt;10; i++)&#123;
         
@@ -357,10 +345,10 @@ for(var j=0; j&lt;10;j++)
     myArr[j](); //对前面执行的函数形成了一个闭包，在这里打印的10个数据都是10。这里就促发了闭包。
 
 &#125;
-</code></pre>
+</code></pre></div>
 <h2 id="闭包理解"><a href="#闭包理解" class="headerlink" title="闭包理解"></a>闭包理解</h2><p>  <strong>循环最容易触发闭包，需要特别注意循环是否触发闭包</strong></p>
 <p>  闭包的效果是让函数的执行顺序改变。</p>
-<pre><code>function a()&#123;  
+<div class="code-wrapper"><pre><code class="hljs">function a()&#123;  
   
     function b()&#123;
         var bbb=234;
@@ -376,10 +364,10 @@ for(var j=0; j&lt;10;j++)
 var demo = a();
 demo();
     
-</code></pre>
+</code></pre></div>
 <p>   不用return 的第二种实现方式<br>   <img src="https://s1.ax1x.com/2020/05/12/YtK79I.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="闭包的原理"><a href="#闭包的原理" class="headerlink" title="闭包的原理"></a>闭包的原理</h2><p>  如果想让for循环里面的函数立即执行，而不是等到外部访问了之后才去执行，那么我们就可以利用立即执行函数，将每一次的循环都执行到那个函数，然后当我们去访问这个函数的时候就可以得到每一次都执行的结果，而不是等到外部访问的时候执行的结果是总的结果。</p>
-<pre><code>   function test()&#123;
+<div class="code-wrapper"><pre><code class="hljs">   function test()&#123;
         var arr = [];
         for(var i=0; i&lt;10; i++)&#123;
             
@@ -399,11 +387,11 @@ demo();
         myArr[j]();
     
     &#125;
-</code></pre>
+</code></pre></div>
 <p>   <strong>解决办法在触发闭包后的解决办法</strong></p>
 <h3 id="触发闭包后的解决办法"><a href="#触发闭包后的解决办法" class="headerlink" title="触发闭包后的解决办法"></a>触发闭包后的解决办法</h3><p>  多个函数嵌套时，容易触发闭包，把里面的这个函数保存到外部函数的外部，保存到了全局，这种情况必然会生成闭包。然后里面的函数在外部执行时，就一定能够调用得了原来他在的那个环境里面的变量。</p>
 <p>  <strong>利用闭包解决闭包</strong></p>
-<pre><code>function test()&#123;
+<div class="code-wrapper"><pre><code class="hljs">function test()&#123;
     var arr = [];
     for(var i=0; i&lt;10; i++)&#123;
         
@@ -427,7 +415,7 @@ for(var j=0; j&lt;10;j++)
       myArr[j]();
 
 &#125;
-</code></pre>
+</code></pre></div>
 <h2 id="内存泄漏意思理解"><a href="#内存泄漏意思理解" class="headerlink" title="内存泄漏意思理解"></a>内存泄漏意思理解</h2><p>   意思是过多的占用内存资源。剩的资源空间就会少了</p>
 <h1 id="闭包作用示例"><a href="#闭包作用示例" class="headerlink" title="闭包作用示例"></a>闭包作用示例</h1><h2 id="累加器"><a href="#累加器" class="headerlink" title="累加器"></a>累加器</h2><p>   <strong>不依赖于外部变量并且能够反复执行的函数累加器</strong></p>
 <p>  <img src="https://s1.ax1x.com/2020/05/12/YtTJm9.png" srcset="/img/loading.gif" lazyload> </p>
@@ -435,16 +423,16 @@ for(var j=0; j&lt;10;j++)
 <p>   访问的时是函数内部自己的变量</p>
 <p>   <img src="https://s1.ax1x.com/2020/05/19/Y44v4A.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="只有表达式才能被执行"><a href="#只有表达式才能被执行" class="headerlink" title="只有表达式才能被执行"></a>只有表达式才能被执行</h2><p>   函数声明</p>
-<pre><code>    function test()&#123;
+<div class="code-wrapper"><pre><code class="hljs">    function test()&#123;
 
     &#125;
-</code></pre>
+</code></pre></div>
 <p>  函数表达式</p>
-<pre><code>    var demo = function()&#123;
+<div class="code-wrapper"><pre><code class="hljs">    var demo = function()&#123;
 
         console.log(&#39;a&#39;);
     &#125;
-</code></pre>
+</code></pre></div>
 <p>  这下面这种执行也是表达式。<br>   test(); //创建的方法去执行</p>
 <h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><p>  生活中任何一个事物都可以抽象成一个对象</p>
 <p>  基础的变量类型</p>
@@ -452,27 +440,27 @@ for(var j=0; j&lt;10;j++)
 <h3 id="属性的-增、删、改、查"><a href="#属性的-增、删、改、查" class="headerlink" title="属性的 增、删、改、查"></a>属性的 增、删、改、查</h3><p>  探索任何东西都要符合一个原则，怎么操作的，怎么构成的</p>
 <p>  计算机通用操作就是增、删、改、查</p>
 <p>  删除属性要用到 delete</p>
-<pre><code>     delete mrDERAN.name
-</code></pre>
+<div class="code-wrapper"><pre><code class="hljs">     delete mrDERAN.name
+</code></pre></div>
 <h3 id="对象的创建方法"><a href="#对象的创建方法" class="headerlink" title="对象的创建方法"></a>对象的创建方法</h3><p>   1、var obj = {}  plainObject 对象字面量/对象直接量</p>
 <p>   2、构造函数</p>
 <p>   1）系统自带的构造函数  new Object() Object<br>   2)自定义</p>
-<pre><code> var obj = new Object();
+<div class="code-wrapper"><pre><code class="hljs"> var obj = new Object();
 
  obj.name = &#39;abc&#39;; // 添加属性
  obj.sex = &#39;male&#39;; //添加属性
 
  obj.say = function()&#123;&#125; //这里面也可以添加方法,但这里面的方法需要用等号连接
-</code></pre>
+</code></pre></div>
 <p>   3、通过添加new创建一个对象</p>
-<pre><code>     function person()&#123; &#125; //创建一个方法或者说是构造函数
+<div class="code-wrapper"><pre><code class="hljs">     function person()&#123; &#125; //创建一个方法或者说是构造函数
 
     var person1 = new person();  //给创建的方法添加上一个new就可以创建一个对象了，和前面几种创建对象的方法基本上没有什么去别
-</code></pre>
+</code></pre></div>
 <p>   大驼峰式命名规则 TheHeName (命名规则)</p>
 <p>   4、”new”一个对象之后函数里面会添加一个this</p>
-<pre><code>var this = Object.create(函数名.prototype)//隐式的
-</code></pre>
+<div class="code-wrapper"><pre><code class="hljs">var this = Object.create(函数名.prototype)//隐式的
+</code></pre></div>
 <p>   <img src="https://s1.ax1x.com/2020/05/22/YXr0Xt.png" srcset="/img/loading.gif" lazyload></p>
 <h3 id="构造函数的内部原理"><a href="#构造函数的内部原理" class="headerlink" title="构造函数的内部原理"></a>构造函数的内部原理</h3><p>   有new之后内部自动将构造的函数转换成 var this = {}</p>
 <p>   返回                         return this  这个样式之后就能形成以一个对象</p>
@@ -480,19 +468,19 @@ for(var j=0; j&lt;10;j++)
 <p>   注意最后会返回一个this</p>
 <p>   <img src="https://s1.ax1x.com/2020/05/14/YD3MXF.png" srcset="/img/loading.gif" lazyload></p>
 <p>   构造函数如何实现的三段论</p>
-<pre><code>   现在函数体最前面隐式的加上 var this = &#123;&#125;
+<div class="code-wrapper"><pre><code class="hljs">   现在函数体最前面隐式的加上 var this = &#123;&#125;
    先隐式的来个 this
    隐式的返回 return this
-</code></pre>
+</code></pre></div>
 <h2 id="包装类"><a href="#包装类" class="headerlink" title="包装类"></a>包装类</h2><p>   原始值不单单指的是数字，其他定义的原始变量都可以指原始值</p>
 <p>   只有原始值数字才是原始值</p>
 <p>   原始值不可能有属性和方法，只有转换成对象才能够有属性和方法</p>
 <p>   隐式的环节就是经过包装类之后的结果</p>
-<pre><code> 常见包装类：
+<div class="code-wrapper"><pre><code class="hljs"> 常见包装类：
        new String();
        new Boolean();
        new Number();
-</code></pre>
+</code></pre></div>
 <h2 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h2><p>   1、定义：原型是function的对象的一个属性，他定义了构造出的对象的公共祖先。通过该构造函数产生的对象，可以继承该原型的属性和方法。原型也是对象。</p>
 <p>   2、利用原型特点和概念，可提取共用属性（可以将共有的属性提取出来，下面是使用示例）</p>
 <p>   使用示例</p>
@@ -504,28 +492,28 @@ for(var j=0; j&lt;10;j++)
 <p>   4、对象如何查看对象的构造函数 -&gt;constructor</p>
 <p>   Prototype原型空对象，可以将固有的公共的属性写在这个原型空对象上面，就可以最大限度的使用内存空间</p>
 <p>  常用方式</p>
-<pre><code> var obj = &#123;&#125; 这种方式构建对象常用
+<div class="code-wrapper"><pre><code class="hljs"> var obj = &#123;&#125; 这种方式构建对象常用
 
  var obj1 = new Object(); 这种构建对象方式不常用并且比较麻烦
-</code></pre>
+</code></pre></div>
 <h2 id="绝大多数对象的最终都会继承自Object-prototype"><a href="#绝大多数对象的最终都会继承自Object-prototype" class="headerlink" title="绝大多数对象的最终都会继承自Object.prototype"></a>绝大多数对象的最终都会继承自Object.prototype</h2><h2 id="方法的重写"><a href="#方法的重写" class="headerlink" title="方法的重写"></a>方法的重写</h2><p>   系统也会有自带的属性的方法，但我们用系统自带的属性的名字重新写一个也叫做方法的重写</p>
 <p>   我在原型链的中间截断写一个自己需要的方法就是说方法的重写，写一个自己需要用到了方法</p>
 <p>   <img src="https://s1.ax1x.com/2020/05/18/YhfPsg.png" srcset="/img/loading.gif" lazyload></p>
 <p>   在页面中能够打印出字符的底层原理</p>
 <p>   <img src="https://s1.ax1x.com/2020/05/18/Yh45in.png" srcset="/img/loading.gif" lazyload></p>
-<pre><code>    Object.prototype.toString
+<div class="code-wrapper"><pre><code class="hljs">    Object.prototype.toString
     Number.prototype.toString
     Array.prototype.toString
     Boolean.prototype.toString
     String.prototype.toString
-</code></pre>
+</code></pre></div>
 <h2 id="call-apply的作用"><a href="#call-apply的作用" class="headerlink" title="call/apply的作用"></a>call/apply的作用</h2><p>   <strong>call/apply的作用：改变this指向，利用别人的方法实现自己的功能</strong></p>
 <p>   call/apply的区别：</p>
 <p>   call需要把实参按照形参的个数传进去</p>
 <p>   apply 需要传一个arguments,按照数组形式传入</p>
 <p>   总结：后面传的参数的形式不同（传参列表不同）</p>
 <p>   自行理解：当两个对象需要用到同一个属性的时候就可以用这种方法去实现。可以将第一个对象的属性写齐，然后第二个对象就可以利用call去共同使用第一个对象的属性</p>
-<pre><code>    function Person(name,age)&#123;
+<div class="code-wrapper"><pre><code class="hljs">    function Person(name,age)&#123;
     
       相当于this = obj
 
@@ -540,11 +528,11 @@ for(var j=0; j&lt;10;j++)
     &#125;
     
     Person.call(obj,&#39;cheng&#39;,300); //添加上这条语句时就可以让this指向obj这个对象里面的属性,那么Person.call(obj,后面的值就可以添加的obj对象里面的那个属性里去了
-</code></pre>
+</code></pre></div>
 <p>   实现的结果</p>
 <p>   <img src="https://s1.ax1x.com/2020/05/18/YhL9qP.png" srcset="/img/loading.gif" lazyload></p>
 <p>   一般用到这个的地方形式</p>
-<pre><code>        function Person(name,age)&#123;
+<div class="code-wrapper"><pre><code class="hljs">        function Person(name,age)&#123;
         
             this.name = name;
             this.age = age;
@@ -560,7 +548,7 @@ for(var j=0; j&lt;10;j++)
         &#125;
         
         var student = new Student(&quot;laodeng&quot;,100,&#39;male&#39;,1237);
-</code></pre>
+</code></pre></div>
 <p>   这样就能将Person里面的属性调用到Sudent这个对象里面去使用</p>
 <p>   apply </p>
 <h2 id="原型总结"><a href="#原型总结" class="headerlink" title="原型总结"></a>原型总结</h2><p>   <strong>先继承后引用</strong></p>

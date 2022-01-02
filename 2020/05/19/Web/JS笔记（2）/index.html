@@ -13,27 +13,27 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="John Doe">
+  <meta name="author" content="DRAGON LI">
   <meta name="keywords" content="">
   
     <meta name="description" content="继承的发展史   1、传统形式 —–&gt;原型链    弊端：过多的继承了没有用的属性    2、借用构造函数 call&#x2F;apply    弊端：（1）不能继承借用构造函数的原型    （2）每次构造函数都要多走一个函数    3、共享原型(公有原型)    弊端：不能随便改变自己的原型，改变了自己的原型也会把继承的那个的原型也一同改变    4、圣杯模式 共享原型   代码格式    Fath">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Javascript基础理解-2">
 <meta property="og:url" content="http://example.com/2020/05/19/Web/JS%E7%AC%94%E8%AE%B0%EF%BC%882%EF%BC%89/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="AICONNECTIT">
 <meta property="og:description" content="继承的发展史   1、传统形式 —–&gt;原型链    弊端：过多的继承了没有用的属性    2、借用构造函数 call&#x2F;apply    弊端：（1）不能继承借用构造函数的原型    （2）每次构造函数都要多走一个函数    3、共享原型(公有原型)    弊端：不能随便改变自己的原型，改变了自己的原型也会把继承的那个的原型也一同改变    4、圣杯模式 共享原型   代码格式    Fath">
 <meta property="og:locale">
 <meta property="og:image" content="https://s1.ax1x.com/2020/05/19/Y5m8XR.png">
 <meta property="og:image" content="https://s1.ax1x.com/2020/05/25/tClJde.png">
 <meta property="article:published_time" content="2020-05-19T02:07:50.000Z">
 <meta property="article:modified_time" content="2022-01-01T10:20:34.120Z">
-<meta property="article:author" content="John Doe">
+<meta property="article:author" content="DRAGON LI">
 <meta property="article:tag" content="JS学习记录">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://s1.ax1x.com/2020/05/19/Y5m8XR.png">
   
   
-  <title>Javascript基础理解-2 - Hexo</title>
+  <title>Javascript基础理解-2 - AICONNECTIT</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -82,7 +82,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <strong>Fluid</strong>
+      <strong>AICONNECTIT</strong>
     </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
@@ -198,19 +198,7 @@
 
 <div class="mt-1">
   
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-chart"></i>
-      undefined 字
-    </span>
-  
 
-  
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-clock-fill"></i>
-      
-      
-      NaN 分钟
-    </span>
   
 
   
@@ -250,7 +238,7 @@
 <p>   弊端：不能随便改变自己的原型，改变了自己的原型也会把继承的那个的原型也一同改变</p>
 <p>   4、圣杯模式</p>
 <h3 id="共享原型"><a href="#共享原型" class="headerlink" title="共享原型"></a>共享原型</h3><p>   代码格式</p>
-<pre><code>   Father.prototype.lastName = &quot;Deng&quot;;
+<div class="code-wrapper"><pre><code class="hljs">   Father.prototype.lastName = &quot;Deng&quot;;
 
    function Father()&#123;
 
@@ -263,15 +251,15 @@
    &#125;
 
    Son.prototype = Father.prototype
-</code></pre>
+</code></pre></div>
 <p>   添加下面两条语句就可以继承公有原型</p>
-<pre><code>   var son = new Son(); //创建对象
+<div class="code-wrapper"><pre><code class="hljs">   var son = new Son(); //创建对象
 
    var father = new Father();
-</code></pre>
+</code></pre></div>
 <p>   抽象出一个功能封装成函数，函数就代表功能，函数代表功能的复用，哪块能复用，哪块能定义化就是通过参数来实现的。 </p>
 <p>   构造一个函数封装继承</p>
-<pre><code>    Father.prototype = lastName = &quot;Deng&quot;;
+<div class="code-wrapper"><pre><code class="hljs">    Father.prototype = lastName = &quot;Deng&quot;;
     
     function Father()&#123;
     
@@ -292,10 +280,10 @@
     var son = new Son();
     
     var father = new Father();  
-</code></pre>
+</code></pre></div>
 <p>   总结：这种继承方式的弊端是，当我改变son里面的属性的时候Father里面的属性也会改变，我就不能单独给son添加一个自己的的原型。这样也不怎好。后面引申出圣杯模式</p>
 <h2 id="圣杯模式"><a href="#圣杯模式" class="headerlink" title="圣杯模式"></a>圣杯模式</h2><p>  方法：还是公有原型，通过添加一个中间的构造函数</p>
-<pre><code>  ather.prototype.lastName = &quot;Deng&quot;;
+<div class="code-wrapper"><pre><code class="hljs">  ather.prototype.lastName = &quot;Deng&quot;;
 
 function Father()&#123;
 
@@ -319,7 +307,7 @@ inherit(Son,Father);
 var son = new Son();
 
 var father = new Father();
-</code></pre>
+</code></pre></div>
 <p>   这种继承方式就不会改变继承的属性方法了。可以访问继承过来的属性</p>
 <p>   每一个原型上都有一个系统给我们自带的一个属性叫做constuctor,constuctor默认的值是指向自己的构造函数，那么上面的代码的问题来了，son.constuctor理应指向    function Son(){</p>
 <p>}这个函数的</p>
@@ -328,11 +316,11 @@ var father = new Father();
 <p>  为解决这种constuctor指向混乱错误时，我们要让son.constuctor指向的还是    function Son(){</p>
 <p>}这个函数的</p>
 <p>   我们需要添加下面两条代码</p>
-<pre><code> Target.prototype.constuctor = Target;
+<div class="code-wrapper"><pre><code class="hljs"> Target.prototype.constuctor = Target;
  Target.prototype.uber = Origin.prototype;//信息的储存
-</code></pre>
+</code></pre></div>
 <p>  代码改正</p>
-<pre><code>Father.prototype.lastName = &quot;Deng&quot;;
+<div class="code-wrapper"><pre><code class="hljs">Father.prototype.lastName = &quot;Deng&quot;;
 
 function Father()&#123;
 
@@ -362,9 +350,9 @@ var son = new Son();
 var father = new Father();
 
  
-</code></pre>
+</code></pre></div>
 <p>   还有一种写法</p>
-<pre><code>   Father.prototype.lastName = &quot;Deng&quot;;
+<div class="code-wrapper"><pre><code class="hljs">   Father.prototype.lastName = &quot;Deng&quot;;
 
     function Father()&#123;
     
@@ -391,21 +379,21 @@ var father = new Father();
   var son = new Son();
 
   var father = new Father();
-</code></pre>
+</code></pre></div>
 <h2 id="命名空间"><a href="#命名空间" class="headerlink" title="命名空间"></a>命名空间</h2><p>   管理变量，防止污染全局，适用于模块化开发</p>
 <p>   1、通过闭包来使变量私有化</p>
 <p>   代码格式</p>
 <p>   <img src="https://s1.ax1x.com/2020/05/19/Y5m8XR.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="对象的枚举"><a href="#对象的枚举" class="headerlink" title="对象的枚举"></a>对象的枚举</h2><p>   枚举也叫遍历</p>
 <p>   for in 循环写法：</p>
-<pre><code>    //就是将属性名放到prop里面
+<div class="code-wrapper"><pre><code class="hljs">    //就是将属性名放到prop里面
 
         for(var prop in obj)&#123;
         
            console.log(prop);
         
          &#125;
-</code></pre>
+</code></pre></div>
 <p>   在枚举里面也可以写成  console.log(obj[prop]);这一块只能写成方括号</p>
 <p>   for in 循环可以把对象里面的属性提取出来   </p>
 <p>   for in 循环作用：就是给对象遍历的，就是给对象设立一个遍历的。</p>
@@ -418,7 +406,7 @@ var father = new Father();
 <p>   Object.prototype.abc = “567”; </p>
 <p>   这种也是系统自带的，需要特别注意</p>
 <p>   代码模式如下</p>
-<pre><code>    var obj = &#123;
+<div class="code-wrapper"><pre><code class="hljs">    var obj = &#123;
        name:&quot;nwe&quot;,
        age:123,
        Height:180,
@@ -439,7 +427,7 @@ var father = new Father();
      &#125;
 
 ![](https://s1.ax1x.com/2020/05/20/YoU25D.png)
-</code></pre>
+</code></pre></div>
 <h3 id="instanceof-的使用"><a href="#instanceof-的使用" class="headerlink" title="instanceof 的使用"></a>instanceof 的使用</h3><p>  A instanceof B</p>
 <p>  官方解释：A对象 是不是 B构造函数构造出来的 （不全）</p>
 <p>  数组也是对象</p>
@@ -451,7 +439,7 @@ var father = new Father();
 <p>  4、obj.func();（func里面的 this 指向obj）</p>
 <h2 id="arguments"><a href="#arguments" class="headerlink" title="arguments"></a>arguments</h2><p>   1、arguments.calle （指向函数自生引用，在哪个函数里面就指向哪个函数）</p>
 <p>   举例：<br>        采用立即执行函数的方式求阶乘，arguments.calle 调用自身函数执行多次。</p>
-<pre><code>    var num = (function (n)&#123;
+<div class="code-wrapper"><pre><code class="hljs">    var num = (function (n)&#123;
       
         if(n==1)&#123;
             return 1;
@@ -460,31 +448,31 @@ var father = new Father();
         return n*arguments.callee(n-1); 
     
     &#125;(10))        
-</code></pre>
+</code></pre></div>
 <p>   2、func.caller （在哪调用就是指向的调用哪个函数）</p>
 <h2 id="数组运用"><a href="#数组运用" class="headerlink" title="数组运用"></a>数组运用</h2><p>  数组的定义,有两种方式</p>
-<pre><code>   new Array(length/content);
+<div class="code-wrapper"><pre><code class="hljs">   new Array(length/content);
 
    字面量 var arr=new Array();
-</code></pre>
+</code></pre></div>
 <p>  这两种方式的唯一区别</p>
-<pre><code>   var arr = new Array(10); //这种方式只会是创建了10位，位数
+<div class="code-wrapper"><pre><code class="hljs">   var arr = new Array(10); //这种方式只会是创建了10位，位数
 
    var arr1 = [10]; //这种方式会给数组的第一位为10，会赋值给数组的第一位
-</code></pre>
+</code></pre></div>
 <p>  数组的读和写</p>
-<pre><code>   arr[num] //不可以溢出读，结果是undefine
+<div class="code-wrapper"><pre><code class="hljs">   arr[num] //不可以溢出读，结果是undefine
  
    arr[num] = xxx; //可以溢出读
-</code></pre>
+</code></pre></div>
 <h3 id="数组的方法运用"><a href="#数组的方法运用" class="headerlink" title="数组的方法运用"></a>数组的方法运用</h3><p>  改变原数组</p>
-<pre><code> push, pop, shift, unshift, sort, reverse,splice
-</code></pre>
+<div class="code-wrapper"><pre><code class="hljs"> push, pop, shift, unshift, sort, reverse,splice
+</code></pre></div>
 <p>  不改变原数组</p>
-<pre><code>  concat,join ---&gt;split,toString,slice
-</code></pre>
+<div class="code-wrapper"><pre><code class="hljs">  concat,join ---&gt;split,toString,slice
+</code></pre></div>
 <p>  重写系统push方法<br>   把最后一位去增加</p>
-<pre><code>  var arr = [1,2,3];
+<div class="code-wrapper"><pre><code class="hljs">  var arr = [1,2,3];
 
   Array.prototype.push = function()&#123;
 
@@ -497,7 +485,7 @@ var father = new Father();
   return this.length;
 
  &#125;
-</code></pre>
+</code></pre></div>
 <p>  pop 方法</p>
 <p>   把数组的最后一位剪切出来 </p>
 <p>  shift方法</p>
@@ -508,15 +496,15 @@ var father = new Father();
 <p>   逆转顺序</p>
 <p>  <strong>splice方法（可以传好些个参数）</strong></p>
 <p>  <strong>运用：</strong></p>
-<pre><code>var arr = [1,1,2,3,5,6,7];
+<div class="code-wrapper"><pre><code class="hljs">var arr = [1,1,2,3,5,6,7];
 
 arr.splice(从第几位开始，截取多少个长度，在截取处添加新的数据)
 
 第几位可以用负数，意思就是从数组的后面倒数几位
-</code></pre>
+</code></pre></div>
 <p> ** 这个方法需要重点掌握，可以在任意位置添加数据**</p>
 <p>   sort方法是在原数组上给数组排序的（是按A排序的）</p>
-<pre><code>sort留了一个接口，可以让数组安照任意方式进行排序
+<div class="code-wrapper"><pre><code class="hljs">sort留了一个接口，可以让数组安照任意方式进行排序
 
   var arr = [1,1,2,3,5,6,7];
     
@@ -533,35 +521,35 @@ arr.splice(从第几位开始，截取多少个长度，在截取处添加新的
 
    
   &#125;);
-</code></pre>
+</code></pre></div>
 <p>   <strong>改变</strong></p>
 <p>   concat 的方法的使用 （将两个数组连接成一个数组）</p>
 <p>   toString 把数组变成字符形式的数组</p>
 <p>   slice(从该位开始截取，截取到该位)</p>
 <p>   slice 使用举例：</p>
-<pre><code>  arr = [1,2,3,4,5,6,7];
+<div class="code-wrapper"><pre><code class="hljs">  arr = [1,2,3,4,5,6,7];
 
   var newArr = arr.slice(1,3);//两个参数的情况
 
   var newArr = arr.slice(从第几位开始截取，截取到最后); //这是一个参数的情况
-</code></pre>
+</code></pre></div>
 <p>  join —&gt;split (split和数组的方法是可逆的)</p>
 <p>  传的是什么就用什么来连接数组之间的值</p>
-<pre><code>join（&quot;?&quot;）执行后的形式 1?2?3
-</code></pre>
+<div class="code-wrapper"><pre><code class="hljs">join（&quot;?&quot;）执行后的形式 1?2?3
+</code></pre></div>
 <p>  split 可以让数组按什么形式连接的就可以将什么形式的连接符给去除</p>
 <h2 id="类数组"><a href="#类数组" class="headerlink" title="类数组"></a>类数组</h2><p>   长的像数组的属性</p>
 <p>   <strong>类数组能够当数组使用也能当对象使用，要使用数组时加上数组方法，要使用对象时加上对象的方法。</strong></p>
 <p>   1、arguments类数组</p>
-<pre><code>  function test()&#123;
+<div class="code-wrapper"><pre><code class="hljs">  function test()&#123;
 
     console.log(arguments);
     arguments.push(7);
 
  &#125;
-</code></pre>
+</code></pre></div>
 <p>   2、有着对象一样的类数组</p>
-<pre><code>var obj =&#123;
+<div class="code-wrapper"><pre><code class="hljs">var obj =&#123;
 
   &quot;0&quot; : &#39;1&#39;,
   &quot;1&quot; : &#39;2&#39;,
@@ -571,22 +559,22 @@ arr.splice(从第几位开始，截取多少个长度，在截取处添加新的
    
  
 &#125;  
-</code></pre>
+</code></pre></div>
 <p>  注意点：属性要为索引（数字）属性，必须要有length属性，最好加上push</p>
 <p>  加上”splice” :Array.prototype.splice这个属性后就更像数组形式了，可以去验证。</p>
-<h2 id="this指向的问题在理解"><a href="#this指向的问题在理解" class="headerlink" title="this指向的问题在理解"></a>this指向的问题在理解</h2><pre><code>1、预编译 this ---&gt; window (this指向window)
+<h2 id="this指向的问题在理解"><a href="#this指向的问题在理解" class="headerlink" title="this指向的问题在理解"></a>this指向的问题在理解</h2><div class="code-wrapper"><pre><code class="hljs">1、预编译 this ---&gt; window (this指向window)
   
 2、谁调用的this指向谁
 
 3、call apply
 
 4、全局this---&gt;window
-</code></pre>
+</code></pre></div>
 <p>  当我们每写一个函数的时候，系统就会预编译环节建立一个AO，AO里面不仅会包含你自己写的属性，也会增加系统隐式给的两个属性，分别是 arguments : {} 这个类数组 ，还有一个 this :window 此时这个this指向的是 window</p>
 <p>   函数和函数.call执行是一样的</p>
 <p>   函数会有一个隐式的this,</p>
-<pre><code>    var this = Object.areate(Student.prototype);Student是函数名
-</code></pre>
+<div class="code-wrapper"><pre><code class="hljs">    var this = Object.areate(Student.prototype);Student是函数名
+</code></pre></div>
 <p>   <img src="https://s1.ax1x.com/2020/05/25/tClJde.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="try-catch-e-用法"><a href="#try-catch-e-用法" class="headerlink" title="try{  }catch(e){  }用法"></a>try{  }catch(e){  }用法</h2><p>  e是形参可以自行定义。</p>
 <p>   在try里面的代码发生错误是不会再执行try里面报错的后续代码的，然后在try里面的那行错误代码的错误信息可以在catch里面打印出来。只会让try错误后面的代码终止。</p>
@@ -598,7 +586,7 @@ arr.splice(从第几位开始，截取多少个长度，在截取处添加新的
 <p>   4、SyntaError : 发生语法解析错误</p>
 <p>   5、TypeError : 操作数据类型错误</p>
 <p>   6、URIError ：URI处理函数使用不当</p>
-<h2 id="es5标准模式"><a href="#es5标准模式" class="headerlink" title="es5标准模式"></a>es5标准模式</h2><pre><code>“use strict”
+<h2 id="es5标准模式"><a href="#es5标准模式" class="headerlink" title="es5标准模式"></a>es5标准模式</h2><div class="code-wrapper"><pre><code class="hljs">“use strict”
 不再兼容es3的一些不规则语法。使用全新的es5规范。
 两种用法：
    全局严格模式
@@ -606,13 +594,13 @@ arr.splice(从第几位开始，截取多少个长度，在截取处添加新的
 就是一行字符串，不会对不兼容严格模式的浏览器产生影响。
 
 不支持with,arguments.callee,func.caller,变量赋值前必须声明，局部this必须被赋值(Person.call(null/undefined) 赋值什么就是什么),拒绝重复属性和参数
-</code></pre>
+</code></pre></div>
 <p>   浏览器是基于 es3.0 和 es5.0 新增方法 去执行的</p>
 <p>   es3.0 和es5.0产生冲突的部分</p>
 <p>   es5.0严格模式 那么es3.0和es5.0 产生冲突的部分就是用es5.0否则会用es3.0</p>
 <p>   es5.0严格模式的启动 “use strict”; (写在页面代码的最顶端就可以启动es5.0严格模式的方法，也可以写在函数里面的最顶端，但这个时候就是启动的这个函数是遵循es5.0严格模式，但其他函数是不受影响的)</p>
 <p>   用字符串来表示的用意是为了兼容老浏览器，如果没有更新的话也能安照老版本去执行而字符串表达式也不会报错，如果更新了也能识别到，这个时候就能执行es5.0版本的严格模式了</p>
-<h2 id="执行期上下文with的用法"><a href="#执行期上下文with的用法" class="headerlink" title="执行期上下文with的用法"></a>执行期上下文with的用法</h2><pre><code>var obj = &#123;
+<h2 id="执行期上下文with的用法"><a href="#执行期上下文with的用法" class="headerlink" title="执行期上下文with的用法"></a>执行期上下文with的用法</h2><div class="code-wrapper"><pre><code class="hljs">var obj = &#123;
   name : &quot;123&quot;,
 &#125;
 
@@ -625,7 +613,7 @@ function test()&#123;
 &#125;
 
 test();
-</code></pre>
+</code></pre></div>
 <p>   es5的严格模式不能用这个with</p>
 
             </div>

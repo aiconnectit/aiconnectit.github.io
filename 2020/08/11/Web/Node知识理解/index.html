@@ -13,14 +13,14 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="John Doe">
+  <meta name="author" content="DRAGON LI">
   <meta name="keywords" content="">
   
     <meta name="description" content="Node.js是什么1、node.js 平台是基于 Chrom V8 javsaScript 引擎构建的。 2、基于 node.js 可以开发控制台程序（命令行程序、CLI程序）、桌面应用程序（GUI）（需要借助 node - webkit、electron等框架实现）、web应用程序（网站） node.js有哪些特点1、事件驱动（当事件被触发时，执行传递过去的回调函数） 2、非阻塞I&#x2F;O模型（当">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Nodejs基础性知识点总结">
 <meta property="og:url" content="http://example.com/2020/08/11/Web/Node%E7%9F%A5%E8%AF%86%E7%90%86%E8%A7%A3/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="AICONNECTIT">
 <meta property="og:description" content="Node.js是什么1、node.js 平台是基于 Chrom V8 javsaScript 引擎构建的。 2、基于 node.js 可以开发控制台程序（命令行程序、CLI程序）、桌面应用程序（GUI）（需要借助 node - webkit、electron等框架实现）、web应用程序（网站） node.js有哪些特点1、事件驱动（当事件被触发时，执行传递过去的回调函数） 2、非阻塞I&#x2F;O模型（当">
 <meta property="og:locale">
 <meta property="og:image" content="https://s1.ax1x.com/2020/08/27/dhCNQ0.png">
@@ -33,13 +33,13 @@
 <meta property="og:image" content="https://s1.ax1x.com/2020/08/31/dOoWdS.png">
 <meta property="article:published_time" content="2020-08-11T09:22:49.000Z">
 <meta property="article:modified_time" content="2022-01-01T10:20:34.120Z">
-<meta property="article:author" content="John Doe">
+<meta property="article:author" content="DRAGON LI">
 <meta property="article:tag" content="node.js">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://s1.ax1x.com/2020/08/27/dhCNQ0.png">
   
   
-  <title>Nodejs基础性知识点总结 - Hexo</title>
+  <title>Nodejs基础性知识点总结 - AICONNECTIT</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -88,7 +88,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <strong>Fluid</strong>
+      <strong>AICONNECTIT</strong>
     </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
@@ -204,19 +204,7 @@
 
 <div class="mt-1">
   
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-chart"></i>
-      undefined 字
-    </span>
-  
 
-  
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-clock-fill"></i>
-      
-      
-      NaN 分钟
-    </span>
   
 
   
@@ -261,7 +249,7 @@
 <h3 id="Node-js多个版本管理器"><a href="#Node-js多个版本管理器" class="headerlink" title="Node.js多个版本管理器"></a>Node.js多个版本管理器</h3><p>nvm -window(window上安装)</p>
 <p> 1、<a target="_blank" rel="noopener" href="https://github.com/coreybutler/nvm-windows">https://github.com/coreybutler/nvm-windows</a></p>
 <p>   常用命令：</p>
-<pre><code> nvm version 意思是当前版本
+<div class="code-wrapper"><pre><code class="hljs"> nvm version 意思是当前版本
 
  nvm install latest 安装最新版本
 
@@ -272,7 +260,7 @@
  nvm list 列出所有node.js版本
 
  nvm use 版本号， 意思是: 切换版本
-</code></pre>
+</code></pre></div>
 <h3 id="Node-js开发web应用程序和PHP、Java、ASP-Net等传统模式开发Web应用程序的区别"><a href="#Node-js开发web应用程序和PHP、Java、ASP-Net等传统模式开发Web应用程序的区别" class="headerlink" title="Node.js开发web应用程序和PHP、Java、ASP.Net等传统模式开发Web应用程序的区别"></a>Node.js开发web应用程序和PHP、Java、ASP.Net等传统模式开发Web应用程序的区别</h3><p>1、传统模式</p>
 <p>   有Web容器</p>
 <p>   必需有Web容器开发模型</p>
@@ -292,7 +280,7 @@
 <p>   参数3：写入文件时的选项，比如文件编码，<strong>选填</strong>、</p>
 <p>   参数4：文件写入完毕后的回调函数，<strong>必填</strong></p>
 <p>   写文件注意：</p>
-<pre><code>*该操作采用异步执行
+<div class="code-wrapper"><pre><code class="hljs">*该操作采用异步执行
 
 *如果文件已经存在则替换掉
 
@@ -301,12 +289,12 @@
 *回调函数有一个参数：err,表示再写入文件的操作过程中是否出错。
 
 -如果出错了 &#39;err  != null &#39; ,否则 &#39;err === null&#39;
-</code></pre>
+</code></pre></div>
 <p> 注意：<br>   process 在使用的时候无需通过 require()函数来加载该模块，可以直接使用</p>
 <p>   fs模块，在使用的时候，必须通过require()函数来加载该模块，方可使用 var fs = require(‘fs’)</p>
 <p> 原因：process模块是全局的模块，而fs不是全局模块，全局模块可以直接使用，而非全局模块需要先通过require()加载该模块</p>
 <p> 写入文件代码示例：</p>
-<pre><code> var fs = require(&#39;fs&#39;);
+<div class="code-wrapper"><pre><code class="hljs"> var fs = require(&#39;fs&#39;);
 
 var msg = &#39;hello word ，世界&#39;;
 
@@ -323,19 +311,19 @@ fs.writeFile(&#39;./hello.txt&#39;,msg,&#39;utf8&#39;,function(err)&#123;
         console.log(&#39;写入文件成功&#39;);
     &#125;
 &#125;)
-</code></pre>
+</code></pre></div>
 <p> <img src="https://s1.ax1x.com/2020/08/27/dhCNQ0.png" srcset="/img/loading.gif" lazyload></p>
 <h4 id="读文件"><a href="#读文件" class="headerlink" title="读文件"></a>读文件</h4><p>2、读文件：’fs.readFile(file[,options],callback)’</p>
 <p>   参数1：要读取文件的路径，<strong>必填</strong></p>
 <p>   参数2：读取文件时的选项，比如文件编码，<strong>选填</strong>、</p>
 <p>   参数3、文件读取完毕后的回调函数，<strong>必填</strong></p>
 <p>   写文件注意：</p>
-<pre><code>*该操作采用异步执行
+<div class="code-wrapper"><pre><code class="hljs">*该操作采用异步执行
 
 *回调函数有两个参数，分别是err和data
-</code></pre>
+</code></pre></div>
 <p> 实现步骤： </p>
-<pre><code>1、加载 fs 模块
+<div class="code-wrapper"><pre><code class="hljs">1、加载 fs 模块
 
 2、调用 fs.readFlile() 方法来读取文件
 
@@ -344,9 +332,9 @@ fs.writeFile(&#39;./hello.txt&#39;,msg,&#39;utf8&#39;,function(err)&#123;
 读取的是 buffer 类型字节数组
 
 3、将buffer对象转换为字符串，调用toString方法 (不传参数的话默认是utf8编码，建议写上)
-</code></pre>
+</code></pre></div>
 <p> 代码写法：<br>   一、不传递utf8编码</p>
-<pre><code>// 1、加载fs模块
+<div class="code-wrapper"><pre><code class="hljs">// 1、加载fs模块
 var fs = require(&#39;fs&#39;);
 
 //2、调用 fs.readFile() 方法来读取文件
@@ -364,10 +352,10 @@ fs.readFile(&#39;./hello.txt&#39;, function (err, data) &#123;
         
     console.log(data.toString(&#39;utf8&#39;));
 &#125;)
-</code></pre>
+</code></pre></div>
 <p>   <img src="https://s1.ax1x.com/2020/08/30/dbiWyF.png" srcset="/img/loading.gif" lazyload></p>
 <p>   一、传递utf8编码</p>
-<pre><code>   // 1、加载fs模块
+<div class="code-wrapper"><pre><code class="hljs">   // 1、加载fs模块
 var fs = require(&#39;fs&#39;);
 
 //2、调用 fs.readFile() 方法来读取文件
@@ -381,17 +369,17 @@ fs.readFile(&#39;./hello.txt&#39;, &#39;utf8&#39;, function (err, data) &#123;
     console.log(data);
     //3、将buffer对象转换为字符串，调用toString方法 (不传参数的话默认是utf8编码，建议写上)
 &#125;)
-</code></pre>
+</code></pre></div>
 <p>  <img src="https://s1.ax1x.com/2020/08/30/dbiNz8.png" srcset="/img/loading.gif" lazyload></p>
 <p> 读取文件中的注意事项：</p>
 <p>   “./“这是一个相对路径，相对的是执行命令的路径，而不是相对于正在执行的这个JS文件来查找 hello.txt.</p>
 <p>   解决上述问题方法：__dirname 、 __filename （这两个并不是全局的）</p>
-<pre><code> __dirname:表示，当前真在执行的js文件所在的目录
+<div class="code-wrapper"><pre><code class="hljs"> __dirname:表示，当前真在执行的js文件所在的目录
 
  __filename:表示，当前正在执行的js文件的完整路径
-</code></pre>
+</code></pre></div>
 <p>   代码示例：</p>
-<pre><code> // 1、加载fs模块
+<div class="code-wrapper"><pre><code class="hljs"> // 1、加载fs模块
 var fs = require(&#39;fs&#39;);
 
 var dirname = __dirname + &#39;\\&#39; + &#39;hello.txt&#39;;
@@ -406,12 +394,12 @@ fs.readFile(dirname, &#39;utf8&#39;, function (err, data) &#123;
     console.log(data);
     //3、将buffer对象转换为字符串，调用toString方法 (不传参数的话默认是utf8编码，建议写上)
 &#125;)
-</code></pre>
+</code></pre></div>
 <h3 id="通过path进行路径拼接"><a href="#通过path进行路径拼接" class="headerlink" title="通过path进行路径拼接"></a>通过path进行路径拼接</h3><p> 一、需要用到的语句<br>    var path = require(‘path’);</p>
-<pre><code>var dirname = path.join(__dirname,&#39;hello.txt&#39;);
-</code></pre>
+<div class="code-wrapper"><pre><code class="hljs">var dirname = path.join(__dirname,&#39;hello.txt&#39;);
+</code></pre></div>
 <p> 二、代码示例：</p>
-<pre><code>// 1、加载fs模块
+<div class="code-wrapper"><pre><code class="hljs">// 1、加载fs模块
 var fs = require(&#39;fs&#39;);
 
 //加载path模块
@@ -432,8 +420,8 @@ fs.readFile(dirname, &#39;utf8&#39;, function (err, data) &#123;
     console.log(data);
     //3、将buffer对象转换为字符串，调用toString方法 (不传参数的话默认是utf8编码，建议写上)
 &#125;)
-</code></pre>
-<h3 id="如何创建文件夹"><a href="#如何创建文件夹" class="headerlink" title="如何创建文件夹"></a>如何创建文件夹</h3><pre><code>var fs = require(&#39;fs&#39;);
+</code></pre></div>
+<h3 id="如何创建文件夹"><a href="#如何创建文件夹" class="headerlink" title="如何创建文件夹"></a>如何创建文件夹</h3><div class="code-wrapper"><pre><code class="hljs">var fs = require(&#39;fs&#39;);
 
 fs.mkdir(&#39;./test-mkdir/test&#39; , function(err)&#123;
     if(err)&#123;
@@ -443,7 +431,7 @@ fs.mkdir(&#39;./test-mkdir/test&#39; , function(err)&#123;
     &#125;
 
 &#125;)
-</code></pre>
+</code></pre></div>
 <h3 id="之前知识点总结及注意事项"><a href="#之前知识点总结及注意事项" class="headerlink" title="之前知识点总结及注意事项"></a>之前知识点总结及注意事项</h3><p> 1、异步操作无法通过 try - catch 来捕获异常，要通过判断error 来判断是否出错</p>
 <p> 2、同步操作可以通过 try - catch 来捕获异常</p>
 <p> 3、不要使用 fs.exists(path,callback) 来判断文件是否存在，直接判断error即可</p>
@@ -458,7 +446,7 @@ fs.mkdir(&#39;./test-mkdir/test&#39; , function(err)&#123;
 <p>  3、为http服务添加 request 事件处理程序</p>
 <p>  4、启动http服务监听，准备接收客户端请求</p>
 <p> 代码示例：</p>
-<pre><code>//1、加载http模块
+<div class="code-wrapper"><pre><code class="hljs">//1、加载http模块
 
  var http = require(&#39;http&#39;);
 
@@ -480,11 +468,11 @@ fs.mkdir(&#39;./test-mkdir/test&#39; , function(err)&#123;
  server.listen(8080,function()&#123;
    console.log(&#39;服务器启动成功，请访问:http://localhost:8080&#39;);
  &#125;);
-</code></pre>
+</code></pre></div>
 <p> 通过设置http响应报文头来解决浏览器显示html的问题（能够以html的形式展示）</p>
 <p>  加一条语句： res.setHeader(‘Content-Type’,’text/html; charset=utf-8’);</p>
 <p>  <strong>代码示例</strong>：</p>
-<pre><code> //1、加载http模块
+<div class="code-wrapper"><pre><code class="hljs"> //1、加载http模块
 
  var http = require(&#39;http&#39;);
 
@@ -514,15 +502,15 @@ fs.mkdir(&#39;./test-mkdir/test&#39; , function(err)&#123;
    console.log(&#39;服务器启动成功，请访问:http://localhost:8080&#39;);
  &#125;);    
   
-</code></pre>
+</code></pre></div>
 <p> 注意：</p>
 <p>  1、<strong>浏览器显示的可能是乱码</strong>，所以可以通过 res.setHeader(‘Content - Type’,’text/plain;charset = utf-8’); 设置浏览器显示时所使用的编码。</p>
-<pre><code>**解决乱码的思路：服务器通过设置http响应报文头，告诉浏览器使用相应的编码来解析网页**
-</code></pre>
+<div class="code-wrapper"><pre><code class="hljs">**解决乱码的思路：服务器通过设置http响应报文头，告诉浏览器使用相应的编码来解析网页**
+</code></pre></div>
 <p>  2、Chrome 浏览器默认无法手动设置编码，需要安装”Set character Encoding”扩展</p>
 <p>  3、Content - Type = text/html 和 Content - Type = text/plain 的区别。</p>
 <h3 id="根据用户的不同请求，服务器做出不同响应"><a href="#根据用户的不同请求，服务器做出不同响应" class="headerlink" title="根据用户的不同请求，服务器做出不同响应"></a>根据用户的不同请求，服务器做出不同响应</h3><p>  代码思路：  </p>
-<pre><code>//1、加载http模块
+<div class="code-wrapper"><pre><code class="hljs">//1、加载http模块
 var http = require(&#39;http&#39;);
 
 //2、创建HTTP服务
@@ -551,8 +539,8 @@ http.createServer(function (req, res) &#123;
 &#125;).listen(8080, function () &#123;
     console.log(&#39;服务器启动成功，请访问:http://localhost:8080&#39;);
 &#125;)
-</code></pre>
-<h3 id="根据用户不同请求，加载不同的文件"><a href="#根据用户不同请求，加载不同的文件" class="headerlink" title="根据用户不同请求，加载不同的文件"></a>根据用户不同请求，加载不同的文件</h3><pre><code>var http = require(&#39;http&#39;);
+</code></pre></div>
+<h3 id="根据用户不同请求，加载不同的文件"><a href="#根据用户不同请求，加载不同的文件" class="headerlink" title="根据用户不同请求，加载不同的文件"></a>根据用户不同请求，加载不同的文件</h3><div class="code-wrapper"><pre><code class="hljs">var http = require(&#39;http&#39;);
 
 var fs = require(&#39;fs&#39;);
 
@@ -600,7 +588,7 @@ http.createServer(function (req, res) &#123;
 &#125;).listen(8080, function () &#123;
     console.log(&#39;http://localhost:8080&#39;);
 &#125;)
-</code></pre>
+</code></pre></div>
 <p>  <strong>文件操作时，无需判断文件是否存在，直接操作即可，如果文件不存在会反应在 error 中</strong></p>
 <h3 id="try-cath的使用"><a href="#try-cath的使用" class="headerlink" title="try-cath的使用"></a>try-cath的使用</h3><p>作用：捕获异常</p>
 <p>结论：只能捕获同步操作异常，不能捕获异步操作异常</p>
@@ -612,7 +600,7 @@ http.createServer(function (req, res) &#123;
 <p>   4、根据文件的完整路径去读取该文件，则把文件返回给用户，如果找不到，则返回404</p>
 <p>   5、通过第三方模块 mime = require(‘mime’) ;，来判断不同资源 Content-Type 的类型</p>
 <p> 具体示例代码如下：</p>
-<pre><code>//加载服务器模块
+<div class="code-wrapper"><pre><code class="hljs">//加载服务器模块
 var http = require(&#39;http&#39;);
 
 //加载文件路径模块
@@ -657,27 +645,27 @@ http.createServer(function (req, res) &#123;
 &#125;).listen(8080, function () &#123;
     console.log(&#39;http://localhost:8080&#39;);
 &#125;)
-</code></pre>
+</code></pre></div>
 <p>   <strong>在请求服务器的时候，请求的 url 就是一个标识，找到标识主要的是服务器返回的是什么文件</strong></p>
 <h2 id="request（文档对应的位置-http-IncomingMessage-）-和-response-（文档中对应的位置-http-ServerResponse）对象介绍"><a href="#request（文档对应的位置-http-IncomingMessage-）-和-response-（文档中对应的位置-http-ServerResponse）对象介绍" class="headerlink" title="request（文档对应的位置 http.IncomingMessage ） 和 response （文档中对应的位置 http.ServerResponse）对象介绍"></a>request（文档对应的位置 http.IncomingMessage ） 和 response （文档中对应的位置 http.ServerResponse）对象介绍</h2><p>  request ：服务器解析用户提交的 http 请求报文 ，将结果解析到 request 对象中，凡是获取和用户请求相关的数据都可以通过 request 对象来进行。</p>
 <p>  response：在服务器端用来向用户做出向应的对象。凡是需要向用户（客户端）响应的操作，都需要通过 response 对象来进行</p>
 <h3 id="resquest对象"><a href="#resquest对象" class="headerlink" title="resquest对象"></a>resquest对象</h3><p> resquest 对象类型 &lt;http.IncomingMessage&gt; ,继承自 stream.Readable</p>
 <p> resquest对象 常用成员</p>
 <p>   1、resquest.headers (请求报文头)</p>
-<pre><code> resquest.headers 返回的是一个对象，这个对象中包含了所有的请求报文头
-</code></pre>
+<div class="code-wrapper"><pre><code class="hljs"> resquest.headers 返回的是一个对象，这个对象中包含了所有的请求报文头
+</code></pre></div>
 <p>   2、resquest.rawHeaders (原生的请求报文头)</p>
-<pre><code> resquest.rawHeaders 返回的是一个数组，数组中保存的都是请求报文的字符串
-</code></pre>
+<div class="code-wrapper"><pre><code class="hljs"> resquest.rawHeaders 返回的是一个数组，数组中保存的都是请求报文的字符串
+</code></pre></div>
 <p>   3、resquest.httpVersion （获取客户端请求的http版本号）</p>
-<pre><code> resquest.httpVersion 获取请求客户端所使用的http版本号
-</code></pre>
+<div class="code-wrapper"><pre><code class="hljs"> resquest.httpVersion 获取请求客户端所使用的http版本号
+</code></pre></div>
 <p>   4、resquest.method （获取的是请求方法）</p>
-<pre><code> resquest.method 获取客户端请求使用的方法（POST、GET、、、）
-</code></pre>
+<div class="code-wrapper"><pre><code class="hljs"> resquest.method 获取客户端请求使用的方法（POST、GET、、、）
+</code></pre></div>
 <p>   5、resquest.url （获取的是请求的文件路径）</p>
-<pre><code> resquest.url 获取本次请求的路径
-</code></pre>
+<div class="code-wrapper"><pre><code class="hljs"> resquest.url 获取本次请求的路径
+</code></pre></div>
 <h3 id="response对象介绍"><a href="#response对象介绍" class="headerlink" title="response对象介绍"></a>response对象介绍</h3><p>重点说明 response.writeHead() 的使用</p>
 <p>1、一般在设置响应报文头都是用res.setHeader()去设置，当我们设置了响应报文头时，一定要在res.write() 和 res.end() 前设置，因为我们不设置响应报文头，系统也会有默认的响应报文头，并且默认发送给浏览器，当已经发送给浏览器响应报文头时就不能再给浏览器发送响应报文头了，所以得提前发送，才不会报错。</p>
 <p>2、和res.setHeader() 配合一起使用的还有 ，res.statusCode() //设置 http 响应状态码 ，res.statusMessage() //设置http响应状态码对应的信息</p>

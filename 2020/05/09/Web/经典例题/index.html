@@ -13,14 +13,14 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="John Doe">
+  <meta name="author" content="DRAGON LI">
   <meta name="keywords" content="">
   
     <meta name="description" content="第一题、构造函数和对象的知识运用  这个题目也有考闭包的问题   function Person(name,age ,sex)&amp;#123;     var a&#x3D;0;     this.name &#x3D; age;     this.age &#x3D; age;     this.sex &#x3D; sex;     function abc()&amp;#123;         a++;         console.lo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS经典例题总结">
 <meta property="og:url" content="http://example.com/2020/05/09/Web/%E7%BB%8F%E5%85%B8%E4%BE%8B%E9%A2%98/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="AICONNECTIT">
 <meta property="og:description" content="第一题、构造函数和对象的知识运用  这个题目也有考闭包的问题   function Person(name,age ,sex)&amp;#123;     var a&#x3D;0;     this.name &#x3D; age;     this.age &#x3D; age;     this.sex &#x3D; sex;     function abc()&amp;#123;         a++;         console.lo">
 <meta property="og:locale">
 <meta property="og:image" content="https://s1.ax1x.com/2020/05/14/YDwos1.png">
@@ -31,13 +31,13 @@
 <meta property="og:image" content="https://s1.ax1x.com/2020/05/25/tpqkL9.png">
 <meta property="article:published_time" content="2020-05-09T14:28:50.000Z">
 <meta property="article:modified_time" content="2022-01-01T10:20:34.121Z">
-<meta property="article:author" content="John Doe">
+<meta property="article:author" content="DRAGON LI">
 <meta property="article:tag" content="HEML+CSS+JS">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://s1.ax1x.com/2020/05/14/YDwos1.png">
   
   
-  <title>JS经典例题总结 - Hexo</title>
+  <title>JS经典例题总结 - AICONNECTIT</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -86,7 +86,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <strong>Fluid</strong>
+      <strong>AICONNECTIT</strong>
     </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
@@ -202,19 +202,7 @@
 
 <div class="mt-1">
   
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-chart"></i>
-      undefined 字
-    </span>
-  
 
-  
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-clock-fill"></i>
-      
-      
-      NaN 分钟
-    </span>
   
 
   
@@ -246,7 +234,7 @@
             
             <div class="markdown-body">
               <h2 id="第一题、构造函数和对象的知识运用"><a href="#第一题、构造函数和对象的知识运用" class="headerlink" title="第一题、构造函数和对象的知识运用"></a>第一题、构造函数和对象的知识运用</h2><p>  这个题目也有考闭包的问题</p>
-<pre><code>  function Person(name,age ,sex)&#123;
+<div class="code-wrapper"><pre><code class="hljs">  function Person(name,age ,sex)&#123;
     var a=0;
     this.name = age;
     this.age = age;
@@ -270,10 +258,10 @@ person3.say(); //得出的结果是2
 var person5 = new Person(); //又会将构造函数再一次的转换成对象，是一个全新的
 
 person5.say(); //由于上面又会将构造函数再一次的转换成一个全新的对象，所以这里打印的值依旧是 “ 1 ”。
-</code></pre>
+</code></pre></div>
 <p>  <img src="https://s1.ax1x.com/2020/05/14/YDwos1.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="第二题、求字符串的长度"><a href="#第二题、求字符串的长度" class="headerlink" title="第二题、求字符串的长度"></a>第二题、求字符串的长度</h2><p>   第一种方法实现</p>
-<pre><code>   function retbyteslen(target)&#123;
+<div class="code-wrapper"><pre><code class="hljs">   function retbyteslen(target)&#123;
 
     var count = target.length; //设定字符的长度
 
@@ -291,9 +279,9 @@ person5.say(); //由于上面又会将构造函数再一次的转换成一个全
     console.log(count);
 
 &#125;
-</code></pre>
+</code></pre></div>
 <p>   <img src="https://s1.ax1x.com/2020/05/14/YD6vA1.png" srcset="/img/loading.gif" lazyload></p>
-<pre><code>function retbyteslen(target)&#123;
+<div class="code-wrapper"><pre><code class="hljs">function retbyteslen(target)&#123;
 
     var count = target.length;
     for(var i; i &lt;target.length;i++)&#123;
@@ -306,19 +294,19 @@ person5.say(); //由于上面又会将构造函数再一次的转换成一个全
     console.log(count);
 
 &#125;
-</code></pre>
+</code></pre></div>
 <p>  <img src="https://s1.ax1x.com/2020/05/14/YD6TpT.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="第三题"><a href="#第三题" class="headerlink" title="第三题"></a>第三题</h2><p>   以下表达式的结果为true(A C D)</p>
-<pre><code>A、undefined == null; //这个两个类型，当undefined &lt; 0或者是undefined&gt;0或者是undefined=0，都是返回false ,然而当null&lt;0 或者是 null&gt;0 null=0 也都是返回false ,所以这时系统会认为这两个时相等的。
+<div class="code-wrapper"><pre><code class="hljs">A、undefined == null; //这个两个类型，当undefined &lt; 0或者是undefined&gt;0或者是undefined=0，都是返回false ,然而当null&lt;0 或者是 null&gt;0 null=0 也都是返回false ,所以这时系统会认为这两个时相等的。
 
 B、undefined === null;//(三个等于号是绝对等于，就是完全一摸一样，像镜子找出来的一样)
 
 C、isNaN(&quot;100&quot;)
 
 D、parseInt(&quot;la&quot;)==1;
-</code></pre>
+</code></pre></div>
 <h2 id="第四题"><a href="#第四题" class="headerlink" title="第四题"></a>第四题</h2><p>   这是一题比较新颖的写法  </p>
-<pre><code>function print()&#123;
+<div class="code-wrapper"><pre><code class="hljs">function print()&#123;
     bar.a = &#39;a&#39;;
     Object.prototype.b = &#39;b&#39;;
     
@@ -329,9 +317,9 @@ D、parseInt(&quot;la&quot;)==1;
 &#125;
 
 prin()(); //第一个括号就是返回的一个函数，第二个括号是返回的那个函数执行   
-</code></pre>
+</code></pre></div>
 <h2 id="第五题"><a href="#第五题" class="headerlink" title="第五题"></a>第五题</h2><p>  ** 浅度克隆**</p>
-<pre><code>var test=&#123;
+<div class="code-wrapper"><pre><code class="hljs">var test=&#123;
     name : &quot;int&quot;,
     sex: &quot;mlea&quot;,
     age: 789
@@ -351,20 +339,20 @@ function inherit(Origin,target)&#123;
     return target;
 &#125;
 inherit(test,obj);
-</code></pre>
+</code></pre></div>
 <p> ** 深度克隆** </p>
-<pre><code>遍历对象 for(var prop in obj)
-</code></pre>
+<div class="code-wrapper"><pre><code class="hljs">遍历对象 for(var prop in obj)
+</code></pre></div>
 <p>   步骤：<br>       1、判断是不是原始值 (方法：typeof() object)</p>
-<pre><code>   2、判断是数组还是对象 （方法：instanceof toString constructor）一般不用instanceof和constructor会出现一些问题，但是有这三种方法去判断是数组还是对象
+<div class="code-wrapper"><pre><code class="hljs">   2、判断是数组还是对象 （方法：instanceof toString constructor）一般不用instanceof和constructor会出现一些问题，但是有这三种方法去判断是数组还是对象
 
    3、建立相应的数组或对象
 
    4、递归
    
-</code></pre>
+</code></pre></div>
 <p>   代码：</p>
-<pre><code>var test=&#123;
+<div class="code-wrapper"><pre><code class="hljs">var test=&#123;
     name : &quot;int&quot;,
     sex: &quot;mlea&quot;,
     age: 789,
@@ -404,9 +392,9 @@ function deepclone(origin,target)&#123;
 &#125;
 
 deepclone(test,obj);
-</code></pre>
+</code></pre></div>
 <p>   <img src="https://s1.ax1x.com/2020/05/22/YX7Izt.png" srcset="/img/loading.gif" lazyload></p>
-<h2 id="第六题-区分typeof-里面的原始值和引用值"><a href="#第六题-区分typeof-里面的原始值和引用值" class="headerlink" title="第六题 区分typeof()里面的原始值和引用值"></a>第六题 区分typeof()里面的原始值和引用值</h2><pre><code>function typein(target)&#123;
+<h2 id="第六题-区分typeof-里面的原始值和引用值"><a href="#第六题-区分typeof-里面的原始值和引用值" class="headerlink" title="第六题 区分typeof()里面的原始值和引用值"></a>第六题 区分typeof()里面的原始值和引用值</h2><div class="code-wrapper"><pre><code class="hljs">function typein(target)&#123;
  
   var objtype = &#123;
     &quot;[object Object]&quot; : &quot;object&quot;,
@@ -430,10 +418,10 @@ deepclone(test,obj);
   &#125;
 
 &#125;
-</code></pre>
+</code></pre></div>
 <p>  下面是简化代码</p>
 <p>  <img src="https://s1.ax1x.com/2020/05/25/tp4Icn.png" srcset="/img/loading.gif" lazyload></p>
-<h2 id="第七题-数组去重，在原型链上写"><a href="#第七题-数组去重，在原型链上写" class="headerlink" title="第七题 数组去重，在原型链上写"></a>第七题 数组去重，在原型链上写</h2><pre><code>var arr= [1,1,2,2,5,5,6,6,8,8];
+<h2 id="第七题-数组去重，在原型链上写"><a href="#第七题-数组去重，在原型链上写" class="headerlink" title="第七题 数组去重，在原型链上写"></a>第七题 数组去重，在原型链上写</h2><div class="code-wrapper"><pre><code class="hljs">var arr= [1,1,2,2,5,5,6,6,8,8];
 
 Array.prototype.unique = function ()&#123;
 
@@ -449,19 +437,19 @@ Array.prototype.unique = function ()&#123;
 
 &#125;
 console.log(arr.unique());
-</code></pre>
+</code></pre></div>
 <p>  <img src="https://s1.ax1x.com/2020/05/25/tpqkL9.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="第八题-封装一个函数，能够实现将新生成的标签插入原有标签的前面"><a href="#第八题-封装一个函数，能够实现将新生成的标签插入原有标签的前面" class="headerlink" title="第八题 封装一个函数，能够实现将新生成的标签插入原有标签的前面"></a>第八题 封装一个函数，能够实现将新生成的标签插入原有标签的前面</h2><p>   在原型链上编写</p>
 <p>   HTML代码：</p>
-<pre><code>   &lt;div&gt;
+<div class="code-wrapper"><pre><code class="hljs">   &lt;div&gt;
         &lt;span&gt;&lt;/span&gt;
         &lt;strong&gt;&lt;/strong&gt;
         &lt;i&gt;&lt;/i&gt;
         &lt;address&gt;&lt;/address&gt;
     &lt;/div&gt;
-</code></pre>
+</code></pre></div>
 <p>   JS代码：</p>
-<pre><code>Element.prototype.inserAfter = function (targetNode,afterNode)&#123;
+<div class="code-wrapper"><pre><code class="hljs">Element.prototype.inserAfter = function (targetNode,afterNode)&#123;
 
         var beforeNode=afterNode.nextElementSibling;
         if(beforeNode==null)&#123;
@@ -479,16 +467,16 @@ console.log(arr.unique());
     var span = document.getElementsByTagName(&quot;span&quot;)[0];
       
     var p = document.createElement(&#39;p&#39;);
-</code></pre>
+</code></pre></div>
 <h2 id="第九题"><a href="#第九题" class="headerlink" title="第九题"></a>第九题</h2><p>  下列说法错误的是（）</p>
-<pre><code>A. call 和 apply 在参数中有区别，后者采用数组方式传参
+<div class="code-wrapper"><pre><code class="hljs">A. call 和 apply 在参数中有区别，后者采用数组方式传参
 
 B. call函数执行会返回一个函数。
 
 C. 被bind后的函数this指向就确定了。
 
 D. call函数在执行的时候改变执行函数中的this指向。
-</code></pre>
+</code></pre></div>
 <p>   这个题目中引用的知识点</p>
 <p>   我们一开始需要先知道call，aplly,bind 是干嘛用的</p>
 <p>   call,aplly。在函数执行的时候，改变this指向</p>
@@ -497,13 +485,13 @@ D. call函数在执行的时候改变执行函数中的this指向。
 <p>   call 基于apply函数进行封装的。</p>
 <p>   a.call(this,a,b,c) =&gt;a.apply(this,[a,b,c])</p>
 <p>   a.apply(this,[1,2,3]) ==&gt;a.call(this, ….[1,2,3])</p>
-<h2 id="第十题"><a href="#第十题" class="headerlink" title="第十题"></a>第十题</h2><pre><code> function addToList(item,list)&#123;
+<h2 id="第十题"><a href="#第十题" class="headerlink" title="第十题"></a>第十题</h2><div class="code-wrapper"><pre><code class="hljs"> function addToList(item,list)&#123;
         return list.push(item);
    &#125;
 
  var result = addToList(&quot;apple&quot;,[&quot;banana&quot;]);
   console.log(result);
-</code></pre>
+</code></pre></div>
 
             </div>
             <hr>

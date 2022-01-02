@@ -13,14 +13,14 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="John Doe">
+  <meta name="author" content="DRAGON LI">
   <meta name="keywords" content="">
   
     <meta name="description" content="博文中所使用到的工具1.STM32CubeMX 5.2.1，软件下载地址：https:&#x2F;&#x2F;www.st.com&#x2F;content&#x2F;st_com&#x2F;en&#x2F;products&#x2F;development-tools&#x2F;software-development-tools&#x2F;stm32-software-development-tools&#x2F;stm32-configurators-and-code-generators">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基于STM32Cube HaL库的串口发送单个字符">
 <meta property="og:url" content="http://example.com/2020/04/12/STM32UARTsendone/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="AICONNECTIT">
 <meta property="og:description" content="博文中所使用到的工具1.STM32CubeMX 5.2.1，软件下载地址：https:&#x2F;&#x2F;www.st.com&#x2F;content&#x2F;st_com&#x2F;en&#x2F;products&#x2F;development-tools&#x2F;software-development-tools&#x2F;stm32-software-development-tools&#x2F;stm32-configurators-and-code-generators">
 <meta property="og:locale">
 <meta property="og:image" content="https://s1.ax1x.com/2020/04/20/Jldhz4.gif">
@@ -33,13 +33,13 @@
 <meta property="og:image" content="https://s1.ax1x.com/2020/04/12/GOTFEt.png">
 <meta property="article:published_time" content="2020-04-12T06:08:23.000Z">
 <meta property="article:modified_time" content="2022-01-01T10:20:34.112Z">
-<meta property="article:author" content="John Doe">
+<meta property="article:author" content="DRAGON LI">
 <meta property="article:tag" content="Hal库串口中断服务函数的使用">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://s1.ax1x.com/2020/04/20/Jldhz4.gif">
   
   
-  <title>基于STM32Cube HaL库的串口发送单个字符 - Hexo</title>
+  <title>基于STM32Cube HaL库的串口发送单个字符 - AICONNECTIT</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -88,7 +88,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <strong>Fluid</strong>
+      <strong>AICONNECTIT</strong>
     </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
@@ -204,19 +204,7 @@
 
 <div class="mt-1">
   
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-chart"></i>
-      undefined 字
-    </span>
-  
 
-  
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-clock-fill"></i>
-      
-      
-      NaN 分钟
-    </span>
   
 
   
@@ -255,19 +243,19 @@
 <h2 id="动手实验"><a href="#动手实验" class="headerlink" title="动手实验"></a>动手实验</h2><h3 id="使用STM32cubeMX-生成F4串口初始化函数"><a href="#使用STM32cubeMX-生成F4串口初始化函数" class="headerlink" title="使用STM32cubeMX 生成F4串口初始化函数"></a>使用STM32cubeMX 生成F4串口初始化函数</h3><p><img src="https://s1.ax1x.com/2020/04/20/Jldhz4.gif" srcset="/img/loading.gif" lazyload></p>
 <p>注释：UART选择Asynchronous全双工模式，LED设置为输出模式。特别注意要启动串口中断。在Parameter选项卡中设置波特率(Baud Rate)为115200 Bits/s，字长（Word Length）为 8bits，无奇偶检验（Parity），停止位（Stop Bits）为1，其他选项保持默认。设置TIM1时钟，效果是1s进入一次中断</p>
 <h3 id="修改F4串口初始化函数"><a href="#修改F4串口初始化函数" class="headerlink" title="修改F4串口初始化函数"></a>修改F4串口初始化函数</h3><p>1、打开之前用STM32cubeMX软件生成的代码，先看main.c文件中的代码部分，我们先定义两个串口发送数据的数组，具体代码如下                 </p>
-<pre><code>uint8_t aTxBuffer[]=&quot;串口发送数据\n&quot;;
+<div class="code-wrapper"><pre><code class="hljs">uint8_t aTxBuffer[]=&quot;串口发送数据\n&quot;;
 uint8_t aRxBuffer1[1];        // 用来接收串口1发送的数据，存放字符
 uint8_t aRxBuffer2[1];        // 用来接收串口2发送的数据，存放字符
-</code></pre>
+</code></pre></div>
 <p><img src="https://s1.ax1x.com/2020/04/12/GOrlAs.png" srcset="/img/loading.gif" lazyload><br>2、启动接收数据的中断函数，启动发送数据的中断函数，启动定时器函数</p>
-<pre><code>HAL_UART_Receive_IT(&amp;huart1,aRxBuffer1,1);            // 启用 USART1 中断
+<div class="code-wrapper"><pre><code class="hljs">HAL_UART_Receive_IT(&amp;huart1,aRxBuffer1,1);            // 启用 USART1 中断
 HAL_UART_Receive_IT(&amp;huart2,aRxBuffer2,1);            // 启用 USART2 中断
 HAL_UART_Transmit(&amp;huart1,aTxBuffer,sizeof(aTxBuffer),100);
 HAL_UART_Transmit(&amp;huart2,aTxBuffer,sizeof(aTxBuffer),100);
 HAL_TIM_Base_Start_IT(&amp;htim1);                        // 启动定时器1
-</code></pre>
+</code></pre></div>
 <p><img src="https://s1.ax1x.com/2020/04/12/GORuRA.png" srcset="/img/loading.gif" lazyload><br>3、查看我们具体的发送和接受数据的函数这个两个函数在”stm32f4xx_hal_uart.c”这个文件中，并且熟悉这两个接收和发送数据的函数，因后面我们还需要调用发送具体的数据。</p>
-<pre><code>HAL_StatusTypeDef HAL_UART_Receive_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size)
+<div class="code-wrapper"><pre><code class="hljs">HAL_StatusTypeDef HAL_UART_Receive_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size)
 &#123;
     if(huart-&gt;RxState == HAL_UART_STATE_READY)
        &#123;
@@ -305,9 +293,9 @@ HAL_TIM_Base_Start_IT(&amp;htim1);                        // 启动定时器1
           return HAL_BUSY;
         &#125;
  &#125;
-</code></pre>
+</code></pre></div>
 <p><img src="https://s1.ax1x.com/2020/04/12/GOR0s0.png" srcset="/img/loading.gif" lazyload><br>4、重写HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) 这个弱函数，这里我们先判断用于选择用哪个串口，然后再用接收到的数据发送到串口软件!（这里我解释一下弱函数的意思：弱函数指的是HAL库中带有_weak前缀的函数，我们称之为弱函数。_weak顾名思义是“弱”的意思，所以如果函数名称前面加上_weak修饰符，我们一般称这个函数为”弱函数”。加上了__weak修饰符的函数，用户可以在用户文件中重新定义一个同名函数，最终编译器编译的时候，会选择用户定义的函数，如果用户没有重新定义这个函数，那么编译器就会执行_weak 声明的函数，并且编译器不会报错。）</p>
-<pre><code> void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+<div class="code-wrapper"><pre><code class="hljs"> void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
  &#123;
   if(huart-&gt;Instance == USART1)    // 判断是由哪个串   口触发的中断
  &#123;
@@ -320,17 +308,17 @@ HAL_TIM_Base_Start_IT(&amp;htim1);                        // 启动定时器1
   HAL_UART_Receive_IT(&amp;huart2,aRxBuffer2,1);        // 重新使能串口2接收中断
   &#125;
 &#125;
-</code></pre>
+</code></pre></div>
 <p><img src="http://https//s1.ax1x.com/2020/04/12/GORci4.png" srcset="/img/loading.gif" lazyload></p>
 <p>5、重写HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) 弱函数用于判断是由哪个定时器触发的中断。这里我用了PB3引脚连接LED灯作为指示灯</p>
-<pre><code>  void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+<div class="code-wrapper"><pre><code class="hljs">  void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
  &#123;
     if(htim-&gt;Instance == TIM1)        // 判断是由哪个定时器触发的中断
     &#123;
         HAL_GPIO_TogglePin(GPIOB,GPIO_PIN_3);
     &#125;
  &#125;
-</code></pre>
+</code></pre></div>
 <p><img src="https://s1.ax1x.com/2020/04/12/GOWr6I.png" srcset="/img/loading.gif" lazyload></p>
 <p>##观看实验现象 ##</p>
 <p><img src="https://s1.ax1x.com/2020/04/12/GOT1U0.png" srcset="/img/loading.gif" lazyload></p>

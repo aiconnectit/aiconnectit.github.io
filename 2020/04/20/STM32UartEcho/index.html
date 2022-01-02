@@ -13,14 +13,14 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="John Doe">
+  <meta name="author" content="DRAGON LI">
   <meta name="keywords" content="">
   
     <meta name="description" content="一、问题提出我们如何才能与单片机取得通信？ 二、实验现象单片机通过USB转串口，电脑端通过使用串口助手下发一个数据，单片机接收到数据后就会转发给电脑端，串口助手接收数据区就可以看到刚才下发的数据。  三、实验准备1.STM32CubeMX 5.2.1 2.IAR 8.30.1 3.开发板主控芯片使用的是STM32F401RET6 4.一个USB转串口工具、一个STlink或Jlink 三、实验步骤">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基于STM32Cube HaL库串口中断函数回显字符串的使用">
 <meta property="og:url" content="http://example.com/2020/04/20/STM32UartEcho/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="AICONNECTIT">
 <meta property="og:description" content="一、问题提出我们如何才能与单片机取得通信？ 二、实验现象单片机通过USB转串口，电脑端通过使用串口助手下发一个数据，单片机接收到数据后就会转发给电脑端，串口助手接收数据区就可以看到刚才下发的数据。  三、实验准备1.STM32CubeMX 5.2.1 2.IAR 8.30.1 3.开发板主控芯片使用的是STM32F401RET6 4.一个USB转串口工具、一个STlink或Jlink 三、实验步骤">
 <meta property="og:locale">
 <meta property="og:image" content="https://s1.ax1x.com/2020/04/20/JlNgIO.gif">
@@ -30,13 +30,13 @@
 <meta property="og:image" content="https://s1.ax1x.com/2020/04/23/Jaduef.png">
 <meta property="article:published_time" content="2020-04-20T00:08:23.000Z">
 <meta property="article:modified_time" content="2022-01-01T10:20:34.111Z">
-<meta property="article:author" content="John Doe">
+<meta property="article:author" content="DRAGON LI">
 <meta property="article:tag" content="Hal库串口中断服务函数的使用">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://s1.ax1x.com/2020/04/20/JlNgIO.gif">
   
   
-  <title>基于STM32Cube HaL库串口中断函数回显字符串的使用 - Hexo</title>
+  <title>基于STM32Cube HaL库串口中断函数回显字符串的使用 - AICONNECTIT</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -85,7 +85,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <strong>Fluid</strong>
+      <strong>AICONNECTIT</strong>
     </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
@@ -201,19 +201,7 @@
 
 <div class="mt-1">
   
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-chart"></i>
-      undefined 字
-    </span>
-  
 
-  
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-clock-fill"></i>
-      
-      
-      NaN 分钟
-    </span>
   
 
   
@@ -345,15 +333,15 @@
 <p>   <code>void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)</code></p>
 <p>这里的一个参数同样是指定是哪一个串口。</p>
 <h4 id="添加代码让程序能够得到实验结果"><a href="#添加代码让程序能够得到实验结果" class="headerlink" title="添加代码让程序能够得到实验结果"></a>添加代码让程序能够得到实验结果</h4><p>1、第一步定义三个参数，一个指定一个字符的参数，一个是将接收到的每一个字符都放入数组中的一个数组参数，一个是数组元素个数的参数</p>
-<pre><code> uint8_t RxByte; //接收一个字符
+<div class="code-wrapper"><pre><code class="hljs"> uint8_t RxByte; //接收一个字符
  uint8_t RxBuff[256]; //接收一串字符
  uint16_t Rx_Count=0; //数组元素计数
-</code></pre>
+</code></pre></div>
 <p>2、第二步添加接收一个字符的的函数</p>
-<pre><code>HAL_UART_Receive_IT(&amp;huart1,&amp;RxByte,1);//接收一个字符
-</code></pre>
+<div class="code-wrapper"><pre><code class="hljs">HAL_UART_Receive_IT(&amp;huart1,&amp;RxByte,1);//接收一个字符
+</code></pre></div>
 <p>3、第三步编写接收中断回调函数，首先在这个中断回调函数里面做接收完一个字符放入数组中的工作，然后做是否接收完上位机发送过来的一串字符的判断工作，判断完毕后，紧接着还需将接收完毕之后的字符串发回给上位机。</p>
-<pre><code> void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+<div class="code-wrapper"><pre><code class="hljs"> void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
  &#123;
   /* Prevent unused argument(s) compilation warning */
    UNUSED(huart);
@@ -370,7 +358,7 @@
    &#125;
     while(HAL_UART_Receive_IT(&amp;huart1,&amp;RxByte,1)==HAL_OK);//重新使能接收一个字节的函数
 &#125;
-</code></pre>
+</code></pre></div>
 <p>4、测试代码是否编译通过，和得到我上面所写的相应实验现象。</p>
 <h4 id="代码在文件中的具体位置"><a href="#代码在文件中的具体位置" class="headerlink" title="代码在文件中的具体位置"></a>代码在文件中的具体位置</h4><p><img src="https://s1.ax1x.com/2020/04/23/Jad9eK.png" srcset="/img/loading.gif" lazyload></p>
 <p><img src="https://s1.ax1x.com/2020/04/23/Jadeyt.png" srcset="/img/loading.gif" lazyload></p>

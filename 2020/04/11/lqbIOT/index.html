@@ -13,14 +13,14 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="John Doe">
+  <meta name="author" content="DRAGON LI">
   <meta name="keywords" content="">
   
     <meta name="description" content="蓝桥杯试题解读​        本届蓝桥杯试题还是采用上机考试，赛点为我们提供两块网基于STM32L071KBU微控制器和LoRa接收发器。通过赛点提供的资源包以及板子对试题进行编写一个中型项目。本界试题的难度在于对整体如何把握状态机的行为和状态，只要读懂题目并且进行一个整体状态机行为和状态的分化，最后根据流程图编写状态机，再调整细微之处，就是一个完美的中性项目程序了。 流程图与编程要求讲解​">
 <meta property="og:type" content="article">
 <meta property="og:title" content="十一届蓝桥杯物联网程序题">
 <meta property="og:url" content="http://example.com/2020/04/11/lqbIOT/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="AICONNECTIT">
 <meta property="og:description" content="蓝桥杯试题解读​        本届蓝桥杯试题还是采用上机考试，赛点为我们提供两块网基于STM32L071KBU微控制器和LoRa接收发器。通过赛点提供的资源包以及板子对试题进行编写一个中型项目。本界试题的难度在于对整体如何把握状态机的行为和状态，只要读懂题目并且进行一个整体状态机行为和状态的分化，最后根据流程图编写状态机，再调整细微之处，就是一个完美的中性项目程序了。 流程图与编程要求讲解​">
 <meta property="og:locale">
 <meta property="og:image" content="https://liloong.gitee.io/my_image/img/27.png">
@@ -30,13 +30,13 @@
 <meta property="og:image" content="https://liloong.gitee.io/my_image/img/31.png">
 <meta property="article:published_time" content="2020-04-11T05:08:23.000Z">
 <meta property="article:modified_time" content="2022-01-01T10:20:34.110Z">
-<meta property="article:author" content="John Doe">
+<meta property="article:author" content="DRAGON LI">
 <meta property="article:tag" content="Hal库应用">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://liloong.gitee.io/my_image/img/27.png">
   
   
-  <title>十一届蓝桥杯物联网程序题 - Hexo</title>
+  <title>十一届蓝桥杯物联网程序题 - AICONNECTIT</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -85,7 +85,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <strong>Fluid</strong>
+      <strong>AICONNECTIT</strong>
     </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
@@ -201,19 +201,7 @@
 
 <div class="mt-1">
   
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-chart"></i>
-      undefined 字
-    </span>
-  
 
-  
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-clock-fill"></i>
-      
-      
-      NaN 分钟
-    </span>
   
 
   
@@ -263,7 +251,7 @@
 <p>  HAL_Delay(200);<br>  OLED_Init();<br>  OLED_Clear();</p>
 <p>  handle = radio_zm4xx_inst_init();<br>  if (handle != NULL)<br>    {<br>       radio_mode_set(handle, RX_MODE);//½øÈë½ÓÊÕÄ£Ê½<br>    }//lora³õÊ¼»¯Íê³É<br>  /* USER CODE END 2 */</p>
 <p>  /* Infinite loop <em>/<br>  /</em> USER CODE BEGIN WHILE <em>/<br>  while (1)<br>  {<br>    /</em> USER CODE END WHILE */</p>
-<pre><code>/* USER CODE BEGIN 3 */
+<div class="code-wrapper"><pre><code class="hljs">/* USER CODE BEGIN 3 */
 if(x&amp;0x000f)
 &#123;  
   GetStatc(&amp;key); 
@@ -298,22 +286,22 @@ if(g_Radio_Recv_Flag)
    g_Radio_Recv_Flag = 1;
    Task_Recv(handle);
 &#125;
-</code></pre>
+</code></pre></div>
 <p>  }<br>  /* USER CODE END 3 */<br>}`</p>
 <h4 id="获取按键键值函数实现"><a href="#获取按键键值函数实现" class="headerlink" title="获取按键键值函数实现"></a>获取按键键值函数实现</h4><p><code>void Readkey(void) &#123;    static uint8_t key_o = 0x00, key_n = 0x00;//前次和本次的按键状态    for(uint16_t i = 0;i &lt; KEY_COL; i++)    &#123;       HAL_GPIO_WritePin(GPIOB,key_column[i], GPIO_PIN_SET);       HAL_GPIO_WritePin(GPIOB,key_column[KEY_COL-i-1], GPIO_PIN_RESET);       for(uint16_t i = 0; i &lt; KEY_R; i++)       &#123;         //读取将按键状态依次移入key_n变量中         key_n &lt;&lt;= 1;         if(HAL_GPIO_ReadPin(GPIOB, key_row[i]) == KEY_DNS)         key_n |= 0x01;       &#125;    &#125;    x = (((key_n ^ key_o) &amp; key_o) &lt;&lt; 8) | ((key_n ^ key_o) &amp; key_n);       key_o = key_n;//将本次的按键状态，作为下次检测的比较 &#125;</code></p>
 <h4 id="通过串口发送数据函数实现"><a href="#通过串口发送数据函数实现" class="headerlink" title="通过串口发送数据函数实现"></a>通过串口发送数据函数实现</h4><p><code>void Task_Send(radio_handle_t Radio_handle) &#123;     radio_buf_send(Radio_handle, Cmd_A1, 7);     radio_mode_set(Radio_handle, RX_MODE);//½øÈë½ÓÊÕÄ£Ê½ &#125;</code></p>
 <h3 id="对于终端B-（LoRa）"><a href="#对于终端B-（LoRa）" class="headerlink" title="对于终端B （LoRa）"></a>对于终端B （LoRa）</h3><p>对于终端B模块主要负责接收数据</p>
 <h4 id="串口接收数据函数实现"><a href="#串口接收数据函数实现" class="headerlink" title="串口接收数据函数实现"></a>串口接收数据函数实现</h4><p>`void Task_Recv(radio_handle_t Radio_handle)<br>{<br>    uint8_t index = 0;<br>    if ( radio_buf_recv(Radio_handle, Radio_Rxbuff, &amp;Radio_RxLength) == RADIO_RET_OK)<br>    {<br>        for ( ; index &lt; Radio_RxLength; index++)<br>        {<br>            Cmd_Buff[index] = Radio_Rxbuff[index];<br>        }</p>
-<pre><code>   Compare_Cmd(Cmd_Buff, Radio_RxLength);
+<div class="code-wrapper"><pre><code class="hljs">   Compare_Cmd(Cmd_Buff, Radio_RxLength);
 &#125;
-</code></pre>
+</code></pre></div>
 <p>}`</p>
 <h4 id="按键状态切换函数实现"><a href="#按键状态切换函数实现" class="headerlink" title="按键状态切换函数实现"></a>按键状态切换函数实现</h4><p>`void Task_Send(radio_handle_t Radio_handle)<br>{<br>    switch (key)//根据ADC大小发送相应的指令<br>        {<br>        case B1:<br>            radio_buf_send(Radio_handle, Cmd_B1, 7);<br>            radio_mode_set(Radio_handle, RX_MODE);//进入接收模式<br>            break;<br>        case B2:<br>            radio_buf_send(Radio_handle, Cmd_B2, 7);<br>            radio_mode_set(Radio_handle, RX_MODE);//进入接收模式<br>            break;<br>        case B4:<br>            radio_buf_send(Radio_handle, Cmd_B3, 7);<br>            radio_mode_set(Radio_handle, RX_MODE);//进入接收模式<br>            break;<br>        case B5:<br>            radio_buf_send(Radio_handle, Cmd_B4, 7);<br>            radio_mode_set(Radio_handle, RX_MODE);//进入接收模式<br>            break;</p>
-<pre><code>    default :
+<div class="code-wrapper"><pre><code class="hljs">    default :
         ;
         break;
     &#125;
-</code></pre>
+</code></pre></div>
 <p>}`</p>
 
             </div>
