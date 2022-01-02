@@ -1,14 +1,22 @@
+
+
 <!DOCTYPE html>
-<html>
+<html lang="zh-Hans" data-default-color-scheme=auto>
+
+
+
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
   
-  <title>Javascript基础理解-1 | Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
   
-    <meta name="keywords" content="NEWT,NEWT" />
-  
-  <meta name="description" content="函数的定义和函数的执行是分隔开来的，一般是先定义函数的，然后再执行函数   函数的定义和函数的执行是分隔开来的，重点注意函数的执行顺序，什么时候定义的，然后又是什么时候去执行的    形参：形式参数，比如字符代替的参数   实参：实际参数，比如完整的数字，给的完全的数据 变量声明   AO{    最开始每个变量都是 undefined 然后查找变量是否为函数 最后查找函数是有变为实参被定义。按这">
+    <meta name="description" content="函数的定义和函数的执行是分隔开来的，一般是先定义函数的，然后再执行函数   函数的定义和函数的执行是分隔开来的，重点注意函数的执行顺序，什么时候定义的，然后又是什么时候去执行的    形参：形式参数，比如字符代替的参数   实参：实际参数，比如完整的数字，给的完全的数据 变量声明   AO{    最开始每个变量都是 undefined 然后查找变量是否为函数 最后查找函数是有变为实参被定义。按这">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Javascript基础理解-1">
 <meta property="og:url" content="http://example.com/2020/05/11/Web/JS%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89/index.html">
@@ -34,146 +42,226 @@
 <meta property="article:modified_time" content="2022-01-01T10:20:34.118Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="js学习记录">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://s1.ax1x.com/2020/05/13/YaQtET.png">
   
   
-    <link rel="icon" href="/favicon.ico">
-  
-  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  
-<link rel="stylesheet" href="/css/style.css">
+  <title>Javascript基础理解-1 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
 
   
-<script src="/js/pace.min.js"></script>
-
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
   
 
   
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
   
 
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 6.0.0"></head>
 
+
 <body>
-  <div id="container">
-      <header id="header">
-    <div id="banner"></div>
-    <div id="header-outer">
-        <div id="header-menu" class="header-menu-pos animated">
-            <div class="header-menu-container">
-                <a href="/" class="left">
-                    <span class="site-title">NEWT</span>
-                </a>
-                <nav id="header-menu-nav" class="right">
-                    
-                    <a  href="/">
-                        <i class="fa fa-home"></i>
-                        <span>Home</span>
-                    </a>
-                    
-                    <a  href="/archives">
-                        <i class="fa fa-archive"></i>
-                        <span>Archives</span>
-                    </a>
-                    
-                    <a  href="/about">
-                        <i class="fa fa-user"></i>
-                        <span>About</span>
-                    </a>
-                    
-                </nav>
-                <a class="mobile-header-menu-button">
-                    <i class="fa fa-bars"></i>
-                </a>
-            </div>
-        </div>
-        <div id="header-row">
-            <div id="logo">
-                <a href="/">
-                    <img src="/images/logo.png" alt="logo">
-                </a>
-            </div>
-            <div class="header-info">
-                <div id="header-title">
-                    
-                    <h2>
-                        NEWT
-                    </h2>
-                    
-                </div>
-                <div id="header-description">
-                    
-                    <h3>
-                        一个专注 嵌入式 开发的技术博客
-                    </h3>
-                    
-                </div>
-            </div>
-            <nav class="header-nav">
-                <div class="social">
-                    
-                        <a title="MinHow" target="_blank" href="//liloong.gitee.io">
-                            <i class="fa fa-home fa-2x"></i></a>
-                    
-                        <a title="Github" target="_blank" href="//github.com/iwulianiw">
-                            <i class="fa fa-github fa-2x"></i></a>
-                    
-                        <a title="Weibo"  target="_blank" rel="noopener" href="//weibo.com/WongMinHo">
-                            <i class="fa fa-weibo fa-2x"></i></a>
-                    
-                        <a title="Twitter"  target="_blank" rel="noopener" href="//twitter.com/huangminhow">
-                            <i class="fa fa-twitter fa-2x"></i></a>
-                    
-                </div>
-            </nav>
-        </div>
-    </div>
-</header>
-      <div class="outer">
-        <section id="main" class="body-wrap"><article id="post-Web/JS笔记（1）" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
         
-  
-    <h1 class="post-title" itemprop="name">
-      Javascript基础理解-1
-    </h1>
-    <div class="post-title-bar">
-      <ul>
           
-              <li>
-                  <i class="fa fa-book"></i>
-                  
-                      <a href="/categories/Javascript/">Javascript</a>
-                  
-              </li>
           
-        <li>
-          <i class="fa fa-calendar"></i>  2020-05-11
-        </li>
-        <li>
-          <i class="fa fa-eye"></i>
-          <span id="busuanzi_value_page_pv"></span>
-        </li>
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Startseite
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archiv
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Kategorie
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Etiketten
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                Über mich
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
       </ul>
     </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Javascript基础理解-1">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-05-11 20:39" pubdate>
+        May 11, 2020 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      undefined 字
+    </span>
   
 
-          
-      </header>
-    
-    <div class="article-entry post-content" itemprop="articleBody">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
       
+      
+      NaN 分钟
+    </span>
+  
+
+  
+  
+</div>
+
             
-            <h1 id="函数的定义和函数的执行是分隔开来的，一般是先定义函数的，然后再执行函数"><a href="#函数的定义和函数的执行是分隔开来的，一般是先定义函数的，然后再执行函数" class="headerlink" title="函数的定义和函数的执行是分隔开来的，一般是先定义函数的，然后再执行函数"></a>函数的定义和函数的执行是分隔开来的，一般是先定义函数的，然后再执行函数</h1><p>   <strong>函数的定义和函数的执行是分隔开来的，重点注意函数的执行顺序，什么时候定义的，然后又是什么时候去执行的</strong></p>
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Javascript基础理解-1</h1>
+            
+            <div class="markdown-body">
+              <h1 id="函数的定义和函数的执行是分隔开来的，一般是先定义函数的，然后再执行函数"><a href="#函数的定义和函数的执行是分隔开来的，一般是先定义函数的，然后再执行函数" class="headerlink" title="函数的定义和函数的执行是分隔开来的，一般是先定义函数的，然后再执行函数"></a>函数的定义和函数的执行是分隔开来的，一般是先定义函数的，然后再执行函数</h1><p>   <strong>函数的定义和函数的执行是分隔开来的，重点注意函数的执行顺序，什么时候定义的，然后又是什么时候去执行的</strong></p>
 <p>   <strong>形参：形式参数，比如字符代替的参数</strong><br>   <strong>实参：实际参数，比如完整的数字，给的完全的数据</strong></p>
 <h2 id="变量声明"><a href="#变量声明" class="headerlink" title="变量声明"></a>变量声明</h2><p>   AO{</p>
 <p>   最开始每个变量都是 undefined 然后查找变量是否为函数 最后查找函数是有变为实参被定义。按这种方法来查找函数的执行顺序</p>
 <p>  }</p>
 <p>   GO{</p>
 <p>  }全局变量</p>
-<p>  <img src="https://s1.ax1x.com/2020/05/13/YaQtET.png"></p>
+<p>  <img src="https://s1.ax1x.com/2020/05/13/YaQtET.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="函数声明"><a href="#函数声明" class="headerlink" title="函数声明"></a>函数声明</h2><p>函数声明和函数表达式是不一样的</p>
 <pre><code>function test()&#123;&#125; //函数声明
 </code></pre>
@@ -196,7 +284,7 @@
 
    4、模块化开发防止污染全局
 </code></pre>
-<p>  <img src="https://s1.ax1x.com/2020/05/11/YJLWz8.png"></p>
+<p>  <img src="https://s1.ax1x.com/2020/05/11/YJLWz8.png" srcset="/img/loading.gif" lazyload></p>
 <p>  闭包可以做缓存应用的代码示例</p>
 <pre><code> //代码思路：最先new一个方法，方法里面写一个对象，对象包含两个方法，也可以是对象里面有属性
 
@@ -229,7 +317,7 @@ function eater()&#123; //新建一个方法
 
 //要先给push属性一个值，下面那个方法才能打印出之前给的值
 </code></pre>
-<p>  <img src="https://s1.ax1x.com/2020/05/11/YJxI5d.png"></p>
+<p>  <img src="https://s1.ax1x.com/2020/05/11/YJxI5d.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="立即执行函数"><a href="#立即执行函数" class="headerlink" title="立即执行函数"></a>立即执行函数</h2><p>   针对初始化功能的函数，执行完函数，就会将函数立即释放，执行完函数就是被销毁。</p>
 <p>   编程的形式代码</p>
 <pre><code>     (function abc()&#123;
@@ -240,7 +328,7 @@ function eater()&#123; //新建一个方法
         console.log(a+b);
     &#125;())
 </code></pre>
-<p>   <img src="https://s1.ax1x.com/2020/05/11/YYP5a8.png"></p>
+<p>   <img src="https://s1.ax1x.com/2020/05/11/YYP5a8.png" srcset="/img/loading.gif" lazyload></p>
 <p>   立即执行函数返回值的接收方法</p>
 <pre><code>  var num  = (function abc(a,b)&#123;
 
@@ -289,7 +377,7 @@ var demo = a();
 demo();
     
 </code></pre>
-<p>   不用return 的第二种实现方式<br>   <img src="https://s1.ax1x.com/2020/05/12/YtK79I.png"></p>
+<p>   不用return 的第二种实现方式<br>   <img src="https://s1.ax1x.com/2020/05/12/YtK79I.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="闭包的原理"><a href="#闭包的原理" class="headerlink" title="闭包的原理"></a>闭包的原理</h2><p>  如果想让for循环里面的函数立即执行，而不是等到外部访问了之后才去执行，那么我们就可以利用立即执行函数，将每一次的循环都执行到那个函数，然后当我们去访问这个函数的时候就可以得到每一次都执行的结果，而不是等到外部访问的时候执行的结果是总的结果。</p>
 <pre><code>   function test()&#123;
         var arr = [];
@@ -342,10 +430,10 @@ for(var j=0; j&lt;10;j++)
 </code></pre>
 <h2 id="内存泄漏意思理解"><a href="#内存泄漏意思理解" class="headerlink" title="内存泄漏意思理解"></a>内存泄漏意思理解</h2><p>   意思是过多的占用内存资源。剩的资源空间就会少了</p>
 <h1 id="闭包作用示例"><a href="#闭包作用示例" class="headerlink" title="闭包作用示例"></a>闭包作用示例</h1><h2 id="累加器"><a href="#累加器" class="headerlink" title="累加器"></a>累加器</h2><p>   <strong>不依赖于外部变量并且能够反复执行的函数累加器</strong></p>
-<p>  <img src="https://s1.ax1x.com/2020/05/12/YtTJm9.png"> </p>
+<p>  <img src="https://s1.ax1x.com/2020/05/12/YtTJm9.png" srcset="/img/loading.gif" lazyload> </p>
 <h2 id="闭包的第三点应用"><a href="#闭包的第三点应用" class="headerlink" title="闭包的第三点应用"></a>闭包的第三点应用</h2><p>   私有化变量</p>
 <p>   访问的时是函数内部自己的变量</p>
-<p>   <img src="https://s1.ax1x.com/2020/05/19/Y44v4A.png"></p>
+<p>   <img src="https://s1.ax1x.com/2020/05/19/Y44v4A.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="只有表达式才能被执行"><a href="#只有表达式才能被执行" class="headerlink" title="只有表达式才能被执行"></a>只有表达式才能被执行</h2><p>   函数声明</p>
 <pre><code>    function test()&#123;
 
@@ -385,12 +473,12 @@ for(var j=0; j&lt;10;j++)
 <p>   4、”new”一个对象之后函数里面会添加一个this</p>
 <pre><code>var this = Object.create(函数名.prototype)//隐式的
 </code></pre>
-<p>   <img src="https://s1.ax1x.com/2020/05/22/YXr0Xt.png"></p>
+<p>   <img src="https://s1.ax1x.com/2020/05/22/YXr0Xt.png" srcset="/img/loading.gif" lazyload></p>
 <h3 id="构造函数的内部原理"><a href="#构造函数的内部原理" class="headerlink" title="构造函数的内部原理"></a>构造函数的内部原理</h3><p>   有new之后内部自动将构造的函数转换成 var this = {}</p>
 <p>   返回                         return this  这个样式之后就能形成以一个对象</p>
-<p>   <img src="https://s1.ax1x.com/2020/05/14/YDJMX8.png"></p>
+<p>   <img src="https://s1.ax1x.com/2020/05/14/YDJMX8.png" srcset="/img/loading.gif" lazyload></p>
 <p>   注意最后会返回一个this</p>
-<p>   <img src="https://s1.ax1x.com/2020/05/14/YD3MXF.png"></p>
+<p>   <img src="https://s1.ax1x.com/2020/05/14/YD3MXF.png" srcset="/img/loading.gif" lazyload></p>
 <p>   构造函数如何实现的三段论</p>
 <pre><code>   现在函数体最前面隐式的加上 var this = &#123;&#125;
    先隐式的来个 this
@@ -408,10 +496,10 @@ for(var j=0; j&lt;10;j++)
 <h2 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h2><p>   1、定义：原型是function的对象的一个属性，他定义了构造出的对象的公共祖先。通过该构造函数产生的对象，可以继承该原型的属性和方法。原型也是对象。</p>
 <p>   2、利用原型特点和概念，可提取共用属性（可以将共有的属性提取出来，下面是使用示例）</p>
 <p>   使用示例</p>
-<p>   <img src="https://s1.ax1x.com/2020/05/15/Yrec24.png"></p>
+<p>   <img src="https://s1.ax1x.com/2020/05/15/Yrec24.png" srcset="/img/loading.gif" lazyload></p>
 <p>   原型也是有增、删、改、查</p>
 <p>   修改的话是要在原型的对象上进行。<br>   Person.prototype.lastname</p>
-<p>   <img src="https://s1.ax1x.com/2020/05/15/YrmfSg.png"></p>
+<p>   <img src="https://s1.ax1x.com/2020/05/15/YrmfSg.png" srcset="/img/loading.gif" lazyload></p>
 <p>   3、对象如何查看原型 -&gt;隐式属性 <strong>proto</strong></p>
 <p>   4、对象如何查看对象的构造函数 -&gt;constructor</p>
 <p>   Prototype原型空对象，可以将固有的公共的属性写在这个原型空对象上面，就可以最大限度的使用内存空间</p>
@@ -422,9 +510,9 @@ for(var j=0; j&lt;10;j++)
 </code></pre>
 <h2 id="绝大多数对象的最终都会继承自Object-prototype"><a href="#绝大多数对象的最终都会继承自Object-prototype" class="headerlink" title="绝大多数对象的最终都会继承自Object.prototype"></a>绝大多数对象的最终都会继承自Object.prototype</h2><h2 id="方法的重写"><a href="#方法的重写" class="headerlink" title="方法的重写"></a>方法的重写</h2><p>   系统也会有自带的属性的方法，但我们用系统自带的属性的名字重新写一个也叫做方法的重写</p>
 <p>   我在原型链的中间截断写一个自己需要的方法就是说方法的重写，写一个自己需要用到了方法</p>
-<p>   <img src="https://s1.ax1x.com/2020/05/18/YhfPsg.png"></p>
+<p>   <img src="https://s1.ax1x.com/2020/05/18/YhfPsg.png" srcset="/img/loading.gif" lazyload></p>
 <p>   在页面中能够打印出字符的底层原理</p>
-<p>   <img src="https://s1.ax1x.com/2020/05/18/Yh45in.png"></p>
+<p>   <img src="https://s1.ax1x.com/2020/05/18/Yh45in.png" srcset="/img/loading.gif" lazyload></p>
 <pre><code>    Object.prototype.toString
     Number.prototype.toString
     Array.prototype.toString
@@ -454,7 +542,7 @@ for(var j=0; j&lt;10;j++)
     Person.call(obj,&#39;cheng&#39;,300); //添加上这条语句时就可以让this指向obj这个对象里面的属性,那么Person.call(obj,后面的值就可以添加的obj对象里面的那个属性里去了
 </code></pre>
 <p>   实现的结果</p>
-<p>   <img src="https://s1.ax1x.com/2020/05/18/YhL9qP.png"></p>
+<p>   <img src="https://s1.ax1x.com/2020/05/18/YhL9qP.png" srcset="/img/loading.gif" lazyload></p>
 <p>   一般用到这个的地方形式</p>
 <pre><code>        function Person(name,age)&#123;
         
@@ -480,274 +568,209 @@ for(var j=0; j&lt;10;j++)
 <p>   是函数就有这个属性，每个函数都有</p>
 <p>   原型这个函数构造对象的共有祖先</p>
 
-            <div class="post-copyright">
-    <div class="content">
-        <p>最后更新： 2022年01月01日 18:20</p>
-        <p>原始链接： <a class="post-url" href="/2020/05/11/Web/JS%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89/" title="Javascript基础理解-1">http://example.com/2020/05/11/Web/JS%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89/</a></p>
-        <footer>
-            <a href="http://example.com">
-                <img src="/images/logo.png" alt="John Doe">
-                John Doe
-            </a>
-        </footer>
-    </div>
-</div>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Javascript/">Javascript</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/js%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">js学习记录</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/05/19/Web/JS%E7%AC%94%E8%AE%B0%EF%BC%882%EF%BC%89/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Javascript基础理解-2</span>
+                        <span class="visible-mobile">Vorheriger</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/05/09/Web/%E7%BB%8F%E5%85%B8%E4%BE%8B%E9%A2%98/">
+                        <span class="hidden-mobile">JS经典例题总结</span>
+                        <span class="visible-mobile">Nächster</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
 
-      
-        
             
-
-        
-    </div>
-    <footer class="article-footer">
-        
-        
-<div class="post-share">
-    <a href="javascript:;" id="share-sub" class="post-share-fab">
-        <i class="fa fa-share-alt"></i>
-    </a>
-    <div class="post-share-list" id="share-list">
-        <ul class="share-icons">
-          <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/05/11/Web/JS%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89/&title=《Javascript基础理解-1》 — Hexo&pic=http://example.comimages/logo.png" data-title="微博">
-              <i class="fa fa-weibo"></i>
-            </a>
-          </li>
-          <li>
-            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
-              <i class="fa fa-weixin"></i>
-            </a>
-          </li>
-          <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/05/11/Web/JS%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89/&title=《Javascript基础理解-1》 — Hexo&source=" data-title="QQ">
-              <i class="fa fa-qq"></i>
-            </a>
-          </li>
-          <li>
-            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/05/11/Web/JS%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89/" data-title="Facebook">
-              <i class="fa fa-facebook"></i>
-            </a>
-          </li>
-          <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Javascript基础理解-1》 — Hexo&url=http://example.com/2020/05/11/Web/JS%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89/&via=http://example.com" data-title="Twitter">
-              <i class="fa fa-twitter"></i>
-            </a>
-          </li>
-          <li>
-            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/05/11/Web/JS%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89/" data-title="Google+">
-              <i class="fa fa-google-plus"></i>
-            </a>
-          </li>
-        </ul>
-     </div>
-</div>
-<div class="post-modal wx-share" id="wxShare">
-    <a class="close" href="javascript:;" id="wxShare-close">×</a>
-    <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://example.com/2020/05/11/Web/JS%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89/" alt="微信分享二维码">
-</div>
-
-<div class="mask"></div>
-
-        
-        <ul class="article-footer-menu">
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/js学习记录/" class="color2">js学习记录</a>
-      
-  </li>
-
-        </ul>
-        
-    </footer>
-  </div>
-</article>
-
-
-    <aside class="post-toc-pos post-toc-top" id="post-toc">
-        <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E6%98%AF%E5%88%86%E9%9A%94%E5%BC%80%E6%9D%A5%E7%9A%84%EF%BC%8C%E4%B8%80%E8%88%AC%E6%98%AF%E5%85%88%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0%E7%9A%84%EF%BC%8C%E7%84%B6%E5%90%8E%E5%86%8D%E6%89%A7%E8%A1%8C%E5%87%BD%E6%95%B0"><span class="post-toc-text">函数的定义和函数的执行是分隔开来的，一般是先定义函数的，然后再执行函数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E"><span class="post-toc-text">变量声明</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%87%BD%E6%95%B0%E5%A3%B0%E6%98%8E"><span class="post-toc-text">函数声明</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%97%AD%E5%8C%85"><span class="post-toc-text">闭包</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%97%AD%E5%8C%85%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="post-toc-text">闭包的作用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%AB%8B%E5%8D%B3%E6%89%A7%E8%A1%8C%E5%87%BD%E6%95%B0"><span class="post-toc-text">立即执行函数</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%95%B0%E7%BB%84%E5%BA%94%E7%94%A8%E6%96%B9%E6%B3%95"><span class="post-toc-text">数组应用方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%97%AD%E5%8C%85%E7%90%86%E8%A7%A3"><span class="post-toc-text">闭包理解</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%97%AD%E5%8C%85%E7%9A%84%E5%8E%9F%E7%90%86"><span class="post-toc-text">闭包的原理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%A7%A6%E5%8F%91%E9%97%AD%E5%8C%85%E5%90%8E%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95"><span class="post-toc-text">触发闭包后的解决办法</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E6%84%8F%E6%80%9D%E7%90%86%E8%A7%A3"><span class="post-toc-text">内存泄漏意思理解</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E9%97%AD%E5%8C%85%E4%BD%9C%E7%94%A8%E7%A4%BA%E4%BE%8B"><span class="post-toc-text">闭包作用示例</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%B4%AF%E5%8A%A0%E5%99%A8"><span class="post-toc-text">累加器</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%97%AD%E5%8C%85%E7%9A%84%E7%AC%AC%E4%B8%89%E7%82%B9%E5%BA%94%E7%94%A8"><span class="post-toc-text">闭包的第三点应用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8F%AA%E6%9C%89%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%89%8D%E8%83%BD%E8%A2%AB%E6%89%A7%E8%A1%8C"><span class="post-toc-text">只有表达式才能被执行</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%AF%B9%E8%B1%A1"><span class="post-toc-text">对象</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%B1%9E%E6%80%A7%E7%9A%84-%E5%A2%9E%E3%80%81%E5%88%A0%E3%80%81%E6%94%B9%E3%80%81%E6%9F%A5"><span class="post-toc-text">属性的 增、删、改、查</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%9B%E5%BB%BA%E6%96%B9%E6%B3%95"><span class="post-toc-text">对象的创建方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E7%9A%84%E5%86%85%E9%83%A8%E5%8E%9F%E7%90%86"><span class="post-toc-text">构造函数的内部原理</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8C%85%E8%A3%85%E7%B1%BB"><span class="post-toc-text">包装类</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8E%9F%E5%9E%8B"><span class="post-toc-text">原型</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%BB%9D%E5%A4%A7%E5%A4%9A%E6%95%B0%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%9C%80%E7%BB%88%E9%83%BD%E4%BC%9A%E7%BB%A7%E6%89%BF%E8%87%AAObject-prototype"><span class="post-toc-text">绝大多数对象的最终都会继承自Object.prototype</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%96%B9%E6%B3%95%E7%9A%84%E9%87%8D%E5%86%99"><span class="post-toc-text">方法的重写</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#call-apply%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="post-toc-text">call&#x2F;apply的作用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8E%9F%E5%9E%8B%E6%80%BB%E7%BB%93"><span class="post-toc-text">原型总结</span></a></li></ol></li></ol>
-        </nav>
-    </aside>
-    
-
-<nav id="article-nav">
-  
-    <a href="/2020/05/19/Web/JS%E7%AC%94%E8%AE%B0%EF%BC%882%EF%BC%89/" id="article-nav-newer" class="article-nav-link-wrap">
-
-      <span class="article-nav-title">
-        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
-        
-          Javascript基础理解-2
-        
-      </span>
-    </a>
-  
-  
-    <a href="/2020/05/09/Web/%E7%BB%8F%E5%85%B8%E4%BE%8B%E9%A2%98/" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">JS经典例题总结</span>
-      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
-    </a>
-  
-</nav>
-
-
-
-    
-</section>
-        
+          </article>
+        </div>
       </div>
-      <footer id="footer">
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-<p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        总访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        总访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
 
 
-      <p>
-        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
-        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
-      &copy; 2022 John Doe<br>
-      </p>
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Suchen</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">Stichwort</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
     </div>
   </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
 </footer>
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-<script>
-  var mihoConfig = {
-      root: "http://example.com",
-      animate: true,
-      isHome: false,
-      share: true,
-      reward: 0
-  }
-</script>
-<div class="sidebar">
-    <div id="sidebar-search" title="Search">
-        <i class="fa fa-search"></i>
-    </div>
-    <div id="sidebar-category" title="Categories">
-        <i class="fa fa-book"></i>
-    </div>
-    <div id="sidebar-tag" title="Tags">
-        <i class="fa fa-tags"></i>
-    </div>
-    <div id="sidebar-top">
-        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
-    </div>
-</div>
-<div class="sidebar-menu-box" id="sidebar-menu-box">
-    <div class="sidebar-menu-box-container">
-        <div id="sidebar-menu-box-categories">
-            <a class="category-link" href="/categories/51%E5%8D%95%E7%89%87%E6%9C%BA/">51单片机</a><a class="category-link" href="/categories/CSS/">CSS</a><a class="category-link" href="/categories/FreeRTOS/">FreeRTOS</a><a class="category-link" href="/categories/HTML/">HTML</a><a class="category-link" href="/categories/HTML-CSS/">HTML+CSS</a><a class="category-link" href="/categories/Javascript/">Javascript</a><a class="category-link" href="/categories/STM32/">STM32</a><a class="category-link" href="/categories/imageClass/">imageClass</a><a class="category-link" href="/categories/js%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%BA%94%E7%94%A8/">js正则表达式应用</a><a class="category-link" href="/categories/nodejs/">nodejs</a><a class="category-link" href="/categories/%E6%A0%91%E8%8E%93%E6%B4%BE/">树莓派</a><a class="category-link" href="/categories/%E9%80%BB%E8%BE%91%E5%99%A8%E4%BB%B6/">逻辑器件</a>
-        </div>
-        <div id="sidebar-menu-box-tags">
-            <a href="/tags/CSS%E5%B1%9E%E6%80%A7%E5%86%85%E5%AE%B9/" style="font-size: 10px;">CSS属性内容</a> <a href="/tags/Fritzing%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">Fritzing软件使用</a> <a href="/tags/HEML-CSS-JS/" style="font-size: 10px;">HEML+CSS+JS</a> <a href="/tags/Hal%E5%BA%93%E4%B8%B2%E5%8F%A3%E4%B8%AD%E6%96%AD%E6%9C%8D%E5%8A%A1%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%BF%E7%94%A8/" style="font-size: 20px;">Hal库串口中断服务函数的使用</a> <a href="/tags/Hal%E5%BA%93%E5%BA%94%E7%94%A8/" style="font-size: 20px;">Hal库应用</a> <a href="/tags/JS%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" style="font-size: 10px;">JS学习记录</a> <a href="/tags/JS%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">JS笔记</a> <a href="/tags/RPI-GPIO/" style="font-size: 10px;">RPI.GPIO</a> <a href="/tags/STM32-HAL%E9%A9%B1%E5%8A%A8%E5%BA%93%E5%87%BD%E6%95%B0/" style="font-size: 10px;">STM32 HAL驱动库函数</a> <a href="/tags/Serial-Chart%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">Serial Chart软件使用</a> <a href="/tags/VLC%E8%A7%86%E9%A2%91%E6%B5%81%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">VLC视频流使用</a> <a href="/tags/WEB/" style="font-size: 10px;">WEB</a> <a href="/tags/js%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" style="font-size: 10px;">js学习记录</a> <a href="/tags/node-js/" style="font-size: 20px;">node.js</a> <a href="/tags/raspberry4B/" style="font-size: 10px;">raspberry4B</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/%E4%B8%B2%E5%8F%A3%E8%B0%83%E8%AF%95/" style="font-size: 10px;">串口调试</a> <a href="/tags/%E6%91%84%E5%83%8F%E5%A4%B4%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">摄像头使用</a> <a href="/tags/%E6%96%B0%E5%BB%BA%E5%B7%A5%E7%A8%8B/" style="font-size: 10px;">新建工程</a> <a href="/tags/%E7%83%A7%E5%BD%95Raspbian%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">烧录Raspbian系统</a> <a href="/tags/%E7%94%A8C%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">用C语言编程</a>
-        </div>
-    </div>
-    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
-</div>
-<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
-    <div class="mobile-header-menu-container">
-        <span class="title">Menus</span>
-        <ul class="mobile-header-menu-navbar">
-            
-            <li>
-                <a  href="/">
-                    <i class="fa fa-home"></i><span>Home</span>
-                </a>
-            </li>
-            
-            <li>
-                <a  href="/archives">
-                    <i class="fa fa-archive"></i><span>Archives</span>
-                </a>
-            </li>
-            
-            <li>
-                <a  href="/about">
-                    <i class="fa fa-user"></i><span>About</span>
-                </a>
-            </li>
-            
-        </ul>
-    </div>
-    <div class="mobile-header-tag-container">
-        <span class="title">Tags</span>
-        <div id="mobile-header-container-tags">
-            <a href="/tags/CSS%E5%B1%9E%E6%80%A7%E5%86%85%E5%AE%B9/" style="font-size: 10px;">CSS属性内容</a> <a href="/tags/Fritzing%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">Fritzing软件使用</a> <a href="/tags/HEML-CSS-JS/" style="font-size: 10px;">HEML+CSS+JS</a> <a href="/tags/Hal%E5%BA%93%E4%B8%B2%E5%8F%A3%E4%B8%AD%E6%96%AD%E6%9C%8D%E5%8A%A1%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%BF%E7%94%A8/" style="font-size: 20px;">Hal库串口中断服务函数的使用</a> <a href="/tags/Hal%E5%BA%93%E5%BA%94%E7%94%A8/" style="font-size: 20px;">Hal库应用</a> <a href="/tags/JS%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" style="font-size: 10px;">JS学习记录</a> <a href="/tags/JS%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">JS笔记</a> <a href="/tags/RPI-GPIO/" style="font-size: 10px;">RPI.GPIO</a> <a href="/tags/STM32-HAL%E9%A9%B1%E5%8A%A8%E5%BA%93%E5%87%BD%E6%95%B0/" style="font-size: 10px;">STM32 HAL驱动库函数</a> <a href="/tags/Serial-Chart%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">Serial Chart软件使用</a> <a href="/tags/VLC%E8%A7%86%E9%A2%91%E6%B5%81%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">VLC视频流使用</a> <a href="/tags/WEB/" style="font-size: 10px;">WEB</a> <a href="/tags/js%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" style="font-size: 10px;">js学习记录</a> <a href="/tags/node-js/" style="font-size: 20px;">node.js</a> <a href="/tags/raspberry4B/" style="font-size: 10px;">raspberry4B</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/%E4%B8%B2%E5%8F%A3%E8%B0%83%E8%AF%95/" style="font-size: 10px;">串口调试</a> <a href="/tags/%E6%91%84%E5%83%8F%E5%A4%B4%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">摄像头使用</a> <a href="/tags/%E6%96%B0%E5%BB%BA%E5%B7%A5%E7%A8%8B/" style="font-size: 10px;">新建工程</a> <a href="/tags/%E7%83%A7%E5%BD%95Raspbian%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">烧录Raspbian系统</a> <a href="/tags/%E7%94%A8C%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">用C语言编程</a>
-        </div>
-    </div>
-</div>
-<div class="search-wrap">
-    <span class="search-close">&times;</span>
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-            <i class="icon icon-lg icon-chevron-left"></i>
-        </a>
-        <input class="search-field" placeholder="Search..." id="keywords">
-        <a id="search-submit" href="javascript:;">
-            <i class="fa fa-search"></i>
-        </a>
-    <div class="search-container" id="search-container">
-        <ul class="search-result" id="search-result">
-        </ul>
-    </div>
-</div>
-
-<div id="search-tpl">
-    <li class="search-result-item">
-        <a href="{url}" class="search-item-li">
-            <span class="search-item-li-title" title="{title}">{title}</span>
-        </a>
-    </li>
-</div>
-
-<script src="/js/search.js"></script>
 
 
-<script src="/js/main.js"></script>
-
-
-
-  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
-  <div id="particles"></div>
+  <!-- SCRIPTS -->
   
-<script src="/js/particles.js"></script>
-
-
-
-
-
-
-
-
-  
-<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
-
-  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
-  
-<script src="/js/animate.js"></script>
-
-
-
-  
-<script src="/js/pop-img.js"></script>
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
 
   <script>
-     $(".article-entry p img").popImg();
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
   </script>
 
-  </div>
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
 </body>
 </html>

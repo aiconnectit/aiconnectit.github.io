@@ -1,14 +1,22 @@
+
+
 <!DOCTYPE html>
-<html>
+<html lang="zh-Hans" data-default-color-scheme=auto>
+
+
+
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
   
-  <title>CSS属性内容知识点总结 | Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
   
-    <meta name="keywords" content="NEWT,NEWT" />
-  
-  <meta name="description" content="设置字体浏览器默认的字体大小是16px，我们一般使用的字体大小是12px和14px，一般很少使用16px 设置字体的大小，其实是设置的字体的高 常用字体是arial 对于中文字体，cursive 这个字体还是比较好看的    字体代码如下 font-size: 81px;  font-weight: 600;  font-style: normal;  font-family: arial;  c">
+    <meta name="description" content="设置字体浏览器默认的字体大小是16px，我们一般使用的字体大小是12px和14px，一般很少使用16px 设置字体的大小，其实是设置的字体的高 常用字体是arial 对于中文字体，cursive 这个字体还是比较好看的    字体代码如下 font-size: 81px;  font-weight: 600;  font-style: normal;  font-family: arial;  c">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS属性内容知识点总结">
 <meta property="og:url" content="http://example.com/2020/03/29/Web/cssAttribute/index.html">
@@ -41,139 +49,219 @@
 <meta property="article:modified_time" content="2022-01-01T10:20:34.112Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="CSS属性内容">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://s1.ax1x.com/2020/05/02/JxuemQ.png">
   
   
-    <link rel="icon" href="/favicon.ico">
-  
-  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  
-<link rel="stylesheet" href="/css/style.css">
+  <title>CSS属性内容知识点总结 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
 
   
-<script src="/js/pace.min.js"></script>
-
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
   
 
   
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
   
 
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 6.0.0"></head>
 
+
 <body>
-  <div id="container">
-      <header id="header">
-    <div id="banner"></div>
-    <div id="header-outer">
-        <div id="header-menu" class="header-menu-pos animated">
-            <div class="header-menu-container">
-                <a href="/" class="left">
-                    <span class="site-title">NEWT</span>
-                </a>
-                <nav id="header-menu-nav" class="right">
-                    
-                    <a  href="/">
-                        <i class="fa fa-home"></i>
-                        <span>Home</span>
-                    </a>
-                    
-                    <a  href="/archives">
-                        <i class="fa fa-archive"></i>
-                        <span>Archives</span>
-                    </a>
-                    
-                    <a  href="/about">
-                        <i class="fa fa-user"></i>
-                        <span>About</span>
-                    </a>
-                    
-                </nav>
-                <a class="mobile-header-menu-button">
-                    <i class="fa fa-bars"></i>
-                </a>
-            </div>
-        </div>
-        <div id="header-row">
-            <div id="logo">
-                <a href="/">
-                    <img src="/images/logo.png" alt="logo">
-                </a>
-            </div>
-            <div class="header-info">
-                <div id="header-title">
-                    
-                    <h2>
-                        NEWT
-                    </h2>
-                    
-                </div>
-                <div id="header-description">
-                    
-                    <h3>
-                        一个专注 嵌入式 开发的技术博客
-                    </h3>
-                    
-                </div>
-            </div>
-            <nav class="header-nav">
-                <div class="social">
-                    
-                        <a title="MinHow" target="_blank" href="//liloong.gitee.io">
-                            <i class="fa fa-home fa-2x"></i></a>
-                    
-                        <a title="Github" target="_blank" href="//github.com/iwulianiw">
-                            <i class="fa fa-github fa-2x"></i></a>
-                    
-                        <a title="Weibo"  target="_blank" rel="noopener" href="//weibo.com/WongMinHo">
-                            <i class="fa fa-weibo fa-2x"></i></a>
-                    
-                        <a title="Twitter"  target="_blank" rel="noopener" href="//twitter.com/huangminhow">
-                            <i class="fa fa-twitter fa-2x"></i></a>
-                    
-                </div>
-            </nav>
-        </div>
-    </div>
-</header>
-      <div class="outer">
-        <section id="main" class="body-wrap"><article id="post-Web/cssAttribute" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
         
-  
-    <h1 class="post-title" itemprop="name">
-      CSS属性内容知识点总结
-    </h1>
-    <div class="post-title-bar">
-      <ul>
           
-              <li>
-                  <i class="fa fa-book"></i>
-                  
-                      <a href="/categories/CSS/">CSS</a>
-                  
-              </li>
           
-        <li>
-          <i class="fa fa-calendar"></i>  2020-03-29
-        </li>
-        <li>
-          <i class="fa fa-eye"></i>
-          <span id="busuanzi_value_page_pv"></span>
-        </li>
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Startseite
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archiv
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Kategorie
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Etiketten
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                Über mich
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
       </ul>
     </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="CSS属性内容知识点总结">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-03-29 12:03" pubdate>
+        March 29, 2020 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      undefined 字
+    </span>
   
 
-          
-      </header>
-    
-    <div class="article-entry post-content" itemprop="articleBody">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
       
+      
+      NaN 分钟
+    </span>
+  
+
+  
+  
+</div>
+
             
-            <h1 id="设置字体"><a href="#设置字体" class="headerlink" title="设置字体"></a>设置字体</h1><p>浏览器默认的字体大小是16px，我们一般使用的字体大小是12px和14px，一般很少使用16px</p>
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">CSS属性内容知识点总结</h1>
+            
+            <div class="markdown-body">
+              <h1 id="设置字体"><a href="#设置字体" class="headerlink" title="设置字体"></a>设置字体</h1><p>浏览器默认的字体大小是16px，我们一般使用的字体大小是12px和14px，一般很少使用16px</p>
 <p>设置字体的大小，其实是设置的字体的高</p>
 <p>常用字体是arial</p>
 <p>对于中文字体，cursive 这个字体还是比较好看的</p>
@@ -292,22 +380,22 @@ text-decoration: underline;  /*文本装饰标识符、设置下划线*/
 <p>  绝对定位: absolute</p>
 <p>  <strong>在第几层用 z-index: 1;属性进行设置，1就是第一层</strong></p>
 <p>  需要给定位距离距离上边和左边的大小的大小</p>
-<p>  <img src="https://s1.ax1x.com/2020/05/02/JxuemQ.png"></p>
+<p>  <img src="https://s1.ax1x.com/2020/05/02/JxuemQ.png" srcset="/img/loading.gif" lazyload></p>
 <p>  <strong>body这个标签有一个最开始外边距为8px，所以一般初始化时会把这个标签的外边距设置为零</strong></p>
 <p>  absolute 绝对定位脱离原来的位置进行定位，每一个都是一个新的层</p>
 <p>  <strong>绝对定位重要解释：相对于最近的有定位的父级进行定位，如果没有，那么相对于文档进行定位</strong></p>
 <p>  relative 保留原来位置进行定位，在原来的基础上进行定位，相对自己原来的位置进行定位</p>
 <p>  <strong>用relative进行参照物，不用relative进行定位，用absolute进行定位</strong></p>
-<p>  <img src="https://s1.ax1x.com/2020/05/02/Jx1Cxx.png"></p>
+<p>  <img src="https://s1.ax1x.com/2020/05/02/Jx1Cxx.png" srcset="/img/loading.gif" lazyload></p>
 <h3 id="固定定位也要配合left、top元素进行使用"><a href="#固定定位也要配合left、top元素进行使用" class="headerlink" title="固定定位也要配合left、top元素进行使用"></a>固定定位也要配合left、top元素进行使用</h3><pre><code> position:fixed; //在网页的一个地方静止不动
 </code></pre>
-<p>  <img src="https://s1.ax1x.com/2020/05/02/Jx1yo4.png"></p>
+<p>  <img src="https://s1.ax1x.com/2020/05/02/Jx1yo4.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h2><p>   <strong>是针对html的每一个元素的，每一个元素都可以叫做盒子</strong></p>
 <h3 id="盒子三大部分"><a href="#盒子三大部分" class="headerlink" title="盒子三大部分"></a>盒子三大部分</h3><p>  1、盒子壁 border</p>
 <p>  2、内边距 padding</p>
 <p>  3、盒子内容 width + height</p>
-<p>  <img src="https://s1.ax1x.com/2020/05/02/JxE51e.png"></p>
-<p>  <img src="https://s1.ax1x.com/2020/05/02/JxEx1g.png"></p>
+<p>  <img src="https://s1.ax1x.com/2020/05/02/JxE51e.png" srcset="/img/loading.gif" lazyload></p>
+<p>  <img src="https://s1.ax1x.com/2020/05/02/JxEx1g.png" srcset="/img/loading.gif" lazyload></p>
 <p>  四个值的话，分别代表上右下左</p>
 <p>  外边距 margin</p>
 <h3 id="盒子模型应用"><a href="#盒子模型应用" class="headerlink" title="盒子模型应用"></a>盒子模型应用</h3><p>  远视图画法</p>
@@ -317,7 +405,7 @@ text-decoration: underline;  /*文本装饰标识符、设置下划线*/
  margin-left:-50px;
  margin-top:-50;
 </code></pre>
-<p> <img src="https://s1.ax1x.com/2020/05/02/Jx8Sjx.png"></p>
+<p> <img src="https://s1.ax1x.com/2020/05/02/Jx8Sjx.png" srcset="/img/loading.gif" lazyload></p>
 <h3 id="如何画圆角"><a href="#如何画圆角" class="headerlink" title="如何画圆角"></a>如何画圆角</h3><pre><code> width: 100px;
  height: 100px;
  border: 10px solid red;
@@ -325,9 +413,9 @@ text-decoration: underline;  /*文本装饰标识符、设置下划线*/
 </code></pre>
 <h2 id="两栏布局"><a href="#两栏布局" class="headerlink" title="两栏布局"></a>两栏布局</h2><p>  左一个右一个（让两个块级元素共一行显示）</p>
 <p>  得是真正的两栏布局，而不能是一个块级元素压住另一个块级元素</p>
-<p>  <img src="https://s1.ax1x.com/2020/05/03/YpZ5Ed.png"></p>
+<p>  <img src="https://s1.ax1x.com/2020/05/03/YpZ5Ed.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="bfc问题"><a href="#bfc问题" class="headerlink" title="bfc问题"></a>bfc问题</h2><p>  问题：父子块级元素，当设置子元素相对于父元素顶部距离不能实现设置</p>
-<p>  <img src="https://s1.ax1x.com/2020/05/03/Ypufzt.png"></p>
+<p>  <img src="https://s1.ax1x.com/2020/05/03/Ypufzt.png" srcset="/img/loading.gif" lazyload></p>
 <p>  解决办法（bfc）</p>
 <p>  如何触发一个盒子的BFC</p>
 <p>  触发代码：</p>
@@ -340,37 +428,37 @@ text-decoration: underline;  /*文本装饰标识符、设置下划线*/
    第四种方法： overflow: hidden;//溢出盒子的部分要隐藏展示
     改变大盒子的渲染规则
 </code></pre>
-<p>  <img src="https://s1.ax1x.com/2020/05/05/Yka7sx.png"></p>
+<p>  <img src="https://s1.ax1x.com/2020/05/05/Yka7sx.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="浮动模型"><a href="#浮动模型" class="headerlink" title="浮动模型"></a>浮动模型</h2><p>  <strong>浮动元素产生了浮动流对后面的元素的影响不一</strong></p>
 <p>  <strong>所有产生了浮动流的元素，块级元素看不到他们的存在，所以就产生了分层.</strong></p>
-<p>  块级元素看不到浮动元素的测试代码<br>  <img src="https://s1.ax1x.com/2020/05/05/YkdLXq.png"></p>
+<p>  块级元素看不到浮动元素的测试代码<br>  <img src="https://s1.ax1x.com/2020/05/05/YkdLXq.png" srcset="/img/loading.gif" lazyload></p>
 <p>  看不到浮动元素的分层效果</p>
-<p>  <img src="https://s1.ax1x.com/2020/05/05/YkwK9H.png"></p>
+<p>  <img src="https://s1.ax1x.com/2020/05/05/YkwK9H.png" srcset="/img/loading.gif" lazyload></p>
 <p>  <strong>产生bfc的元素和文本类属性（inline）的元素以及文本都能看到浮动元素。</strong></p>
 <p>  <strong>只有块级才看不到浮动元素</strong></p>
 <p>   父级包含子级浮动流元素解决办法（俗称包裹元素）<br>     clear:both(both将两边的浮动流一块清除，只有一个作用清除浮动流)（加了一个结构，不好用）</p>
-<p>  <img src="https://s1.ax1x.com/2020/05/05/Yk0Wo8.png"></p>
+<p>  <img src="https://s1.ax1x.com/2020/05/05/Yk0Wo8.png" srcset="/img/loading.gif" lazyload></p>
 <p>  <strong>伪元素天生就存在html标签语句上，我们需要用的话就可以通过CSS将其选中伪元素，就可以通过CSS属性将其里面的内容修改</strong></p>
 <p>  <strong>伪元素天生就是行级元素，如果要做块级元素使用，就必须加上语句：（也是行级元素变成块级元素的方法</strong>   </p>
 <pre><code>    display: inline-block;
 </code></pre>
-<p>  <img src="https://s1.ax1x.com/2020/05/06/YEx3Us.png"></p>
+<p>  <img src="https://s1.ax1x.com/2020/05/06/YEx3Us.png" srcset="/img/loading.gif" lazyload></p>
 <p>  <strong>用完浮动流，记得清除，变成原始的行内元素</strong></p>
 <p>  清除浮动流三要素</p>
 <pre><code>   content:&quot;&quot;;
    display:block; //行内元素
    clear:both;
 </code></pre>
-<p>  <img src="https://s1.ax1x.com/2020/05/07/YZN9w6.png"></p>
+<p>  <img src="https://s1.ax1x.com/2020/05/07/YZN9w6.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="伪元素用法"><a href="#伪元素用法" class="headerlink" title="伪元素用法"></a>伪元素用法</h2><h3 id="伪元素-before-和-after-这两个伪元素的用法"><a href="#伪元素-before-和-after-这两个伪元素的用法" class="headerlink" title="伪元素 ::before 和 ::after 这两个伪元素的用法"></a>伪元素 ::before 和 ::after 这两个伪元素的用法</h3><p> <strong>为什么叫伪元素：他的元素结构是存在，但是他又没有写在html里面</strong></p>
 <p>  <strong>::before没有html结构,但可以通过CSS来正常操作（可以当元素来正常操作</strong></p>
 <p>  伪元素在最开始设计时就存在，只是我们通过CSS来选中进行了操作</p>
 <p>  content:””;可以修改伪元素里面的内容（只能用在伪元素中）</p>
 <p>  <strong>伪元素就是行级元素，如果要设置宽高之类的就必须改成块级元素或者是行级块元素</strong></p>
-<p>  <img src="https://s1.ax1x.com/2020/05/07/Ymf2hF.png"></p>
+<p>  <img src="https://s1.ax1x.com/2020/05/07/Ymf2hF.png" srcset="/img/loading.gif" lazyload></p>
 <h3 id="利用伪元素来清除浮动"><a href="#利用伪元素来清除浮动" class="headerlink" title="利用伪元素来清除浮动"></a>利用伪元素来清除浮动</h3><p>   利用伪元素来清除浮动只需修改CSS语句就行</p>
 <p>  <strong>能清除浮动的必须是块级元素，所以得将其设置为块元素，得添加display-block变成块级元素才能清除</strong></p>
-<p>   <img src="https://s1.ax1x.com/2020/05/06/YEzuJ1.png"></p>
+<p>   <img src="https://s1.ax1x.com/2020/05/06/YEzuJ1.png" srcset="/img/loading.gif" lazyload></p>
 <p>   设置了position:abolute;  float:left/right;</p>
 <p>   这两个属性会打内部把元素转换成inline-black 行级块元素</p>
 <p> <strong>lsit-style:none;控制原点的，可以将自定义序列前面的原点去除</strong></p>
@@ -391,7 +479,7 @@ text-decoration: underline;  /*文本装饰标识符、设置下划线*/
 <p> <strong>特殊 “p”(这是块级元素)标签里面不能套块级元素，套完就会被截断</strong></p>
 <p>  <strong>a标签里面不能套a标签</strong> 写了都不知到跳转哪一个</p>
 <h1 id="内容区不会随着网页缩小而改变办法"><a href="#内容区不会随着网页缩小而改变办法" class="headerlink" title="内容区不会随着网页缩小而改变办法"></a>内容区不会随着网页缩小而改变办法</h1><p>   内容区的外边距自适应就可以解决这个问题了</p>
-<p>   <img src="https://s1.ax1x.com/2020/05/07/YmlPHS.png"></p>
+<p>   <img src="https://s1.ax1x.com/2020/05/07/YmlPHS.png" srcset="/img/loading.gif" lazyload></p>
 <h1 id="文字属性的问题"><a href="#文字属性的问题" class="headerlink" title="文字属性的问题"></a>文字属性的问题</h1><p>  行级元素</p>
 <pre><code>   inline block
 </code></pre>
@@ -401,17 +489,17 @@ text-decoration: underline;  /*文本装饰标识符、设置下划线*/
 <p>  凡是带有inline属性的元素都有文本类特点</p>
 <p>  img 也是文本类属性，当多个图片在一行是就会有文字分隔符将多个图片中间隔开一定的距离</p>
 <p> <strong>解决办法：将图片之间的空格去了就可以了</strong></p>
-<p>  <img src="https://s1.ax1x.com/2020/05/07/Ym1JIg.png"></p>
+<p>  <img src="https://s1.ax1x.com/2020/05/07/Ym1JIg.png" srcset="/img/loading.gif" lazyload></p>
 <h1 id="内部原理"><a href="#内部原理" class="headerlink" title="内部原理"></a>内部原理</h1><p>  当我们用行级元素span去写网页时，当设置span的宽高时发现不能设置，但当我们添加上   position: absolute;  float: left/right; 这两条语句的其中一个时惊奇的发现可以设置了。</p>
 <p>  原因讲解：<br>     因为span是行级元素，不能设置宽高。但当设置了position: absolute;  float: left/right;这两条属性的其中一个时，浏览器就会自动将行级元素转换成行级块元素，然后我们就可以设置行级元素的宽高了</p>
 <p> 添加浮动元素时就会将行级元素转换成块级元素</p>
-<p>  <img src="https://s1.ax1x.com/2020/05/07/Ym3wfH.png"></p>
+<p>  <img src="https://s1.ax1x.com/2020/05/07/Ym3wfH.png" srcset="/img/loading.gif" lazyload></p>
 <h1 id="底对齐问题"><a href="#底对齐问题" class="headerlink" title="底对齐问题"></a>底对齐问题</h1><p>  当一个行级块元素或者是文本类元素，里面添加文字时外面的文字就会和里面的文字底对齐到最上面。</p>
-<p>  <img src="https://s1.ax1x.com/2020/05/07/YmttiT.png"></p>
+<p>  <img src="https://s1.ax1x.com/2020/05/07/YmttiT.png" srcset="/img/loading.gif" lazyload></p>
 <p>  position: absolute;  float: left/right; 这两条元素在浏览器执行时会转变成行级块元素，问题来了同样是行级块元素，但position: absolute;  float: left/right;这两条语句添加上去是就会在第一行显示，但当 display: inline-block;添加上去时就会是和边框底对齐，原因是position: absolute;  float: left/right;这两条语句是浮动元素，浮动元素看不到块级元素，所以就会自然而然的显示在第一行，但display: inline-block;不是浮动元素就会显示底对齐了，所以用display: inline-block;这个属性时，标签里面添加文字，就会一起在第一行对齐了。</p>
 <h1 id="调一行元素的对齐线"><a href="#调一行元素的对齐线" class="headerlink" title="调一行元素的对齐线"></a>调一行元素的对齐线</h1><pre><code>     vertical-align: -20%;
 </code></pre>
-<p>   <img src="https://s1.ax1x.com/2020/05/07/YmNON6.png"></p>
+<p>   <img src="https://s1.ax1x.com/2020/05/07/YmNON6.png" srcset="/img/loading.gif" lazyload></p>
 <h1 id="两个容器在一个大的容器里面左右浮动"><a href="#两个容器在一个大的容器里面左右浮动" class="headerlink" title="两个容器在一个大的容器里面左右浮动"></a>两个容器在一个大的容器里面左右浮动</h1><pre><code> &lt;div&gt;
      &lt;!-- 一个大容器里面包裹两个ul --&gt;
     &lt;ul&gt;&lt;/ul&gt; 
@@ -420,276 +508,211 @@ text-decoration: underline;  /*文本装饰标识符、设置下划线*/
     &lt;!-- 一个有浮动 --&gt;
  &lt;/div&gt;
 </code></pre>
-<h1 id="input是行快元素可以设置宽高"><a href="#input是行快元素可以设置宽高" class="headerlink" title="input是行快元素可以设置宽高"></a>input是行快元素可以设置宽高</h1><h1 id="透明属性"><a href="#透明属性" class="headerlink" title="透明属性"></a>透明属性</h1><p><img src="https://s1.ax1x.com/2020/05/13/YdF2Jx.png"></p>
+<h1 id="input是行快元素可以设置宽高"><a href="#input是行快元素可以设置宽高" class="headerlink" title="input是行快元素可以设置宽高"></a>input是行快元素可以设置宽高</h1><h1 id="透明属性"><a href="#透明属性" class="headerlink" title="透明属性"></a>透明属性</h1><p><img src="https://s1.ax1x.com/2020/05/13/YdF2Jx.png" srcset="/img/loading.gif" lazyload></p>
 
-            <div class="post-copyright">
-    <div class="content">
-        <p>最后更新： 2022年01月01日 18:20</p>
-        <p>原始链接： <a class="post-url" href="/2020/03/29/Web/cssAttribute/" title="CSS属性内容知识点总结">http://example.com/2020/03/29/Web/cssAttribute/</a></p>
-        <footer>
-            <a href="http://example.com">
-                <img src="/images/logo.png" alt="John Doe">
-                John Doe
-            </a>
-        </footer>
-    </div>
-</div>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/CSS/">CSS</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/CSS%E5%B1%9E%E6%80%A7%E5%86%85%E5%AE%B9/">CSS属性内容</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/04/11/lqbIOT/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">十一届蓝桥杯物联网程序题</span>
+                        <span class="visible-mobile">Vorheriger</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/03/25/STM32/">
+                        <span class="hidden-mobile">kile软件控制寄存器写LED</span>
+                        <span class="visible-mobile">Nächster</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
 
-      
-        
             
-
-        
-    </div>
-    <footer class="article-footer">
-        
-        
-<div class="post-share">
-    <a href="javascript:;" id="share-sub" class="post-share-fab">
-        <i class="fa fa-share-alt"></i>
-    </a>
-    <div class="post-share-list" id="share-list">
-        <ul class="share-icons">
-          <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/03/29/Web/cssAttribute/&title=《CSS属性内容知识点总结》 — Hexo&pic=http://example.comimages/logo.png" data-title="微博">
-              <i class="fa fa-weibo"></i>
-            </a>
-          </li>
-          <li>
-            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
-              <i class="fa fa-weixin"></i>
-            </a>
-          </li>
-          <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/03/29/Web/cssAttribute/&title=《CSS属性内容知识点总结》 — Hexo&source=" data-title="QQ">
-              <i class="fa fa-qq"></i>
-            </a>
-          </li>
-          <li>
-            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2020/03/29/Web/cssAttribute/" data-title="Facebook">
-              <i class="fa fa-facebook"></i>
-            </a>
-          </li>
-          <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《CSS属性内容知识点总结》 — Hexo&url=http://example.com/2020/03/29/Web/cssAttribute/&via=http://example.com" data-title="Twitter">
-              <i class="fa fa-twitter"></i>
-            </a>
-          </li>
-          <li>
-            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://example.com/2020/03/29/Web/cssAttribute/" data-title="Google+">
-              <i class="fa fa-google-plus"></i>
-            </a>
-          </li>
-        </ul>
-     </div>
-</div>
-<div class="post-modal wx-share" id="wxShare">
-    <a class="close" href="javascript:;" id="wxShare-close">×</a>
-    <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://example.com/2020/03/29/Web/cssAttribute/" alt="微信分享二维码">
-</div>
-
-<div class="mask"></div>
-
-        
-        <ul class="article-footer-menu">
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/CSS属性内容/" class="color3">CSS属性内容</a>
-      
-  </li>
-
-        </ul>
-        
-    </footer>
-  </div>
-</article>
-
-
-    <aside class="post-toc-pos post-toc-top" id="post-toc">
-        <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%AD%97%E4%BD%93"><span class="post-toc-text">设置字体</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%89%E7%A7%8D%E8%AE%BE%E7%BD%AE%E5%AD%97%E4%BD%93%E9%A2%9C%E8%89%B2%E6%96%B9%E6%B3%95"><span class="post-toc-text">三种设置字体颜色方法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%AE%BE%E7%BD%AE%E4%B8%89%E8%A7%92%E5%BD%A2%E4%BB%A3%E7%A0%81"><span class="post-toc-text">设置三角形代码</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%96%87%E6%9C%AC%E5%9E%82%E7%9B%B4%E5%92%8C%E6%B0%B4%E5%B9%B3%E5%B1%85%E4%B8%AD%E6%96%B9%E5%BC%8F"><span class="post-toc-text">文本垂直和水平居中方式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%96%87%E5%AD%97%E5%9C%A8%E7%9B%92%E5%AD%90%E9%87%8C%E5%A6%82%E4%BD%95%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD"><span class="post-toc-text">文字在盒子里如何垂直居中</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E4%BC%AA%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8"><span class="post-toc-text">伪类选择器</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#CSS%E4%B8%89%E5%A4%A7%E6%A8%A1%E5%9E%8B-%EF%BC%9A%E5%B1%82%E6%A8%A1%E5%9E%8B%E3%80%81%E7%9B%92%E6%A8%A1%E5%9E%8B%E3%80%81%E6%B5%AE%E5%8A%A8%E6%A8%A1%E5%9E%8B"><span class="post-toc-text">CSS三大模型 ：层模型、盒模型、浮动模型</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E7%9B%92%E6%A8%A1%E5%9E%8B%E5%88%86%E4%B8%A4%E7%A7%8D%EF%BC%88%E8%AE%A1%E7%AE%97%E6%96%B9%E5%BC%8F%E7%9A%84%E4%B8%8D%E5%90%8C%EF%BC%89"><span class="post-toc-text">盒模型分两种（计算方式的不同）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%B1%82%E6%A8%A1%E5%9E%8B"><span class="post-toc-text">层模型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%BB%9D%E5%AF%B9%E5%AE%9A%E4%BD%8D"><span class="post-toc-text">绝对定位</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%9B%B8%E5%AF%B9%E5%AE%9A%E4%BD%8D"><span class="post-toc-text">相对定位</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%9B%BA%E5%AE%9A%E5%AE%9A%E4%BD%8D"><span class="post-toc-text">固定定位</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#relative%E4%B8%8Eabsolute%E7%BB%84%E5%90%88%E4%BD%BF%E7%94%A8"><span class="post-toc-text">relative与absolute组合使用</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%9B%BE%E5%B1%82%E5%AE%9A%E4%BD%8D%E6%8A%80%E6%9C%AF"><span class="post-toc-text">图层定位技术</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%9B%BA%E5%AE%9A%E5%AE%9A%E4%BD%8D%E4%B9%9F%E8%A6%81%E9%85%8D%E5%90%88left%E3%80%81top%E5%85%83%E7%B4%A0%E8%BF%9B%E8%A1%8C%E4%BD%BF%E7%94%A8"><span class="post-toc-text">固定定位也要配合left、top元素进行使用</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%9B%92%E6%A8%A1%E5%9E%8B"><span class="post-toc-text">盒模型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%9B%92%E5%AD%90%E4%B8%89%E5%A4%A7%E9%83%A8%E5%88%86"><span class="post-toc-text">盒子三大部分</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B%E5%BA%94%E7%94%A8"><span class="post-toc-text">盒子模型应用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0%E4%B8%8D%E7%AE%A1%E7%BD%91%E9%A1%B5%E5%A6%82%E4%BD%95%E5%8F%98%E5%8C%96%E9%83%BD%E6%98%AF%E5%B1%85%E4%B8%AD%E7%9A%84%E5%86%99%E6%B3%95"><span class="post-toc-text">一个元素不管网页如何变化都是居中的写法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%A6%82%E4%BD%95%E7%94%BB%E5%9C%86%E8%A7%92"><span class="post-toc-text">如何画圆角</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%A4%E6%A0%8F%E5%B8%83%E5%B1%80"><span class="post-toc-text">两栏布局</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#bfc%E9%97%AE%E9%A2%98"><span class="post-toc-text">bfc问题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%B5%AE%E5%8A%A8%E6%A8%A1%E5%9E%8B"><span class="post-toc-text">浮动模型</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BC%AA%E5%85%83%E7%B4%A0%E7%94%A8%E6%B3%95"><span class="post-toc-text">伪元素用法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BC%AA%E5%85%83%E7%B4%A0-before-%E5%92%8C-after-%E8%BF%99%E4%B8%A4%E4%B8%AA%E4%BC%AA%E5%85%83%E7%B4%A0%E7%9A%84%E7%94%A8%E6%B3%95"><span class="post-toc-text">伪元素 ::before 和 ::after 这两个伪元素的用法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%88%A9%E7%94%A8%E4%BC%AA%E5%85%83%E7%B4%A0%E6%9D%A5%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8"><span class="post-toc-text">利用伪元素来清除浮动</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8D%95%E8%A1%8C%E6%96%87%E6%9C%AC%E6%BA%A2%E5%87%BA%E6%89%93%E7%82%B9%E6%96%B9%E6%B3%95"><span class="post-toc-text">单行文本溢出打点方法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%89%B9%E6%AE%8A%E7%82%B9"><span class="post-toc-text">特殊点</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%86%85%E5%AE%B9%E5%8C%BA%E4%B8%8D%E4%BC%9A%E9%9A%8F%E7%9D%80%E7%BD%91%E9%A1%B5%E7%BC%A9%E5%B0%8F%E8%80%8C%E6%94%B9%E5%8F%98%E5%8A%9E%E6%B3%95"><span class="post-toc-text">内容区不会随着网页缩小而改变办法</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%96%87%E5%AD%97%E5%B1%9E%E6%80%A7%E7%9A%84%E9%97%AE%E9%A2%98"><span class="post-toc-text">文字属性的问题</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%86%85%E9%83%A8%E5%8E%9F%E7%90%86"><span class="post-toc-text">内部原理</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%BA%95%E5%AF%B9%E9%BD%90%E9%97%AE%E9%A2%98"><span class="post-toc-text">底对齐问题</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E8%B0%83%E4%B8%80%E8%A1%8C%E5%85%83%E7%B4%A0%E7%9A%84%E5%AF%B9%E9%BD%90%E7%BA%BF"><span class="post-toc-text">调一行元素的对齐线</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E4%B8%A4%E4%B8%AA%E5%AE%B9%E5%99%A8%E5%9C%A8%E4%B8%80%E4%B8%AA%E5%A4%A7%E7%9A%84%E5%AE%B9%E5%99%A8%E9%87%8C%E9%9D%A2%E5%B7%A6%E5%8F%B3%E6%B5%AE%E5%8A%A8"><span class="post-toc-text">两个容器在一个大的容器里面左右浮动</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#input%E6%98%AF%E8%A1%8C%E5%BF%AB%E5%85%83%E7%B4%A0%E5%8F%AF%E4%BB%A5%E8%AE%BE%E7%BD%AE%E5%AE%BD%E9%AB%98"><span class="post-toc-text">input是行快元素可以设置宽高</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E9%80%8F%E6%98%8E%E5%B1%9E%E6%80%A7"><span class="post-toc-text">透明属性</span></a></li></ol>
-        </nav>
-    </aside>
-    
-
-<nav id="article-nav">
-  
-    <a href="/2020/04/11/lqbIOT/" id="article-nav-newer" class="article-nav-link-wrap">
-
-      <span class="article-nav-title">
-        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
-        
-          十一届蓝桥杯物联网程序题
-        
-      </span>
-    </a>
-  
-  
-    <a href="/2020/03/25/51/" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">虚拟串口软件调试工具</span>
-      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
-    </a>
-  
-</nav>
-
-
-
-    
-</section>
-        
+          </article>
+        </div>
       </div>
-      <footer id="footer">
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-<p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        总访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        总访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
 
 
-      <p>
-        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
-        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
-      &copy; 2022 John Doe<br>
-      </p>
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Suchen</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">Stichwort</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
     </div>
   </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
 </footer>
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-<script>
-  var mihoConfig = {
-      root: "http://example.com",
-      animate: true,
-      isHome: false,
-      share: true,
-      reward: 0
-  }
-</script>
-<div class="sidebar">
-    <div id="sidebar-search" title="Search">
-        <i class="fa fa-search"></i>
-    </div>
-    <div id="sidebar-category" title="Categories">
-        <i class="fa fa-book"></i>
-    </div>
-    <div id="sidebar-tag" title="Tags">
-        <i class="fa fa-tags"></i>
-    </div>
-    <div id="sidebar-top">
-        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
-    </div>
-</div>
-<div class="sidebar-menu-box" id="sidebar-menu-box">
-    <div class="sidebar-menu-box-container">
-        <div id="sidebar-menu-box-categories">
-            <a class="category-link" href="/categories/51%E5%8D%95%E7%89%87%E6%9C%BA/">51单片机</a><a class="category-link" href="/categories/CSS/">CSS</a><a class="category-link" href="/categories/FreeRTOS/">FreeRTOS</a><a class="category-link" href="/categories/HTML/">HTML</a><a class="category-link" href="/categories/HTML-CSS/">HTML+CSS</a><a class="category-link" href="/categories/Javascript/">Javascript</a><a class="category-link" href="/categories/STM32/">STM32</a><a class="category-link" href="/categories/imageClass/">imageClass</a><a class="category-link" href="/categories/js%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%BA%94%E7%94%A8/">js正则表达式应用</a><a class="category-link" href="/categories/nodejs/">nodejs</a><a class="category-link" href="/categories/%E6%A0%91%E8%8E%93%E6%B4%BE/">树莓派</a><a class="category-link" href="/categories/%E9%80%BB%E8%BE%91%E5%99%A8%E4%BB%B6/">逻辑器件</a>
-        </div>
-        <div id="sidebar-menu-box-tags">
-            <a href="/tags/CSS%E5%B1%9E%E6%80%A7%E5%86%85%E5%AE%B9/" style="font-size: 10px;">CSS属性内容</a> <a href="/tags/Fritzing%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">Fritzing软件使用</a> <a href="/tags/HEML-CSS-JS/" style="font-size: 10px;">HEML+CSS+JS</a> <a href="/tags/Hal%E5%BA%93%E4%B8%B2%E5%8F%A3%E4%B8%AD%E6%96%AD%E6%9C%8D%E5%8A%A1%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%BF%E7%94%A8/" style="font-size: 20px;">Hal库串口中断服务函数的使用</a> <a href="/tags/Hal%E5%BA%93%E5%BA%94%E7%94%A8/" style="font-size: 20px;">Hal库应用</a> <a href="/tags/JS%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" style="font-size: 10px;">JS学习记录</a> <a href="/tags/JS%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">JS笔记</a> <a href="/tags/RPI-GPIO/" style="font-size: 10px;">RPI.GPIO</a> <a href="/tags/STM32-HAL%E9%A9%B1%E5%8A%A8%E5%BA%93%E5%87%BD%E6%95%B0/" style="font-size: 10px;">STM32 HAL驱动库函数</a> <a href="/tags/Serial-Chart%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">Serial Chart软件使用</a> <a href="/tags/VLC%E8%A7%86%E9%A2%91%E6%B5%81%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">VLC视频流使用</a> <a href="/tags/WEB/" style="font-size: 10px;">WEB</a> <a href="/tags/js%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" style="font-size: 10px;">js学习记录</a> <a href="/tags/node-js/" style="font-size: 20px;">node.js</a> <a href="/tags/raspberry4B/" style="font-size: 10px;">raspberry4B</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/%E4%B8%B2%E5%8F%A3%E8%B0%83%E8%AF%95/" style="font-size: 10px;">串口调试</a> <a href="/tags/%E6%91%84%E5%83%8F%E5%A4%B4%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">摄像头使用</a> <a href="/tags/%E6%96%B0%E5%BB%BA%E5%B7%A5%E7%A8%8B/" style="font-size: 10px;">新建工程</a> <a href="/tags/%E7%83%A7%E5%BD%95Raspbian%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">烧录Raspbian系统</a> <a href="/tags/%E7%94%A8C%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">用C语言编程</a>
-        </div>
-    </div>
-    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
-</div>
-<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
-    <div class="mobile-header-menu-container">
-        <span class="title">Menus</span>
-        <ul class="mobile-header-menu-navbar">
-            
-            <li>
-                <a  href="/">
-                    <i class="fa fa-home"></i><span>Home</span>
-                </a>
-            </li>
-            
-            <li>
-                <a  href="/archives">
-                    <i class="fa fa-archive"></i><span>Archives</span>
-                </a>
-            </li>
-            
-            <li>
-                <a  href="/about">
-                    <i class="fa fa-user"></i><span>About</span>
-                </a>
-            </li>
-            
-        </ul>
-    </div>
-    <div class="mobile-header-tag-container">
-        <span class="title">Tags</span>
-        <div id="mobile-header-container-tags">
-            <a href="/tags/CSS%E5%B1%9E%E6%80%A7%E5%86%85%E5%AE%B9/" style="font-size: 10px;">CSS属性内容</a> <a href="/tags/Fritzing%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">Fritzing软件使用</a> <a href="/tags/HEML-CSS-JS/" style="font-size: 10px;">HEML+CSS+JS</a> <a href="/tags/Hal%E5%BA%93%E4%B8%B2%E5%8F%A3%E4%B8%AD%E6%96%AD%E6%9C%8D%E5%8A%A1%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%BF%E7%94%A8/" style="font-size: 20px;">Hal库串口中断服务函数的使用</a> <a href="/tags/Hal%E5%BA%93%E5%BA%94%E7%94%A8/" style="font-size: 20px;">Hal库应用</a> <a href="/tags/JS%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" style="font-size: 10px;">JS学习记录</a> <a href="/tags/JS%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">JS笔记</a> <a href="/tags/RPI-GPIO/" style="font-size: 10px;">RPI.GPIO</a> <a href="/tags/STM32-HAL%E9%A9%B1%E5%8A%A8%E5%BA%93%E5%87%BD%E6%95%B0/" style="font-size: 10px;">STM32 HAL驱动库函数</a> <a href="/tags/Serial-Chart%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">Serial Chart软件使用</a> <a href="/tags/VLC%E8%A7%86%E9%A2%91%E6%B5%81%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">VLC视频流使用</a> <a href="/tags/WEB/" style="font-size: 10px;">WEB</a> <a href="/tags/js%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" style="font-size: 10px;">js学习记录</a> <a href="/tags/node-js/" style="font-size: 20px;">node.js</a> <a href="/tags/raspberry4B/" style="font-size: 10px;">raspberry4B</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/%E4%B8%B2%E5%8F%A3%E8%B0%83%E8%AF%95/" style="font-size: 10px;">串口调试</a> <a href="/tags/%E6%91%84%E5%83%8F%E5%A4%B4%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">摄像头使用</a> <a href="/tags/%E6%96%B0%E5%BB%BA%E5%B7%A5%E7%A8%8B/" style="font-size: 10px;">新建工程</a> <a href="/tags/%E7%83%A7%E5%BD%95Raspbian%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">烧录Raspbian系统</a> <a href="/tags/%E7%94%A8C%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">用C语言编程</a>
-        </div>
-    </div>
-</div>
-<div class="search-wrap">
-    <span class="search-close">&times;</span>
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-            <i class="icon icon-lg icon-chevron-left"></i>
-        </a>
-        <input class="search-field" placeholder="Search..." id="keywords">
-        <a id="search-submit" href="javascript:;">
-            <i class="fa fa-search"></i>
-        </a>
-    <div class="search-container" id="search-container">
-        <ul class="search-result" id="search-result">
-        </ul>
-    </div>
-</div>
-
-<div id="search-tpl">
-    <li class="search-result-item">
-        <a href="{url}" class="search-item-li">
-            <span class="search-item-li-title" title="{title}">{title}</span>
-        </a>
-    </li>
-</div>
-
-<script src="/js/search.js"></script>
 
 
-<script src="/js/main.js"></script>
-
-
-
-  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
-  <div id="particles"></div>
+  <!-- SCRIPTS -->
   
-<script src="/js/particles.js"></script>
-
-
-
-
-
-
-
-
-  
-<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
-
-  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
-  
-<script src="/js/animate.js"></script>
-
-
-
-  
-<script src="/js/pop-img.js"></script>
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
 
   <script>
-     $(".article-entry p img").popImg();
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
   </script>
 
-  </div>
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
 </body>
 </html>

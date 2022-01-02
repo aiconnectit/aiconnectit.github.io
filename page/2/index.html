@@ -1,927 +1,784 @@
+
+
 <!DOCTYPE html>
-<html>
+<html lang="zh-Hans" data-default-color-scheme=auto>
+
+
+
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
   
-  <title>Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
   
-    <meta name="keywords" content="NEWT,NEWT" />
-  
-  <meta property="og:type" content="website">
+    <meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
 <meta property="og:url" content="http://example.com/page/2/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale">
 <meta property="article:author" content="John Doe">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
   
   
-    <link rel="icon" href="/favicon.ico">
-  
-  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  
-<link rel="stylesheet" href="/css/style.css">
+  <title>Hexo</title>
 
-  
-<script src="/js/pace.min.js"></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
-  
 
-  
-  
 
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 6.0.0"></head>
 
+
 <body>
-  <div id="container">
-      <header id="header">
-    <div id="banner"></div>
-    <div id="header-outer">
-        <div id="header-menu" class="header-menu-pos animated">
-            <div class="header-menu-container">
-                <a href="/" class="left">
-                    <span class="site-title">NEWT</span>
-                </a>
-                <nav id="header-menu-nav" class="right">
-                    
-                    <a  href="/">
-                        <i class="fa fa-home"></i>
-                        <span>Home</span>
-                    </a>
-                    
-                    <a  href="/archives">
-                        <i class="fa fa-archive"></i>
-                        <span>Archives</span>
-                    </a>
-                    
-                    <a  href="/about">
-                        <i class="fa fa-user"></i>
-                        <span>About</span>
-                    </a>
-                    
-                </nav>
-                <a class="mobile-header-menu-button">
-                    <i class="fa fa-bars"></i>
-                </a>
+  <header style="height: 100vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Startseite
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archiv
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Kategorie
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Etiketten
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                Über mich
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="An elegant Material-Design theme for Hexo">
+              
+            </span>
+
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
             </div>
+          
         </div>
-        <div id="header-row">
-            <div id="logo">
-                <a href="/">
-                    <img src="/images/logo.png" alt="logo">
-                </a>
-            </div>
-            <div class="header-info">
-                <div id="header-title">
-                    
-                    <h2>
-                        NEWT
-                    </h2>
-                    
-                </div>
-                <div id="header-description">
-                    
-                    <h3>
-                        一个专注 嵌入式 开发的技术博客
-                    </h3>
-                    
-                </div>
-            </div>
-            <nav class="header-nav">
-                <div class="social">
-                    
-                        <a title="MinHow" target="_blank" href="//liloong.gitee.io">
-                            <i class="fa fa-home fa-2x"></i></a>
-                    
-                        <a title="Github" target="_blank" href="//github.com/iwulianiw">
-                            <i class="fa fa-github fa-2x"></i></a>
-                    
-                        <a title="Weibo"  target="_blank" rel="noopener" href="//weibo.com/WongMinHo">
-                            <i class="fa fa-weibo fa-2x"></i></a>
-                    
-                        <a title="Twitter"  target="_blank" rel="noopener" href="//twitter.com/huangminhow">
-                            <i class="fa fa-twitter fa-2x"></i></a>
-                    
-                </div>
-            </nav>
-        </div>
+      </div>
     </div>
-</header>
-      <div class="outer">
-        <section id="main" class="body-wrap">
-  
-    <article id="post-Web/Node知识理解" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  </header>
+
+  <main>
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/11/Web/Node%E7%9F%A5%E8%AF%86%E7%90%86%E8%A7%A3/"  >Nodejs基础性知识点总结</a>
-    </h1>
-  
+      <div class="container nopadding-x-md">
+        <div class="py-5" id="board"
+          style=margin-top:0>
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
 
-          
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/nodejs/">nodejs</a>
-                  
-              </span>
-          
-      </header>
+
+  <div class="row mx-auto index-card">
     
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2020/08/11/Web/Node%E7%9F%A5%E8%AF%86%E7%90%86%E8%A7%A3/" >
-                
-                <img src="http://example.com/images/banner.jpg" alt="Nodejs基础性知识点总结" title="Nodejs基础性知识点总结">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                Node.js是什么1、node.js 平台是基于 Chrom V8 javsaScript 引擎构建的。
-2、基于 node.js 可以开发控制台程序（命令行程序、CLI程序）、桌面应用程序（GUI）（需要借助 node - webkit、electron等框架实现）、web应用程序（网站）
-node.js有哪些特点1、事件驱动（当事件被触发时，执行传递过去的回调函数）...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2020-08-11</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/node.js/" class="color3">node.js</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/2020/08/11/Web/Node%E7%9F%A5%E8%AF%86%E7%90%86%E8%A7%A3/#more" class="article-more-link" >more&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-Web/正则表达式" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
     
-      <header class="article-header">
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/03/Web/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"  >正则表达式初步理解</a>
-    </h1>
-  
+        <a href="/2020/08/11/Web/Node%E7%9F%A5%E8%AF%86%E7%90%86%E8%A7%A3/" target="_self">
+          Nodejs基础性知识点总结
+        </a>
+      </h1>
 
+      <p class="index-excerpt">
+        <a href="/2020/08/11/Web/Node%E7%9F%A5%E8%AF%86%E7%90%86%E8%A7%A3/" target="_self">
           
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/js正则表达式应用/">js正则表达式应用</a>
-                  
-              </span>
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2020/07/03/Web/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" >
-                
-                <img src="http://example.com/images/banner.jpg" alt="正则表达式初步理解" title="正则表达式初步理解">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                正则表达式前期知识补充 转义字符”&quot; 会把反斜杠后面的字符取消掉原来的意思，加个反斜杠之后就会将反斜杠后面的字符以文本的形式输出。转义符号不会显示出来，如果转义符号想显示出来的话反斜杠前面再加反斜杠就能将反斜杠显示出来。
- \r：行结束符
- \n:换行
- \t:制表符
- 多行字符串
- 字符串换行符\n
-RegExp 正则表达式的作用：匹配特殊字符或有特殊搭配原则...
-            </p>
-        </div>
-      
+          Node.js是什么1、node.js 平台是基于 Chrom V8 javsaScript 引擎构建的。 2、基于 node.js 可以开发控制台程序（命令行程序、CLI程序）、桌面应用程序（GUI）（需要借助 node - webkit、electron等框架实现）、web应用程序（网站） node.js有哪些特点1、事件驱动（当事件被触发时，执行传递过去的回调函数） 2、非阻塞I&#x2F;O模型（当
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
         
-    </div>
-    <footer class="article-footer">
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-08-11 17:22" pubdate>
+              2020-08-11
+            </time>
+          </div>
         
-        <ul class="article-footer-menu">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
             
-                <li><i class="fa fa-calendar"></i>2020-07-03</li>
+              <a href="/categories/nodejs/">nodejs</a>
             
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
             
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/WEB/" class="color4">WEB</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/2020/07/03/Web/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/#more" class="article-more-link" >more&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-Web/json，异步加载，时间线" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/02/Web/json%EF%BC%8C%E5%BC%82%E6%AD%A5%E5%8A%A0%E8%BD%BD%EF%BC%8C%E6%97%B6%E9%97%B4%E7%BA%BF/"  >json 异步加载 时间线</a>
-    </h1>
-  
-
-          
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/Javascript/">Javascript</a>
-                  
-              </span>
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2020/07/02/Web/json%EF%BC%8C%E5%BC%82%E6%AD%A5%E5%8A%A0%E8%BD%BD%EF%BC%8C%E6%97%B6%E9%97%B4%E7%BA%BF/" >
-                
-                <img src="http://example.com/images/banner.jpg" alt="json 异步加载 时间线" title="json 异步加载 时间线">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                json  JSON是一种传输数据的格式（以对象为样板，本质上就是对象，但用途有区别，对象就是本地用的，json是用来传输的）
-  JSON.parse(); string —&gt; json
-  JSON.stringify();json —&gt; string
-js异步加载  javascript异步加载的三种方案
-   1、defer异步加载，但要等到dom文档...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
+              <a href="/tags/node-js/">node.js</a>
             
-                <li><i class="fa fa-calendar"></i>2020-07-02</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/web/" class="color4">web</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/2020/07/02/Web/json%EF%BC%8C%E5%BC%82%E6%AD%A5%E5%8A%A0%E8%BD%BD%EF%BC%8C%E6%97%B6%E9%97%B4%E7%BA%BF/#more" class="article-more-link" >more&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-Web/JS笔记(3)DOM方法" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/06/Web/JS%E7%AC%94%E8%AE%B0(3)DOM%E6%96%B9%E6%B3%95/"  >Javascript DOM操作方法</a>
-    </h1>
-  
-
-          
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/Javascript/">Javascript</a>
-                  
-              </span>
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2020/06/06/Web/JS%E7%AC%94%E8%AE%B0(3)DOM%E6%96%B9%E6%B3%95/" >
-                
-                <img src="http://example.com/images/banner.jpg" alt="Javascript DOM操作方法" title="Javascript DOM操作方法">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                DOM  什么是Dom
-  1.DOM —&gt;Document Object Model
-  2.DOM定义了表示修改文档所需的方法。DOM对象即为宿主对象，有浏览器厂商定义，用来操作html和Xml功能的一类对象的集合。也有人称DOM是对HTML以及XML的标准编程接口。
-  3、DOM开始一切系统给我们生成成组的方式基本上时类数组
-构造函数   构造函数是干嘛的是...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2020-06-06</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/JS笔记/" class="color5">JS笔记</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/2020/06/06/Web/JS%E7%AC%94%E8%AE%B0(3)DOM%E6%96%B9%E6%B3%95/#more" class="article-more-link" >more&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-Web/JS笔记（2）" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/19/Web/JS%E7%AC%94%E8%AE%B0%EF%BC%882%EF%BC%89/"  >Javascript基础理解-2</a>
-    </h1>
-  
-
-          
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/Javascript/">Javascript</a>
-                  
-              </span>
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2020/05/19/Web/JS%E7%AC%94%E8%AE%B0%EF%BC%882%EF%BC%89/" >
-                
-                <img src="http://example.com/images/banner.jpg" alt="Javascript基础理解-2" title="Javascript基础理解-2">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                继承的发展史   1、传统形式 —–&gt;原型链
-   弊端：过多的继承了没有用的属性
-   2、借用构造函数 call/apply
-   弊端：（1）不能继承借用构造函数的原型
-   （2）每次构造函数都要多走一个函数
-   3、共享原型(公有原型)
-   弊端：不能随便改变自己的原型，改变了自己的原型也会把继承的那个的原型也一同改变
-   4、圣杯模式
-共享原型  ...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2020-05-19</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/JS学习记录/" class="color2">JS学习记录</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/2020/05/19/Web/JS%E7%AC%94%E8%AE%B0%EF%BC%882%EF%BC%89/#more" class="article-more-link" >more&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-Web/JS笔记（1）" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/11/Web/JS%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89/"  >Javascript基础理解-1</a>
-    </h1>
-  
-
-          
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/Javascript/">Javascript</a>
-                  
-              </span>
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2020/05/11/Web/JS%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89/" >
-                
-                <img src="http://example.com/images/banner.jpg" alt="Javascript基础理解-1" title="Javascript基础理解-1">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                函数的定义和函数的执行是分隔开来的，一般是先定义函数的，然后再执行函数   函数的定义和函数的执行是分隔开来的，重点注意函数的执行顺序，什么时候定义的，然后又是什么时候去执行的
-   形参：形式参数，比如字符代替的参数   实参：实际参数，比如完整的数字，给的完全的数据
-变量声明   AO{
-   最开始每个变量都是 undefined 然后查找变量是否为函数 最后查找函...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2020-05-11</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/js学习记录/" class="color2">js学习记录</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/2020/05/11/Web/JS%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89/#more" class="article-more-link" >more&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-Web/经典例题" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/09/Web/%E7%BB%8F%E5%85%B8%E4%BE%8B%E9%A2%98/"  >JS经典例题总结</a>
-    </h1>
-  
-
-          
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/Javascript/">Javascript</a>
-                  
-              </span>
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2020/05/09/Web/%E7%BB%8F%E5%85%B8%E4%BE%8B%E9%A2%98/" >
-                
-                <img src="http://example.com/images/banner.jpg" alt="JS经典例题总结" title="JS经典例题总结">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                第一题、构造函数和对象的知识运用  这个题目也有考闭包的问题
-  function Person(name,age ,sex)&#123;
-    var a=0;
-    this.name = age;
-    this.age = age;
-    this.sex = sex;
-    function abc()&#123;
-        a++;
-     ...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2020-05-09</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/HEML+CSS+JS/" class="color2">HEML+CSS+JS</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/2020/05/09/Web/%E7%BB%8F%E5%85%B8%E4%BE%8B%E9%A2%98/#more" class="article-more-link" >more&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-driver_code" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/03/driver_code/"  >STM32 HAL驱动库函数总结</a>
-    </h1>
-  
-
-          
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/STM32/">STM32</a>
-                  
-              </span>
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2020/05/03/driver_code/" >
-                
-                <img src="http://example.com/images/banner.jpg" alt="STM32 HAL驱动库函数总结" title="STM32 HAL驱动库函数总结">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                一、驱动文件说明humidity and temperature (HTS221) 温湿度传感器
-3D accelerometer and 3D magnetometer (lsm303agr) 3D加速度计和3D磁力仪
-3D accelerometer and 3D gyroscope (LSM6DSL) 加速度，陀螺
-260-1260 hPa absolute dig...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2020-05-03</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/STM32HAL驱动库函数/" class="color5">STM32 HAL驱动库函数</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/2020/05/03/driver_code/#more" class="article-more-link" >more&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-Fritzing" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/02/Fritzing/"  >电路开发软件 Fritzing 的使用</a>
-    </h1>
-  
-
-          
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/STM32/">STM32</a>
-                  
-              </span>
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2020/05/02/Fritzing/" >
-                
-                <img src="http://example.com/images/banner.jpg" alt="电路开发软件 Fritzing 的使用" title="电路开发软件 Fritzing 的使用">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                一、问题提出我们在开发硬件模块时经常需要画出实际电路板才能测试电路是否可行，这在开发时不仅消耗的具体成本和时间上都很大，那么有没有一款软件能够以实际电路为导向将物理模型预先测试好呢？找了许久才找到这么一款电路开发软件Fritzing软件。
-二、软件准备我把软件放到百度网盘上了，直接下载解压，运行打开Fritzing.exe就可以使用了
-软件地址
-  提取码：zepo
-测试...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2020-05-02</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/Fritzing软件使用/" class="color3">Fritzing软件使用</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/2020/05/02/Fritzing/#more" class="article-more-link" >more&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-Web/html+CSS总结" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/01/Web/html+CSS%E6%80%BB%E7%BB%93/"  >html和CSS易混淆知识点总结</a>
-    </h1>
-  
-
-          
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/HTML+CSS/">HTML+CSS</a>
-                  
-              </span>
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2020/05/01/Web/html+CSS%E6%80%BB%E7%BB%93/" >
-                
-                <img src="http://example.com/images/banner.jpg" alt="html和CSS易混淆知识点总结" title="html和CSS易混淆知识点总结">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                这些元素的行级块级都是通过CSS控制的，也都是可以通过CSS去改变
-凡是带有inline的元素，都有文字特性
-1、行级元素 # inline   feature : 内容决定元素所占位置
-   不可以通过CSS改变宽高
-  例如：span strong em a del
-2、块级元素 # block   feature : 独占一行
-   可以通过CSS改变宽高
-  例如...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2020-05-01</li>
-            
-            
-        </ul>
-        
-            <a href="/2020/05/01/Web/html+CSS%E6%80%BB%E7%BB%93/#more" class="article-more-link" >more&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-
-
-  <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/">&lt;&lt; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &gt;&gt;</a>
-  </nav>
-</section>
+          </div>
         
       </div>
-      <footer id="footer">
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-<p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        总访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        总访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
+    </article>
+  </div>
 
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/07/03/Web/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" target="_self">
+          正则表达式初步理解
+        </a>
+      </h1>
 
-      <p>
-        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
-        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
-      &copy; 2022 John Doe<br>
+      <p class="index-excerpt">
+        <a href="/2020/07/03/Web/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" target="_self">
+          
+          正则表达式前期知识补充 转义字符”&quot; 会把反斜杠后面的字符取消掉原来的意思，加个反斜杠之后就会将反斜杠后面的字符以文本的形式输出。转义符号不会显示出来，如果转义符号想显示出来的话反斜杠前面再加反斜杠就能将反斜杠显示出来。  \r：行结束符  \n:换行  \t:制表符  多行字符串  字符串换行符\n RegExp 正则表达式的作用：匹配特殊字符或有特殊搭配原则的字符的最佳选择。  用于
+        </a>
       </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-07-03 15:45" pubdate>
+              2020-07-03
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/js%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%BA%94%E7%94%A8/">js正则表达式应用</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/WEB/">WEB</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/07/02/Web/json%EF%BC%8C%E5%BC%82%E6%AD%A5%E5%8A%A0%E8%BD%BD%EF%BC%8C%E6%97%B6%E9%97%B4%E7%BA%BF/" target="_self">
+          json 异步加载 时间线
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/07/02/Web/json%EF%BC%8C%E5%BC%82%E6%AD%A5%E5%8A%A0%E8%BD%BD%EF%BC%8C%E6%97%B6%E9%97%B4%E7%BA%BF/" target="_self">
+          
+          json  JSON是一种传输数据的格式（以对象为样板，本质上就是对象，但用途有区别，对象就是本地用的，json是用来传输的）   JSON.parse(); string —&gt; json   JSON.stringify();json —&gt; string js异步加载  javascript异步加载的三种方案    1、defer异步加载，但要等到dom文档全部解析完才会被执行。只有
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-07-02 14:13" pubdate>
+              2020-07-02
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Javascript/">Javascript</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/web/">web</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/06/06/Web/JS%E7%AC%94%E8%AE%B0(3)DOM%E6%96%B9%E6%B3%95/" target="_self">
+          Javascript DOM操作方法
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/06/06/Web/JS%E7%AC%94%E8%AE%B0(3)DOM%E6%96%B9%E6%B3%95/" target="_self">
+          
+          DOM  什么是Dom   1.DOM —&gt;Document Object Model   2.DOM定义了表示修改文档所需的方法。DOM对象即为宿主对象，有浏览器厂商定义，用来操作html和Xml功能的一类对象的集合。也有人称DOM是对HTML以及XML的标准编程接口。   3、DOM开始一切系统给我们生成成组的方式基本上时类数组 构造函数   构造函数是干嘛的是生成对象的 DOM基本操作
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-06-06 19:45" pubdate>
+              2020-06-06
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Javascript/">Javascript</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/JS%E7%AC%94%E8%AE%B0/">JS笔记</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/05/19/Web/JS%E7%AC%94%E8%AE%B0%EF%BC%882%EF%BC%89/" target="_self">
+          Javascript基础理解-2
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/05/19/Web/JS%E7%AC%94%E8%AE%B0%EF%BC%882%EF%BC%89/" target="_self">
+          
+          继承的发展史   1、传统形式 —–&gt;原型链    弊端：过多的继承了没有用的属性    2、借用构造函数 call&#x2F;apply    弊端：（1）不能继承借用构造函数的原型    （2）每次构造函数都要多走一个函数    3、共享原型(公有原型)    弊端：不能随便改变自己的原型，改变了自己的原型也会把继承的那个的原型也一同改变    4、圣杯模式 共享原型   代码格式    Fath
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-05-19 10:07" pubdate>
+              2020-05-19
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Javascript/">Javascript</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/JS%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">JS学习记录</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/05/11/Web/JS%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89/" target="_self">
+          Javascript基础理解-1
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/05/11/Web/JS%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89/" target="_self">
+          
+          函数的定义和函数的执行是分隔开来的，一般是先定义函数的，然后再执行函数   函数的定义和函数的执行是分隔开来的，重点注意函数的执行顺序，什么时候定义的，然后又是什么时候去执行的    形参：形式参数，比如字符代替的参数   实参：实际参数，比如完整的数字，给的完全的数据 变量声明   AO{    最开始每个变量都是 undefined 然后查找变量是否为函数 最后查找函数是有变为实参被定义。按这
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-05-11 20:39" pubdate>
+              2020-05-11
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Javascript/">Javascript</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/js%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">js学习记录</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/05/09/Web/%E7%BB%8F%E5%85%B8%E4%BE%8B%E9%A2%98/" target="_self">
+          JS经典例题总结
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/05/09/Web/%E7%BB%8F%E5%85%B8%E4%BE%8B%E9%A2%98/" target="_self">
+          
+          第一题、构造函数和对象的知识运用  这个题目也有考闭包的问题   function Person(name,age ,sex)&amp;#123;     var a&#x3D;0;     this.name &#x3D; age;     this.age &#x3D; age;     this.sex &#x3D; sex;     function abc()&amp;#123;         a++;         console.lo
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-05-09 22:28" pubdate>
+              2020-05-09
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Javascript/">Javascript</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/HEML-CSS-JS/">HEML+CSS+JS</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/05/03/driver_code/" target="_self">
+          STM32 HAL驱动库函数总结
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/05/03/driver_code/" target="_self">
+          
+          一、驱动文件说明humidity and temperature (HTS221) 温湿度传感器 3D accelerometer and 3D magnetometer (lsm303agr) 3D加速度计和3D磁力仪 3D accelerometer and 3D gyroscope (LSM6DSL) 加速度，陀螺 260-1260 hPa absolute digital output b
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-05-03 08:39" pubdate>
+              2020-05-03
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/STM32/">STM32</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/STM32-HAL%E9%A9%B1%E5%8A%A8%E5%BA%93%E5%87%BD%E6%95%B0/">STM32 HAL驱动库函数</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/05/02/Fritzing/" target="_self">
+          电路开发软件 Fritzing 的使用
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/05/02/Fritzing/" target="_self">
+          
+          一、问题提出我们在开发硬件模块时经常需要画出实际电路板才能测试电路是否可行，这在开发时不仅消耗的具体成本和时间上都很大，那么有没有一款软件能够以实际电路为导向将物理模型预先测试好呢？找了许久才找到这么一款电路开发软件Fritzing软件。 二、软件准备我把软件放到百度网盘上了，直接下载解压，运行打开Fritzing.exe就可以使用了 软件地址   提取码：zepo 测试文件下载地址   提取码：
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-05-02 09:39" pubdate>
+              2020-05-02
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/STM32/">STM32</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Fritzing%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/">Fritzing软件使用</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/05/01/Web/html+CSS%E6%80%BB%E7%BB%93/" target="_self">
+          html和CSS易混淆知识点总结
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/05/01/Web/html+CSS%E6%80%BB%E7%BB%93/" target="_self">
+          
+          这些元素的行级块级都是通过CSS控制的，也都是可以通过CSS去改变 凡是带有inline的元素，都有文字特性 1、行级元素 # inline   feature : 内容决定元素所占位置    不可以通过CSS改变宽高   例如：span strong em a del 2、块级元素 # block   feature : 独占一行    可以通过CSS改变宽高   例如： div p ul ol
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-05-01 12:03" pubdate>
+              2020-05-01
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/HTML-CSS/">HTML+CSS</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <a class="extend prev" rel="prev" href="/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/#board">3</a><a class="page-number" href="/page/4/#board">4</a><a class="extend next" rel="next" href="/page/3/#board"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Suchen</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">Stichwort</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
     </div>
   </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
 </footer>
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-<script>
-  var mihoConfig = {
-      root: "http://example.com",
-      animate: true,
-      isHome: true,
-      share: true,
-      reward: 0
-  }
-</script>
-<div class="sidebar">
-    <div id="sidebar-search" title="Search">
-        <i class="fa fa-search"></i>
-    </div>
-    <div id="sidebar-category" title="Categories">
-        <i class="fa fa-book"></i>
-    </div>
-    <div id="sidebar-tag" title="Tags">
-        <i class="fa fa-tags"></i>
-    </div>
-    <div id="sidebar-top">
-        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
-    </div>
-</div>
-<div class="sidebar-menu-box" id="sidebar-menu-box">
-    <div class="sidebar-menu-box-container">
-        <div id="sidebar-menu-box-categories">
-            <a class="category-link" href="/categories/51%E5%8D%95%E7%89%87%E6%9C%BA/">51单片机</a><a class="category-link" href="/categories/CSS/">CSS</a><a class="category-link" href="/categories/FreeRTOS/">FreeRTOS</a><a class="category-link" href="/categories/HTML/">HTML</a><a class="category-link" href="/categories/HTML-CSS/">HTML+CSS</a><a class="category-link" href="/categories/Javascript/">Javascript</a><a class="category-link" href="/categories/STM32/">STM32</a><a class="category-link" href="/categories/imageClass/">imageClass</a><a class="category-link" href="/categories/js%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%BA%94%E7%94%A8/">js正则表达式应用</a><a class="category-link" href="/categories/nodejs/">nodejs</a><a class="category-link" href="/categories/%E6%A0%91%E8%8E%93%E6%B4%BE/">树莓派</a><a class="category-link" href="/categories/%E9%80%BB%E8%BE%91%E5%99%A8%E4%BB%B6/">逻辑器件</a>
-        </div>
-        <div id="sidebar-menu-box-tags">
-            <a href="/tags/CSS%E5%B1%9E%E6%80%A7%E5%86%85%E5%AE%B9/" style="font-size: 10px;">CSS属性内容</a> <a href="/tags/Fritzing%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">Fritzing软件使用</a> <a href="/tags/HEML-CSS-JS/" style="font-size: 10px;">HEML+CSS+JS</a> <a href="/tags/Hal%E5%BA%93%E4%B8%B2%E5%8F%A3%E4%B8%AD%E6%96%AD%E6%9C%8D%E5%8A%A1%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%BF%E7%94%A8/" style="font-size: 20px;">Hal库串口中断服务函数的使用</a> <a href="/tags/Hal%E5%BA%93%E5%BA%94%E7%94%A8/" style="font-size: 20px;">Hal库应用</a> <a href="/tags/JS%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" style="font-size: 10px;">JS学习记录</a> <a href="/tags/JS%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">JS笔记</a> <a href="/tags/RPI-GPIO/" style="font-size: 10px;">RPI.GPIO</a> <a href="/tags/STM32-HAL%E9%A9%B1%E5%8A%A8%E5%BA%93%E5%87%BD%E6%95%B0/" style="font-size: 10px;">STM32 HAL驱动库函数</a> <a href="/tags/Serial-Chart%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">Serial Chart软件使用</a> <a href="/tags/VLC%E8%A7%86%E9%A2%91%E6%B5%81%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">VLC视频流使用</a> <a href="/tags/WEB/" style="font-size: 10px;">WEB</a> <a href="/tags/js%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" style="font-size: 10px;">js学习记录</a> <a href="/tags/node-js/" style="font-size: 20px;">node.js</a> <a href="/tags/raspberry4B/" style="font-size: 10px;">raspberry4B</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/%E4%B8%B2%E5%8F%A3%E8%B0%83%E8%AF%95/" style="font-size: 10px;">串口调试</a> <a href="/tags/%E6%91%84%E5%83%8F%E5%A4%B4%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">摄像头使用</a> <a href="/tags/%E6%96%B0%E5%BB%BA%E5%B7%A5%E7%A8%8B/" style="font-size: 10px;">新建工程</a> <a href="/tags/%E7%83%A7%E5%BD%95Raspbian%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">烧录Raspbian系统</a> <a href="/tags/%E7%94%A8C%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">用C语言编程</a>
-        </div>
-    </div>
-    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
-</div>
-<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
-    <div class="mobile-header-menu-container">
-        <span class="title">Menus</span>
-        <ul class="mobile-header-menu-navbar">
-            
-            <li>
-                <a  href="/">
-                    <i class="fa fa-home"></i><span>Home</span>
-                </a>
-            </li>
-            
-            <li>
-                <a  href="/archives">
-                    <i class="fa fa-archive"></i><span>Archives</span>
-                </a>
-            </li>
-            
-            <li>
-                <a  href="/about">
-                    <i class="fa fa-user"></i><span>About</span>
-                </a>
-            </li>
-            
-        </ul>
-    </div>
-    <div class="mobile-header-tag-container">
-        <span class="title">Tags</span>
-        <div id="mobile-header-container-tags">
-            <a href="/tags/CSS%E5%B1%9E%E6%80%A7%E5%86%85%E5%AE%B9/" style="font-size: 10px;">CSS属性内容</a> <a href="/tags/Fritzing%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">Fritzing软件使用</a> <a href="/tags/HEML-CSS-JS/" style="font-size: 10px;">HEML+CSS+JS</a> <a href="/tags/Hal%E5%BA%93%E4%B8%B2%E5%8F%A3%E4%B8%AD%E6%96%AD%E6%9C%8D%E5%8A%A1%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%BF%E7%94%A8/" style="font-size: 20px;">Hal库串口中断服务函数的使用</a> <a href="/tags/Hal%E5%BA%93%E5%BA%94%E7%94%A8/" style="font-size: 20px;">Hal库应用</a> <a href="/tags/JS%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" style="font-size: 10px;">JS学习记录</a> <a href="/tags/JS%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">JS笔记</a> <a href="/tags/RPI-GPIO/" style="font-size: 10px;">RPI.GPIO</a> <a href="/tags/STM32-HAL%E9%A9%B1%E5%8A%A8%E5%BA%93%E5%87%BD%E6%95%B0/" style="font-size: 10px;">STM32 HAL驱动库函数</a> <a href="/tags/Serial-Chart%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">Serial Chart软件使用</a> <a href="/tags/VLC%E8%A7%86%E9%A2%91%E6%B5%81%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">VLC视频流使用</a> <a href="/tags/WEB/" style="font-size: 10px;">WEB</a> <a href="/tags/js%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" style="font-size: 10px;">js学习记录</a> <a href="/tags/node-js/" style="font-size: 20px;">node.js</a> <a href="/tags/raspberry4B/" style="font-size: 10px;">raspberry4B</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/%E4%B8%B2%E5%8F%A3%E8%B0%83%E8%AF%95/" style="font-size: 10px;">串口调试</a> <a href="/tags/%E6%91%84%E5%83%8F%E5%A4%B4%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">摄像头使用</a> <a href="/tags/%E6%96%B0%E5%BB%BA%E5%B7%A5%E7%A8%8B/" style="font-size: 10px;">新建工程</a> <a href="/tags/%E7%83%A7%E5%BD%95Raspbian%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">烧录Raspbian系统</a> <a href="/tags/%E7%94%A8C%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">用C语言编程</a>
-        </div>
-    </div>
-</div>
-<div class="search-wrap">
-    <span class="search-close">&times;</span>
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-            <i class="icon icon-lg icon-chevron-left"></i>
-        </a>
-        <input class="search-field" placeholder="Search..." id="keywords">
-        <a id="search-submit" href="javascript:;">
-            <i class="fa fa-search"></i>
-        </a>
-    <div class="search-container" id="search-container">
-        <ul class="search-result" id="search-result">
-        </ul>
-    </div>
-</div>
-
-<div id="search-tpl">
-    <li class="search-result-item">
-        <a href="{url}" class="search-item-li">
-            <span class="search-item-li-title" title="{title}">{title}</span>
-        </a>
-    </li>
-</div>
-
-<script src="/js/search.js"></script>
 
 
-<script src="/js/main.js"></script>
-
-
-
-  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
-  <div id="particles"></div>
+  <!-- SCRIPTS -->
   
-<script src="/js/particles.js"></script>
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
 
 
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
 
 
-
+  <script  src="/js/local-search.js" ></script>
 
 
 
   
-<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
-
-  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
-<script src="/js/animate.js"></script>
 
 
 
-  </div>
+  
+
+
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
 </body>
 </html>

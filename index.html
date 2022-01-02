@@ -1,947 +1,770 @@
+
+
 <!DOCTYPE html>
-<html>
+<html lang="zh-Hans" data-default-color-scheme=auto>
+
+
+
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
   
-  <title>Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
   
-    <meta name="keywords" content="NEWT,NEWT" />
-  
-  <meta property="og:type" content="website">
+    <meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
 <meta property="og:url" content="http://example.com/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale">
 <meta property="article:author" content="John Doe">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
   
   
-    <link rel="icon" href="/favicon.ico">
-  
-  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  
-<link rel="stylesheet" href="/css/style.css">
+  <title>Hexo</title>
 
-  
-<script src="/js/pace.min.js"></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
-  
 
-  
-  
 
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 6.0.0"></head>
 
+
 <body>
-  <div id="container">
-      <header id="header">
-    <div id="banner"></div>
-    <div id="header-outer">
-        <div id="header-menu" class="header-menu-pos animated">
-            <div class="header-menu-container">
-                <a href="/" class="left">
-                    <span class="site-title">NEWT</span>
-                </a>
-                <nav id="header-menu-nav" class="right">
-                    
-                    <a  href="/">
-                        <i class="fa fa-home"></i>
-                        <span>Home</span>
-                    </a>
-                    
-                    <a  href="/archives">
-                        <i class="fa fa-archive"></i>
-                        <span>Archives</span>
-                    </a>
-                    
-                    <a  href="/about">
-                        <i class="fa fa-user"></i>
-                        <span>About</span>
-                    </a>
-                    
-                </nav>
-                <a class="mobile-header-menu-button">
-                    <i class="fa fa-bars"></i>
-                </a>
+  <header style="height: 100vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Startseite
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archiv
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Kategorie
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Etiketten
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                Über mich
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="An elegant Material-Design theme for Hexo">
+              
+            </span>
+
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
             </div>
+          
         </div>
-        <div id="header-row">
-            <div id="logo">
-                <a href="/">
-                    <img src="/images/logo.png" alt="logo">
-                </a>
-            </div>
-            <div class="header-info">
-                <div id="header-title">
-                    
-                    <h2>
-                        NEWT
-                    </h2>
-                    
-                </div>
-                <div id="header-description">
-                    
-                    <h3>
-                        一个专注 嵌入式 开发的技术博客
-                    </h3>
-                    
-                </div>
-            </div>
-            <nav class="header-nav">
-                <div class="social">
-                    
-                        <a title="MinHow" target="_blank" href="//liloong.gitee.io">
-                            <i class="fa fa-home fa-2x"></i></a>
-                    
-                        <a title="Github" target="_blank" href="//github.com/iwulianiw">
-                            <i class="fa fa-github fa-2x"></i></a>
-                    
-                        <a title="Weibo"  target="_blank" rel="noopener" href="//weibo.com/WongMinHo">
-                            <i class="fa fa-weibo fa-2x"></i></a>
-                    
-                        <a title="Twitter"  target="_blank" rel="noopener" href="//twitter.com/huangminhow">
-                            <i class="fa fa-twitter fa-2x"></i></a>
-                    
-                </div>
-            </nav>
-        </div>
+      </div>
     </div>
-</header>
-      <div class="outer">
-        <section id="main" class="body-wrap">
-  
-    <article id="post-linearClassifier" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  </header>
+
+  <main>
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/05/03/linearClassifier/"  >线性分类器设计</a>
-    </h1>
-  
+      <div class="container nopadding-x-md">
+        <div class="py-5" id="board"
+          style=margin-top:0>
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
 
-          
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/imageClass/">imageClass</a>
-                  
-              </span>
-          
-      </header>
+
+  <div class="row mx-auto index-card">
     
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2021/05/03/linearClassifier/" >
-                
-                <img src="http://example.com/images/banner.jpg" alt="线性分类器设计" title="线性分类器设计">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                线性分类器数据集介绍1）CIFAR10数据集 ：包含50000张的训练样本，10000张测试样本，图像为彩色图像，大小为32*32
-2）设计一个分类器，下图是一个主要的流程图
-
-基于像素的图像表示图像的类型主要有三种：黑白图像（Binary）、灰度图像（Gray Scale）、彩色图像（Color）
-黑白图像（Binary）：0和1表示每一个像素点
-灰度图像（Gray S...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2021-05-03</li>
-            
-            
-        </ul>
-        
-            <a href="/2021/05/03/linearClassifier/#more" class="article-more-link" >more&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-imageClass" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
     
-      <header class="article-header">
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/05/03/imageClass/"  >图像分类任务及线性分类</a>
-    </h1>
-  
+        <a href="/2021/05/03/linearClassifier/" target="_self">
+          线性分类器设计
+        </a>
+      </h1>
 
+      <p class="index-excerpt">
+        <a href="/2021/05/03/linearClassifier/" target="_self">
           
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/imageClass/">imageClass</a>
-                  
-              </span>
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2021/05/03/imageClass/" >
-                
-                <img src="http://example.com/images/banner.jpg" alt="图像分类任务及线性分类" title="图像分类任务及线性分类">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                图像分类1.什么是图像分类任务，它有哪些应用场合
-​    跨越”语义鸿沟“建立像素到语义的映射
-2.图像分类任务有哪些难点？
-   把所以问题进行一个拆解，然后逐个找到对应的解决办法
-3.基于规则的方法是否可行
-   不可行
-4.什么是数据驱动的分类范式
-​       1）数据集构建
-​       2）分类器设计学习
-​      从数据中去归纳出规律，那么就需要找...
-            </p>
-        </div>
-      
+          线性分类器数据集介绍1）CIFAR10数据集 ：包含50000张的训练样本，10000张测试样本，图像为彩色图像，大小为32*32 2）设计一个分类器，下图是一个主要的流程图  基于像素的图像表示图像的类型主要有三种：黑白图像（Binary）、灰度图像（Gray Scale）、彩色图像（Color） 黑白图像（Binary）：0和1表示每一个像素点 灰度图像（Gray Scale）: 每一个像素点
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
         
-    </div>
-    <footer class="article-footer">
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-05-03 16:09" pubdate>
+              2021-05-03
+            </time>
+          </div>
         
-        <ul class="article-footer-menu">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
             
-                <li><i class="fa fa-calendar"></i>2021-05-03</li>
+              <a href="/categories/imageClass/">imageClass</a>
             
-            
-        </ul>
+          </div>
         
-            <a href="/2021/05/03/imageClass/#more" class="article-more-link" >more&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-raspberry/raspberryprog6" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/31/raspberry/raspberryprog6/"  >在树莓派上安装python、openCV库遇到的问题</a>
-    </h1>
-  
-
-          
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/树莓派/">树莓派</a>
-                  
-              </span>
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2020/12/31/raspberry/raspberryprog6/" >
-                
-                <img src="http://example.com/images/banner.jpg" alt="在树莓派上安装python、openCV库遇到的问题" title="在树莓派上安装python、openCV库遇到的问题">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                1.python环境安装1.1树莓派镜像版本更换镜像源时，一定要注意查看自己的系统镜像是哪一个的！而不是网上搜一下树莓派的源就直接复制粘贴一顿猛操作！即使是树莓派的镜像源Debian系统也分好几种，wheezy、jessie、stretch、buster，它们分别对应：
-
-1.2查看树莓派是哪个镜像首先我使用命令： lsb_release -a ，查看当前树莓派系统版本，...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2020-12-31</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/raspberry4B/" class="color2">raspberry4B</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/2020/12/31/raspberry/raspberryprog6/#more" class="article-more-link" >more&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-freeRTOS/freertos1" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/31/freeRTOS/freertos1/"  >认识FreeRTOS（1）</a>
-    </h1>
-  
-
-          
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/FreeRTOS/">FreeRTOS</a>
-                  
-              </span>
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2020/12/31/freeRTOS/freertos1/" >
-                
-                <img src="http://example.com/images/banner.jpg" alt="认识FreeRTOS（1）" title="认识FreeRTOS（1）">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                FreeRTOS任务特性简单
-没有使用限制
-支持抢占
-支持优先级
-每个任务都拥有堆栈导致了RAM 使用量增大
-FreeRTOS任务状态
-运行态 : 指的是当前任务占用CPU的使用权
-
-就绪态 ：等待CPU调度
-
-阻塞态 ：阻塞态就是线程因为某种原因放弃CPU使用权，暂时停止运行。直到线程进去就绪状态，才有机会转到运行状态（一个任务当前正在等待某个外部事件）
-
-挂起态 ：进...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2020-12-31</li>
-            
-            
-        </ul>
-        
-            <a href="/2020/12/31/freeRTOS/freertos1/#more" class="article-more-link" >more&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-raspberry/raspberryprog5" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/28/raspberry/raspberryprog5/"  >在树莓派上安装RPI.GPIO库(5)</a>
-    </h1>
-  
-
-          
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/树莓派/">树莓派</a>
-                  
-              </span>
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2020/12/28/raspberry/raspberryprog5/" >
-                
-                <img src="http://example.com/images/banner.jpg" alt="在树莓派上安装RPI.GPIO库(5)" title="在树莓派上安装RPI.GPIO库(5)">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                一、RPI.GPIO安装$ wget wget https://pypi.python.org/packages/source/R/RPi.GPIO/RPi.GPIO-0.7.0.tar.gz
-
-$ wget wget https://pypi.python.org/packages/source/R/RPi.GPIO/RPi.GPIO-0.4.1a.tar.gz
-
-$ ...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2020-12-28</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/RPI.GPIO/" class="color4">RPI.GPIO</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/2020/12/28/raspberry/raspberryprog5/#more" class="article-more-link" >more&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-raspberry/raspberryprog4" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/23/raspberry/raspberryprog4/"  >在树莓派上编写C语言(4)</a>
-    </h1>
-  
-
-          
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/树莓派/">树莓派</a>
-                  
-              </span>
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2020/12/23/raspberry/raspberryprog4/" >
-                
-                <img src="http://example.com/images/banner.jpg" alt="在树莓派上编写C语言(4)" title="在树莓派上编写C语言(4)">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                一、vim编辑器的安装及使用二、环境搭建安装编译环境sudo apt -get install gcc
-
-安装编译包 sudo apt-get install build-essential
-
-三、编写编译程序
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2020-12-23</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/用C语言编程/" class="color2">用C语言编程</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/2020/12/23/raspberry/raspberryprog4/#more" class="article-more-link" >more&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-raspberry/raspberryMotion3" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/22/raspberry/raspberryMotion3/"  >基于motion软件实现树莓派视频流(3)</a>
-    </h1>
-  
-
-          
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/树莓派/">树莓派</a>
-                  
-              </span>
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2020/12/22/raspberry/raspberryMotion3/" >
-                
-                <img src="http://example.com/images/banner.jpg" alt="基于motion软件实现树莓派视频流(3)" title="基于motion软件实现树莓派视频流(3)">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                实验目的  使用树莓派自带的摄像头，将摄像头获取到的视频通过motion软件输出，达到客户端只需通过浏览器访问“树莓派网址：端口号”，就能看到视频图像。
-实验准备
-树莓派4B及电源线（5V、3A）
-
-树莓派系统 Raspbian
-
-路由器
-
-本实验使用的摄像头 
-
-
-树莓派摄像头接法
-
-
-
-树莓派系统配置1)修改Raspberry的启动配置使能项1.输入”ls /dev/...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2020-12-22</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/摄像头使用/" class="color1">摄像头使用</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/2020/12/22/raspberry/raspberryMotion3/#more" class="article-more-link" >more&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-raspberry/raspberryVlc2" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/20/raspberry/raspberryVlc2/"  >树莓派视频流VLC软件(2)</a>
-    </h1>
-  
-
-          
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/树莓派/">树莓派</a>
-                  
-              </span>
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2020/12/20/raspberry/raspberryVlc2/" >
-                
-                <img src="http://example.com/images/banner.jpg" alt="树莓派视频流VLC软件(2)" title="树莓派视频流VLC软件(2)">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                一、买入树莓派摄像头我购买的是树莓派标配的摄像头（CSI接口摄像头）：
- 
-关于CSI接口的描述参考：http://www.cnblogs.com/lifan3a/articles/5010633.html）
-树莓派摄像头接法
-
-二、树莓派系统设置1、查看树莓派系统是否加载对应的vido device设备ls /dev/
-
-
-2、修改Raspberry的启动配置使能项①、...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2020-12-20</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/VLC视频流使用/" class="color4">VLC视频流使用</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/2020/12/20/raspberry/raspberryVlc2/#more" class="article-more-link" >more&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-raspberry/raspberry1" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/19/raspberry/raspberry1/"  >新入手一款树莓派4B之环境搭建（1）</a>
-    </h1>
-  
-
-          
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/树莓派/">树莓派</a>
-                  
-              </span>
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2020/12/19/raspberry/raspberry1/" >
-                
-                <img src="http://example.com/images/banner.jpg" alt="新入手一款树莓派4B之环境搭建（1）" title="新入手一款树莓派4B之环境搭建（1）">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                实验目的  在树莓派4B开发板上安装Raspbian系统
-实验准备
-树莓派4B及电源线（5V、3A）
-
-下载的树莓派系统 Raspbian
-
-下载的官方安装软件包
-
-micro SD卡一张（大于8G）
-
-一个可用于SD电脑识别的器件
-
-笔记本一台
-
-显示器
-
-显示器转接头（HDMI转小VGA转接头）
-
-
-安装Raspbian系统&emsp;官方推荐的是Raspbian，这...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2020-12-19</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/烧录Raspbian系统/" class="color3">烧录Raspbian系统</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/2020/12/19/raspberry/raspberry1/#more" class="article-more-link" >more&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-Web/HackerNews 案例实战" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/31/Web/HackerNews%20%E6%A1%88%E4%BE%8B%E5%AE%9E%E6%88%98/"  >HackerNews 案例实战总结</a>
-    </h1>
-  
-
-          
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/nodejs/">nodejs</a>
-                  
-              </span>
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2020/08/31/Web/HackerNews%20%E6%A1%88%E4%BE%8B%E5%AE%9E%E6%88%98/" >
-                
-                <img src="http://example.com/images/banner.jpg" alt="HackerNews 案例实战总结" title="HackerNews 案例实战总结">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                HackerNews首先考虑的问题第一点 设计路由 包含两个方面
-  1、请求的方法
-  2、请求的路径
-问题提出  在运行过程中发现每次提交一个新闻都会将前面一条新闻给覆盖掉
-解决问题 我们可以考虑先将.json里面的数据读取出来放到list数组上，然后再将用户提交的数据也push到list数组中，之后一并提交到 .json 文件中，这样就可以解决这个问题
-  get方...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2020-08-31</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/node.js/" class="color3">node.js</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/2020/08/31/Web/HackerNews%20%E6%A1%88%E4%BE%8B%E5%AE%9E%E6%88%98/#more" class="article-more-link" >more&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-
-
-  <nav id="page-nav">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &gt;&gt;</a>
-  </nav>
-</section>
         
       </div>
-      <footer id="footer">
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-<p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        总访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        总访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
+    </article>
+  </div>
 
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/05/03/imageClass/" target="_self">
+          图像分类任务及线性分类
+        </a>
+      </h1>
 
-      <p>
-        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
-        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
-      &copy; 2022 John Doe<br>
+      <p class="index-excerpt">
+        <a href="/2021/05/03/imageClass/" target="_self">
+          
+          图像分类1.什么是图像分类任务，它有哪些应用场合 ​    跨越”语义鸿沟“建立像素到语义的映射 2.图像分类任务有哪些难点？    把所以问题进行一个拆解，然后逐个找到对应的解决办法 3.基于规则的方法是否可行    不可行 4.什么是数据驱动的分类范式 ​       1）数据集构建 ​       2）分类器设计学习 ​      从数据中去归纳出规律，那么就需要找到一个数学模型，  我要从
+        </a>
       </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-05-03 15:09" pubdate>
+              2021-05-03
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/imageClass/">imageClass</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/12/31/raspberry/raspberryprog6/" target="_self">
+          在树莓派上安装python、openCV库遇到的问题
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/12/31/raspberry/raspberryprog6/" target="_self">
+          
+          1.python环境安装1.1树莓派镜像版本更换镜像源时，一定要注意查看自己的系统镜像是哪一个的！而不是网上搜一下树莓派的源就直接复制粘贴一顿猛操作！即使是树莓派的镜像源Debian系统也分好几种，wheezy、jessie、stretch、buster，它们分别对应：  1.2查看树莓派是哪个镜像首先我使用命令： lsb_release -a ，查看当前树莓派系统版本，具体信息如下，此版本的代号
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-12-31 14:34" pubdate>
+              2020-12-31
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%A0%91%E8%8E%93%E6%B4%BE/">树莓派</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/raspberry4B/">raspberry4B</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/12/31/freeRTOS/freertos1/" target="_self">
+          认识FreeRTOS（1）
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/12/31/freeRTOS/freertos1/" target="_self">
+          
+          FreeRTOS任务特性简单 没有使用限制 支持抢占 支持优先级 每个任务都拥有堆栈导致了RAM 使用量增大 FreeRTOS任务状态 运行态 : 指的是当前任务占用CPU的使用权  就绪态 ：等待CPU调度  阻塞态 ：阻塞态就是线程因为某种原因放弃CPU使用权，暂时停止运行。直到线程进去就绪状态，才有机会转到运行状态（一个任务当前正在等待某个外部事件）  挂起态 ：进入挂起态以后不能被调度器调
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-12-31 11:26" pubdate>
+              2020-12-31
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/FreeRTOS/">FreeRTOS</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/12/28/raspberry/raspberryprog5/" target="_self">
+          在树莓派上安装RPI.GPIO库(5)
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/12/28/raspberry/raspberryprog5/" target="_self">
+          
+          一、RPI.GPIO安装$ wget wget https:&#x2F;&#x2F;pypi.python.org&#x2F;packages&#x2F;source&#x2F;R&#x2F;RPi.GPIO&#x2F;RPi.GPIO-0.7.0.tar.gz  $ wget wget https:&#x2F;&#x2F;pypi.python.org&#x2F;packages&#x2F;source&#x2F;R&#x2F;RPi.GPIO&#x2F;RPi.GPIO-0.4.1a.tar.gz  $ tar zxf RPi.G
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-12-28 19:28" pubdate>
+              2020-12-28
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%A0%91%E8%8E%93%E6%B4%BE/">树莓派</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/RPI-GPIO/">RPI.GPIO</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/12/23/raspberry/raspberryprog4/" target="_self">
+          在树莓派上编写C语言(4)
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/12/23/raspberry/raspberryprog4/" target="_self">
+          
+          一、vim编辑器的安装及使用二、环境搭建安装编译环境sudo apt -get install gcc  安装编译包 sudo apt-get install build-essential  三、编写编译程序
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-12-23 10:37" pubdate>
+              2020-12-23
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%A0%91%E8%8E%93%E6%B4%BE/">树莓派</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%94%A8C%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A8%8B/">用C语言编程</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/12/22/raspberry/raspberryMotion3/" target="_self">
+          基于motion软件实现树莓派视频流(3)
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/12/22/raspberry/raspberryMotion3/" target="_self">
+          
+          实验目的  使用树莓派自带的摄像头，将摄像头获取到的视频通过motion软件输出，达到客户端只需通过浏览器访问“树莓派网址：端口号”，就能看到视频图像。 实验准备 树莓派4B及电源线（5V、3A）  树莓派系统 Raspbian  路由器  本实验使用的摄像头    树莓派摄像头接法    树莓派系统配置1)修改Raspberry的启动配置使能项1.输入”ls &#x2F;dev&#x2F;“指令可查看当前树莓派系统
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-12-22 09:54" pubdate>
+              2020-12-22
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%A0%91%E8%8E%93%E6%B4%BE/">树莓派</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%91%84%E5%83%8F%E5%A4%B4%E4%BD%BF%E7%94%A8/">摄像头使用</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/12/20/raspberry/raspberryVlc2/" target="_self">
+          树莓派视频流VLC软件(2)
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/12/20/raspberry/raspberryVlc2/" target="_self">
+          
+          一、买入树莓派摄像头我购买的是树莓派标配的摄像头（CSI接口摄像头）：   关于CSI接口的描述参考：http:&#x2F;&#x2F;www.cnblogs.com&#x2F;lifan3a&#x2F;articles&#x2F;5010633.html） 树莓派摄像头接法  二、树莓派系统设置1、查看树莓派系统是否加载对应的vido device设备ls &#x2F;dev&#x2F;   2、修改Raspberry的启动配置使能项①、看到如下配置界面选择第五项
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-12-20 10:08" pubdate>
+              2020-12-20
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%A0%91%E8%8E%93%E6%B4%BE/">树莓派</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/VLC%E8%A7%86%E9%A2%91%E6%B5%81%E4%BD%BF%E7%94%A8/">VLC视频流使用</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/12/19/raspberry/raspberry1/" target="_self">
+          新入手一款树莓派4B之环境搭建（1）
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/12/19/raspberry/raspberry1/" target="_self">
+          
+          实验目的  在树莓派4B开发板上安装Raspbian系统 实验准备 树莓派4B及电源线（5V、3A）  下载的树莓派系统 Raspbian  下载的官方安装软件包  micro SD卡一张（大于8G）  一个可用于SD电脑识别的器件  笔记本一台  显示器  显示器转接头（HDMI转小VGA转接头）   安装Raspbian系统&amp;emsp;官方推荐的是Raspbian，这是一款基于Debian L
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-12-19 17:42" pubdate>
+              2020-12-19
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%A0%91%E8%8E%93%E6%B4%BE/">树莓派</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%83%A7%E5%BD%95Raspbian%E7%B3%BB%E7%BB%9F/">烧录Raspbian系统</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/08/31/Web/HackerNews%20%E6%A1%88%E4%BE%8B%E5%AE%9E%E6%88%98/" target="_self">
+          HackerNews 案例实战总结
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/08/31/Web/HackerNews%20%E6%A1%88%E4%BE%8B%E5%AE%9E%E6%88%98/" target="_self">
+          
+          HackerNews首先考虑的问题第一点 设计路由 包含两个方面   1、请求的方法   2、请求的路径 问题提出  在运行过程中发现每次提交一个新闻都会将前面一条新闻给覆盖掉 解决问题 我们可以考虑先将.json里面的数据读取出来放到list数组上，然后再将用户提交的数据也push到list数组中，之后一并提交到 .json 文件中，这样就可以解决这个问题   get方式提交数据 代码展示：
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-08-31 20:15" pubdate>
+              2020-08-31
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/nodejs/">nodejs</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/node-js/">node.js</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="page-number" href="/page/3/#board">3</a><a class="page-number" href="/page/4/#board">4</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Suchen</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">Stichwort</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
     </div>
   </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
 </footer>
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-<script>
-  var mihoConfig = {
-      root: "http://example.com",
-      animate: true,
-      isHome: true,
-      share: true,
-      reward: 0
-  }
-</script>
-<div class="sidebar">
-    <div id="sidebar-search" title="Search">
-        <i class="fa fa-search"></i>
-    </div>
-    <div id="sidebar-category" title="Categories">
-        <i class="fa fa-book"></i>
-    </div>
-    <div id="sidebar-tag" title="Tags">
-        <i class="fa fa-tags"></i>
-    </div>
-    <div id="sidebar-top">
-        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
-    </div>
-</div>
-<div class="sidebar-menu-box" id="sidebar-menu-box">
-    <div class="sidebar-menu-box-container">
-        <div id="sidebar-menu-box-categories">
-            <a class="category-link" href="/categories/51%E5%8D%95%E7%89%87%E6%9C%BA/">51单片机</a><a class="category-link" href="/categories/CSS/">CSS</a><a class="category-link" href="/categories/FreeRTOS/">FreeRTOS</a><a class="category-link" href="/categories/HTML/">HTML</a><a class="category-link" href="/categories/HTML-CSS/">HTML+CSS</a><a class="category-link" href="/categories/Javascript/">Javascript</a><a class="category-link" href="/categories/STM32/">STM32</a><a class="category-link" href="/categories/imageClass/">imageClass</a><a class="category-link" href="/categories/js%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%BA%94%E7%94%A8/">js正则表达式应用</a><a class="category-link" href="/categories/nodejs/">nodejs</a><a class="category-link" href="/categories/%E6%A0%91%E8%8E%93%E6%B4%BE/">树莓派</a><a class="category-link" href="/categories/%E9%80%BB%E8%BE%91%E5%99%A8%E4%BB%B6/">逻辑器件</a>
-        </div>
-        <div id="sidebar-menu-box-tags">
-            <a href="/tags/CSS%E5%B1%9E%E6%80%A7%E5%86%85%E5%AE%B9/" style="font-size: 10px;">CSS属性内容</a> <a href="/tags/Fritzing%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">Fritzing软件使用</a> <a href="/tags/HEML-CSS-JS/" style="font-size: 10px;">HEML+CSS+JS</a> <a href="/tags/Hal%E5%BA%93%E4%B8%B2%E5%8F%A3%E4%B8%AD%E6%96%AD%E6%9C%8D%E5%8A%A1%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%BF%E7%94%A8/" style="font-size: 20px;">Hal库串口中断服务函数的使用</a> <a href="/tags/Hal%E5%BA%93%E5%BA%94%E7%94%A8/" style="font-size: 20px;">Hal库应用</a> <a href="/tags/JS%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" style="font-size: 10px;">JS学习记录</a> <a href="/tags/JS%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">JS笔记</a> <a href="/tags/RPI-GPIO/" style="font-size: 10px;">RPI.GPIO</a> <a href="/tags/STM32-HAL%E9%A9%B1%E5%8A%A8%E5%BA%93%E5%87%BD%E6%95%B0/" style="font-size: 10px;">STM32 HAL驱动库函数</a> <a href="/tags/Serial-Chart%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">Serial Chart软件使用</a> <a href="/tags/VLC%E8%A7%86%E9%A2%91%E6%B5%81%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">VLC视频流使用</a> <a href="/tags/WEB/" style="font-size: 10px;">WEB</a> <a href="/tags/js%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" style="font-size: 10px;">js学习记录</a> <a href="/tags/node-js/" style="font-size: 20px;">node.js</a> <a href="/tags/raspberry4B/" style="font-size: 10px;">raspberry4B</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/%E4%B8%B2%E5%8F%A3%E8%B0%83%E8%AF%95/" style="font-size: 10px;">串口调试</a> <a href="/tags/%E6%91%84%E5%83%8F%E5%A4%B4%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">摄像头使用</a> <a href="/tags/%E6%96%B0%E5%BB%BA%E5%B7%A5%E7%A8%8B/" style="font-size: 10px;">新建工程</a> <a href="/tags/%E7%83%A7%E5%BD%95Raspbian%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">烧录Raspbian系统</a> <a href="/tags/%E7%94%A8C%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">用C语言编程</a>
-        </div>
-    </div>
-    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
-</div>
-<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
-    <div class="mobile-header-menu-container">
-        <span class="title">Menus</span>
-        <ul class="mobile-header-menu-navbar">
-            
-            <li>
-                <a  href="/">
-                    <i class="fa fa-home"></i><span>Home</span>
-                </a>
-            </li>
-            
-            <li>
-                <a  href="/archives">
-                    <i class="fa fa-archive"></i><span>Archives</span>
-                </a>
-            </li>
-            
-            <li>
-                <a  href="/about">
-                    <i class="fa fa-user"></i><span>About</span>
-                </a>
-            </li>
-            
-        </ul>
-    </div>
-    <div class="mobile-header-tag-container">
-        <span class="title">Tags</span>
-        <div id="mobile-header-container-tags">
-            <a href="/tags/CSS%E5%B1%9E%E6%80%A7%E5%86%85%E5%AE%B9/" style="font-size: 10px;">CSS属性内容</a> <a href="/tags/Fritzing%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">Fritzing软件使用</a> <a href="/tags/HEML-CSS-JS/" style="font-size: 10px;">HEML+CSS+JS</a> <a href="/tags/Hal%E5%BA%93%E4%B8%B2%E5%8F%A3%E4%B8%AD%E6%96%AD%E6%9C%8D%E5%8A%A1%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%BF%E7%94%A8/" style="font-size: 20px;">Hal库串口中断服务函数的使用</a> <a href="/tags/Hal%E5%BA%93%E5%BA%94%E7%94%A8/" style="font-size: 20px;">Hal库应用</a> <a href="/tags/JS%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" style="font-size: 10px;">JS学习记录</a> <a href="/tags/JS%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">JS笔记</a> <a href="/tags/RPI-GPIO/" style="font-size: 10px;">RPI.GPIO</a> <a href="/tags/STM32-HAL%E9%A9%B1%E5%8A%A8%E5%BA%93%E5%87%BD%E6%95%B0/" style="font-size: 10px;">STM32 HAL驱动库函数</a> <a href="/tags/Serial-Chart%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">Serial Chart软件使用</a> <a href="/tags/VLC%E8%A7%86%E9%A2%91%E6%B5%81%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">VLC视频流使用</a> <a href="/tags/WEB/" style="font-size: 10px;">WEB</a> <a href="/tags/js%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" style="font-size: 10px;">js学习记录</a> <a href="/tags/node-js/" style="font-size: 20px;">node.js</a> <a href="/tags/raspberry4B/" style="font-size: 10px;">raspberry4B</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/%E4%B8%B2%E5%8F%A3%E8%B0%83%E8%AF%95/" style="font-size: 10px;">串口调试</a> <a href="/tags/%E6%91%84%E5%83%8F%E5%A4%B4%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">摄像头使用</a> <a href="/tags/%E6%96%B0%E5%BB%BA%E5%B7%A5%E7%A8%8B/" style="font-size: 10px;">新建工程</a> <a href="/tags/%E7%83%A7%E5%BD%95Raspbian%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">烧录Raspbian系统</a> <a href="/tags/%E7%94%A8C%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">用C语言编程</a>
-        </div>
-    </div>
-</div>
-<div class="search-wrap">
-    <span class="search-close">&times;</span>
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-            <i class="icon icon-lg icon-chevron-left"></i>
-        </a>
-        <input class="search-field" placeholder="Search..." id="keywords">
-        <a id="search-submit" href="javascript:;">
-            <i class="fa fa-search"></i>
-        </a>
-    <div class="search-container" id="search-container">
-        <ul class="search-result" id="search-result">
-        </ul>
-    </div>
-</div>
-
-<div id="search-tpl">
-    <li class="search-result-item">
-        <a href="{url}" class="search-item-li">
-            <span class="search-item-li-title" title="{title}">{title}</span>
-        </a>
-    </li>
-</div>
-
-<script src="/js/search.js"></script>
 
 
-<script src="/js/main.js"></script>
-
-
-
-  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
-  <div id="particles"></div>
+  <!-- SCRIPTS -->
   
-<script src="/js/particles.js"></script>
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
 
 
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
 
 
-
+  <script  src="/js/local-search.js" ></script>
 
 
 
   
-<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
-
-  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
-<script src="/js/animate.js"></script>
 
 
 
-  </div>
+  
+
+
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
 </body>
 </html>
